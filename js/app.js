@@ -2,6 +2,7 @@
  * ==========================================================================
  * ATLAS1910 — Acervo Cartográfico do Corinthians
  * Núcleo da Aplicação (Leaflet, Camadas do QGIS, Proteção de Dados e Temas)
+ * Tipografia Oficial: Montserrat
  * ==========================================================================
  */
 
@@ -44,12 +45,6 @@
 
     // 8. Configurar Ouvintes de Eventos da Interface
     setupUIEvents();
-
-    // 9. Restaurar Fonte Salva se houver
-    const savedFont = localStorage.getItem('atlas1910_font');
-    if (savedFont) {
-      applyFont(savedFont);
-    }
   }
 
   /* ==========================================================================
@@ -127,8 +122,7 @@
 
     return L.geoJSON(geojson, {
       pointToLayer: function(feature, latlng) {
-        // 1. Suporte a Simbologia com Imagem Personalizada (PNG, SVG, WebP)
-        // Pode ser definida na camada (layerConfig.icone) ou em uma coluna de atributo do QGIS (ex: feature.properties.icone)
+        // Suporte a Simbologia com Imagem Personalizada (PNG, SVG, WebP)
         const iconPath = (feature.properties && (feature.properties.icone || feature.properties.icon || feature.properties.imagem_marcador)) || layerConfig.icone;
         if (iconPath) {
           const size = layerConfig.tamanhoIcone || [30, 30];
@@ -343,11 +337,9 @@
     if (toggleBtn) {
       const labelSpan = toggleBtn.querySelector('.theme-label');
       if (theme === "dark") {
-        // Estamos no modo escuro → botão oferece mudança para o claro
         if (labelSpan) labelSpan.textContent = "Modo 🏳️";
         toggleBtn.title = "Mudar para Modo 🏳️ (Claro)";
       } else {
-        // Estamos no modo claro → botão oferece mudança para o escuro
         if (labelSpan) labelSpan.textContent = "Modo 🏴";
         toggleBtn.title = "Mudar para Modo 🏴 (Escuro)";
       }
@@ -370,35 +362,26 @@
   }
 
   /* ==========================================================================
-     8. PERSONALIZAÇÃO DE TIPOGRAFIA
-     ========================================================================== */
-  function applyFont(fontKey) {
-    document.body.dataset.font = fontKey;
-    localStorage.setItem('atlas1910_font', fontKey);
-    const fontSelect = document.getElementById('font-family-select');
-    if (fontSelect) fontSelect.value = fontKey;
-  }
-
-  /* ==========================================================================
-     8.5 CONTROLES DA SIDEBAR (RECOLHER/EXPANDIR DESKTOP + DRAWER MOBILE)
+     8. CONTROLES DA SIDEBAR (RECOLHER/EXPANDIR DESKTOP + DRAWER MOBILE)
      ========================================================================== */
   function setupSidebarControls() {
-    const sidebar       = document.getElementById('sidebar');
-    const collapseBtn   = document.getElementById('btn-sidebar-collapse');
-    const expandBtn     = document.getElementById('btn-sidebar-expand');
+    const sidebar        = document.getElementById('sidebar');
+    const collapseBtn    = document.getElementById('btn-sidebar-collapse');
+    const expandBtn      = document.getElementById('btn-sidebar-expand');
     const mobilePanelBtn = document.getElementById('btn-mobile-panel');
+    const mobileCloseBtn = document.getElementById('btn-mobile-close');
+    const backdrop       = document.getElementById('drawer-backdrop');
 
-    // Desktop — recolher
+    // Desktop — recolher painel de camadas
     if (collapseBtn) {
       collapseBtn.addEventListener('click', function() {
         sidebar.classList.add('collapsed');
         if (expandBtn) expandBtn.classList.add('visible');
-        // Forçar redimensionamento do mapa após a transição
         setTimeout(() => { if (map) map.invalidateSize(); }, 320);
       });
     }
 
-    // Desktop — expandir
+    // Desktop — expandir painel de camadas
     if (expandBtn) {
       expandBtn.addEventListener('click', function() {
         sidebar.classList.remove('collapsed');
@@ -407,13 +390,49 @@
       });
     }
 
-    // Mobile — toggle drawer de camadas
-    if (mobilePanelBtn) {
-      mobilePanelBtn.addEventListener('click', function() {
-        const isHidden = sidebar.classList.toggle('mobile-hidden');
-        mobilePanelBtn.textContent = isHidden ? '☰ Camadas' : '✕ Fechar';
-      });
+    // Mobile — abrir gaveta de camadas
+    function openMobileDrawer() {
+      sidebar.classList.remove('mobile-hidden');
+      if (backdrop) backdrop.classList.add('active');
+      if (mobilePanelBtn) mobilePanelBtn.style.display = 'none';
     }
+
+    // Mobile — fechar gaveta de camadas
+    function closeMobileDrawer() {
+      sidebar.classList.add('mobile-hidden');
+      if (backdrop) backdrop.classList.remove('active');
+      if (mobilePanelBtn) mobilePanelBtn.style.display = 'flex';
+      setTimeout(() => { if (map) map.invalidateSize(); }, 300);
+    }
+
+    if (mobilePanelBtn) {
+      mobilePanelBtn.addEventListener('click', openMobileDrawer);
+    }
+
+    if (mobileCloseBtn) {
+      mobileCloseBtn.addEventListener('click', closeMobileDrawer);
+    }
+
+    if (backdrop) {
+      backdrop.addEventListener('click', closeMobileDrawer);
+    }
+
+    // Sincronização ao redimensionar tela (desktop <-> mobile)
+    window.addEventListener('resize', function() {
+      const isMobile = window.innerWidth <= 820;
+      if (!isMobile) {
+        sidebar.classList.remove('mobile-hidden');
+        if (backdrop) backdrop.classList.remove('active');
+        if (mobilePanelBtn) mobilePanelBtn.style.display = 'none';
+      } else {
+        if (sidebar.classList.contains('mobile-hidden')) {
+          if (mobilePanelBtn) mobilePanelBtn.style.display = 'flex';
+        } else {
+          if (mobilePanelBtn) mobilePanelBtn.style.display = 'none';
+        }
+      }
+      if (map) map.invalidateSize();
+    });
   }
 
   /* ==========================================================================
@@ -428,7 +447,7 @@
       themeToggleBtn.onclick = toggleTheme;
     }
 
-    // Controles de sidebar
+    // Controles de recolher/expandir sidebar e mobile drawer
     setupSidebarControls();
 
     // Ligar / Desligar Camadas
@@ -496,18 +515,6 @@
         }
       }
     });
-
-    // Modal de Configurações
-    const settingsModal = document.getElementById('modal-settings');
-    document.getElementById('btn-open-settings').onclick = () => settingsModal.classList.add('active');
-
-    document.querySelectorAll('[data-close]').forEach(btn => {
-      btn.onclick = () => settingsModal.classList.remove('active');
-    });
-
-    document.getElementById('font-family-select').onchange = (e) => {
-      applyFont(e.target.value);
-    };
 
     // Painel de Atributos
     document.getElementById('attr-close-btn').onclick = () => {

@@ -16,23 +16,23 @@
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   
-  <!-- Fontes Google -->
+  <!-- Tipografia Oficial: Montserrat & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Montserrat:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-font="syne" data-theme="dark">
+<body data-theme="dark">
   <div id="app">
 
     <!-- ═══ BARRA LATERAL DO ACERVO ═══ -->
-    <aside id="sidebar">
+    <aside id="sidebar" class="mobile-hidden">
 
-      <!-- Botão de recolher (visível apenas no desktop) -->
-      <button id="btn-sidebar-collapse" class="btn-sidebar-collapse" title="Recolher painel">
-        ◀
-      </button>
+      <!-- Alça de arrastar para visual mobile -->
+      <div class="drawer-handle-bar">
+        <div class="drawer-handle"></div>
+      </div>
 
       <header class="app-header">
         <div class="logo-row">
@@ -49,8 +49,13 @@
             <button id="btn-theme-toggle" class="btn-theme-toggle" title="Alternar modo visual">
               <span class="theme-label">Modo 🏳️</span>
             </button>
-            <button id="btn-open-settings" class="icon-btn" title="Personalizar Fontes">
-              ⚙️
+            <!-- Botão para recolher a sidebar no desktop -->
+            <button id="btn-sidebar-collapse" class="icon-btn btn-collapse-desktop" title="Recolher painel de camadas">
+              ◀
+            </button>
+            <!-- Botão para fechar o painel gaveta no mobile -->
+            <button id="btn-mobile-close" class="icon-btn btn-close-mobile" title="Fechar painel">
+              ✕
             </button>
           </div>
         </div>
@@ -59,52 +64,54 @@
         </p>
       </header>
 
-      <!-- Seção: Camadas e Temáticas -->
-      <section class="section">
-        <div class="section-header">
-          <span class="section-title">TEMÁTICAS & CAMADAS</span>
-          <span class="badge-count" id="active-layer-count">0 ativas</span>
-        </div>
-        <div id="theme-list" class="theme-list">
-          <!-- Temas e camadas injetados via js/camadas.js -->
-        </div>
-      </section>
+      <!-- Conteúdo rolável da barra lateral -->
+      <div class="sidebar-scrollable">
+        <!-- Seção: Camadas e Temáticas -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">TEMÁTICAS & CAMADAS</span>
+            <span class="badge-count" id="active-layer-count">0 ativas</span>
+          </div>
+          <div id="theme-list" class="theme-list">
+            <!-- Temas e camadas injetados via js/camadas.js -->
+          </div>
+        </section>
 
-      <!-- Seção: Mapas de Fundo -->
-      <section class="section">
-        <div class="section-header">
-          <span class="section-title">MAPA DE FUNDO (BASEMAPS)</span>
-        </div>
-        <div class="basemap-grid" id="basemap-grid">
-          <!-- Botões dos Basemaps -->
-        </div>
-      </section>
+        <!-- Seção: Estatísticas do Acervo -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">ESTATÍSTICAS DO ACERVO</span>
+          </div>
+          <div class="stats-grid" id="stats-grid">
+            <!-- Estatísticas geradas dinamicamente -->
+          </div>
+        </section>
 
-      <!-- Seção: Estatísticas do Acervo -->
-      <section class="section">
-        <div class="section-header">
-          <span class="section-title">ESTATÍSTICAS DO ACERVO</span>
-        </div>
-        <div class="stats-grid" id="stats-grid">
-          <!-- Estatísticas geradas dinamicamente -->
-        </div>
-      </section>
-
-      <!-- Rodapé -->
-      <footer class="app-footer">
-        <div><strong>ATLAS1910</strong> · Todos os direitos reservados</div>
-        <div class="footer-sub">Mapeamento temático e espacial elaborado no QGIS</div>
-      </footer>
+        <!-- Rodapé -->
+        <footer class="app-footer">
+          <div><strong>ATLAS1910</strong> · Todos os direitos reservados</div>
+          <div class="footer-sub">Mapeamento temático e espacial elaborado no QGIS</div>
+        </footer>
+      </div>
     </aside>
 
-    <!-- Botão para expandir a sidebar quando recolhida (desktop) -->
-    <button id="btn-sidebar-expand" class="btn-sidebar-expand" title="Expandir painel">
-      ▶ Painel
-    </button>
+    <!-- Fundo escurecido para fechamento no mobile ao tocar fora -->
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
 
     <!-- ═══ ÁREA PRINCIPAL DO MAPA ═══ -->
     <main id="map-container">
       <div id="map"></div>
+
+      <!-- Botão para expandir a sidebar quando recolhida (desktop) -->
+      <button id="btn-sidebar-expand" class="btn-sidebar-expand" title="Expandir painel de camadas">
+        <span class="expand-icon">▶</span>
+        <span class="expand-label">Camadas do Acervo</span>
+      </button>
+
+      <!-- ═══ MAPAS BASE FLUTUANTES (Canto Superior Direito — Horizontal) ═══ -->
+      <nav id="basemap-bar" class="basemap-floating-bar" role="toolbar" aria-label="Alternar Mapa de Fundo">
+        <!-- Botões dos Basemaps gerados via js/basemaps.js -->
+      </nav>
 
       <!-- Ficha de Atributos Flutuante -->
       <div id="attr-panel" class="attr-panel">
@@ -129,31 +136,6 @@
   <button id="btn-mobile-panel" class="btn-mobile-panel" title="Mostrar painel de camadas">
     ☰ Camadas
   </button>
-
-  <!-- MODAL: Configurações de Aparência (Fontes) -->
-  <div id="modal-settings" class="modal-overlay">
-    <div class="modal-card sm">
-      <div class="modal-header">
-        <h2>Personalização Visual</h2>
-        <button class="modal-close" data-close="modal-settings">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="font-family-select">Tipografia Principal</label>
-          <select id="font-family-select">
-            <option value="syne">Syne (Imponente & Editorial — Padrão)</option>
-            <option value="space">Space Grotesk (Técnica & Cartográfica)</option>
-            <option value="montserrat">Montserrat (Clássica & Marcante)</option>
-            <option value="inter">Inter (Suave & Minimalista)</option>
-          </select>
-          <p class="input-hint">Escolha a identidade visual que mais combina com a sua apresentação cartográfica.</p>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-close="modal-settings">Fechar</button>
-      </div>
-    </div>
-  </div>
 
   <!-- Leaflet JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>

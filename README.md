@@ -1,60 +1,52 @@
-# ATLAS1910 — Geoportal Analítico e Espacial
+# ATLAS1910 — Acervo Cartográfico do Corinthians
 
-Geoportal temático e analítico moderno desenvolvido com **Leaflet.js**, suporte à chave de autenticação **CARTO**, mapas base de alta resolução e mecanismo avançado de **Upload e Categorização de Arquivos Espaciais** diretamente no navegador.
+Geoportal analítico e histórico desenvolvido com **Leaflet.js**, mapas base gratuitos de alta disponibilidade, tipografia oficial **Montserrat** e arquitetura temática responsiva para desktop e mobile.
 
 ---
 
 ## 🚀 Como Executar
 
 ### Opção 1 (Recomendada): Via Servidor Local
-Para evitar que o navegador bloqueie tiles ou restrinja o acesso a arquivos locais via `file:///`:
+Para evitar que o navegador restrinja o carregamento de arquivos GeoJSON locais via protocolo `file:///`:
 1. Dê um duplo clique no arquivo `run_portal.bat`
 2. O servidor iniciará em `http://localhost:8080` e abrirá automaticamente no seu navegador padrão.
 
 *Ou via terminal:*
 ```bash
-cd scratch/atlas1910_geoportal
+cd C:\Users\Felipe\.gemini\antigravity\scratch\atlas1910_geoportal
 python -m http.server 8080
 ```
 
 ### Opção 2: Abrir Diretamente
-Abra o arquivo `index.html` em qualquer navegador web moderno (Google Chrome, Edge, Firefox, Brave).
+Abra o arquivo `index.html` em qualquer navegador web moderno (Google Chrome, Edge, Firefox, Brave, Safari).
 
 ---
 
-## 🛠️ Funcionalidades Principais
+## 🛠️ Novas Funcionalidades e Layout
 
-### 1. Mapas Base Sem Bloqueio
-- **Esri Dark Gray Canvas**: Alternativa dark premium com estabilidade máxima, sem necessidade de autenticação e visual sofisticado em preto.
-- **CARTO Dark Matter (Escuro)**: Camada escura oficial em alta resolução.
-- **Esri Claro & CARTO Claro (Positron)**: Camadas limpas e claras para visualização no Modo Normal.
-- **Satélite (World Imagery)**: Imagens de satélite de altíssima definição sem limites de requisição.
-- **Ruas (OpenStreetMap)**: Mapa viário global.
+### 1. Barra Lateral Ampliada & Recolhível (Desktop)
+- **Largura Expandida (480px)**: Proporciona leitura confortável para títulos longos de camadas, descrições e controle de opacidade.
+- **Botão de Recolher (`◀`)**: Posicionado no cabeçalho da barra lateral para recolher o painel a qualquer momento.
+- **Botão de Expandir (`▶ Camadas do Acervo`)**: Posicionado estrategically na área do mapa para reabrir o painel em tela cheia com redimensionamento automático via `map.invalidateSize()`.
 
-### 2. Upload de Arquivos & Categorização Dinâmica
-Clique no botão **"+ Importar Camada"** ou arraste arquivos para a tela:
-- **Formatos Aceitos**:
-  - `GeoJSON` (`.geojson`, `.json`)
-  - `Shapefile compactado em ZIP` (`.zip` contendo `.shp`, `.dbf`, `.prj`)
-  - `KML` (`.kml`)
-  - `CSV com coordenadas` (`.csv` com colunas como `lat,lon` ou `latitude,longitude`)
-- **Categorização**:
-  - Vincule o arquivo a uma temática existente (*Torcida Organizada*, *Malha Ferroviária*, *Estádios*) ou crie uma **Nova Temática** na hora (+ cor personalizada).
-  - Defina estilos específicos para os marcadores (círculos, losangos/diamantes, anéis ocos).
-  - Zoom automático imediato para a extensão dos dados importados.
+### 2. Otimização Responsiva para Dispositivos Móveis (Mobile)
+- **Mapa em Tela Cheia (100vh)**: Ao carregar no celular, o mapa ocupa a totalidade da tela sem obstruções.
+- **Gaveta Retrátil Compacta (*Bottom Drawer*)**: A barra lateral funciona como uma folha inferior moderna (`max-height: 44vh`) com alça de arraste visual e botão de fechar (`✕`).
+- **Botão Flutuante Inferior (`☰ Camadas`)**: Permite abrir a lista de temáticas com um único toque.
+- **Fechamento por Toque Fora**: Toque no mapa ou no fundo escurecido (*backdrop*) fecha o painel instantaneamente.
 
-### 3. Persistência e Exportação do Projeto
-- **Persistência IndexedDB**: As camadas importadas e temas criados ficam salvos no navegador, sobrevivendo ao recarregamento de página (F5).
-- **Exportar Backup**: Botão **"💾 Exportar"** gera um arquivo JSON consolidado com todas as camadas e feições geográficas para você não perder seus dados.
+### 3. Mapas Base no Canto Superior Direito (Horizontal)
+A seleção de mapa base agora fica em formato de barra em pílula flutuante no **canto superior direito do mapa**:
+- 🌙 **Escuro**: *Esri World Dark Gray Canvas* (modo noturno padrão)
+- ☀️ **Claro**: *Esri World Light Gray Canvas* (modo clássico)
+- 🛰️ **Satélite**: *Esri World Imagery* (fotos aéreas de alta definição)
+- 🗺️ **Ruas**: *OpenStreetMap* (vias, mobilidade e referências urbanas)
+- **100% Gratuitos e Estáveis**: Todas as camadas dependentes de chaves de API externas (como CARTO) foram removidas para garantir disponibilidade contínua sem erros de validação.
 
-### 4. Personalização de Fontes e Visual
-Clique no ícone de engrenagem **⚙️** no canto superior direito da barra lateral:
-- Alterne entre tipografias completas em tempo real:
-  - **Syne** (Editorial, imponente, padrão do ATLAS1910)
-  - **Space Grotesk** (Técnica e cartográfica moderna)
-  - **Montserrat** (Geométrica e marcante)
-  - **Inter** (Minimalista e legível)
-- Edite ou atualize a chave de API CARTO a qualquer momento.
+### 4. Identidade Visual e Tipografia Exclusiva
+- **Tipografia Montserrat**: Definida como fonte visual única em toda a plataforma, garantindo peso editorial clássico, clareza cartográfica e elegância.
+- **JetBrains Mono**: Utilizada exclusivamente para valores numéricos, porcentagens e contadores de feições.
+- **Alternância de Tema**: Suporte instantâneo entre Modo 🏴 (Bandeira Preta) e Modo 🏳️ (Bandeira Branca).
 
 ---
 
@@ -62,16 +54,16 @@ Clique no ícone de engrenagem **⚙️** no canto superior direito da barra lat
 
 ```
 atlas1910_geoportal/
-├── index.html            # Estrutura da aplicação web
-├── run_portal.bat        # Atalho de execução rápida no Windows
-├── README.md             # Instruções e documentação
+├── index.html            # Estrutura e marcação semântica do geoportal
+├── run_portal.bat        # Inicializador rápido com servidor HTTP local
+├── README.md             # Documentação do projeto
+├── vercel.json           # Configuração de deploy contínuo na Vercel
+├── assets/               # Imagens, brasões e logotipos (dark/light)
 ├── css/
-│   └── style.css         # Design system dark mode, fontes e componentes
+│   └── style.css         # Design system com Montserrat e responsividade avançada
 ├── js/
-│   ├── basemaps.js       # Provedores de mapa base e autenticação CARTO
-│   ├── storage.js        # Persistência local com IndexedDB
-│   ├── uploader.js       # Parsers de GeoJSON, Shapefile ZIP, KML e CSV
-│   └── app.js            # Orquestração do Leaflet, UI e Ficha de Atributos
-└── data/
-    └── exemplo_pontos_interesse.csv # Arquivo de teste para upload
+│   ├── app.js            # Inicialização do mapa, eventos, inspeção espacial e sidebar
+│   ├── basemaps.js       # Gerenciador dos 4 mapas base e barra horizontal flutuante
+│   └── camadas.js        # Catálogo temático (Torcida, Estádios, História)
+└── data/                 # Acervo de arquivos GeoJSON exportados do QGIS
 ```
