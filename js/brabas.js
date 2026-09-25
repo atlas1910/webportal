@@ -674,20 +674,57 @@
   }
 
   function setupColaboreModal() {
-    const colaboreBtn = document.getElementById('btn-colabore-toggle');
-    const colaborePanel = document.getElementById('colabore-panel');
-    const colaboreClose = document.getElementById('colabore-close-btn');
+    const colaboreBtn      = document.getElementById('btn-colabore-toggle');
+    const colaborePanel    = document.getElementById('colabore-panel');
+    const colaboreClose    = document.getElementById('colabore-close-btn');
+    const colaboreBackdrop = document.getElementById('colabore-backdrop');
 
-    if (colaboreBtn && colaborePanel) {
-      colaboreBtn.onclick = () => {
-        colaborePanel.style.display = colaborePanel.style.display === 'none' ? 'flex' : 'none';
-      };
+    function openColaborePopup() {
+      if (!colaborePanel) return;
+      colaborePanel.style.display = 'flex';
+      if (colaboreBackdrop) {
+        colaboreBackdrop.style.display = 'block';
+        requestAnimationFrame(() => colaboreBackdrop.classList.add('active'));
+      }
+      requestAnimationFrame(() => colaborePanel.classList.add('active'));
     }
-    if (colaboreClose && colaborePanel) {
-      colaboreClose.onclick = () => {
+
+    function closeColaborePopup() {
+      if (!colaborePanel) return;
+      colaborePanel.classList.remove('active');
+      if (colaboreBackdrop) colaboreBackdrop.classList.remove('active');
+      setTimeout(() => {
         colaborePanel.style.display = 'none';
+        if (colaboreBackdrop) colaboreBackdrop.style.display = 'none';
+      }, 250);
+    }
+
+    if (colaboreBtn) {
+      colaboreBtn.onclick = () => {
+        if (colaborePanel && colaborePanel.classList.contains('active')) {
+          closeColaborePopup();
+        } else {
+          openColaborePopup();
+        }
       };
     }
+
+    if (colaboreClose) {
+      colaboreClose.onclick = closeColaborePopup;
+    }
+
+    if (colaboreBackdrop) {
+      colaboreBackdrop.onclick = closeColaborePopup;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && colaborePanel && colaborePanel.classList.contains('active')) {
+        closeColaborePopup();
+      }
+    });
+
+    // Abre como pop-up ao carregar a página das Brabas
+    setTimeout(openColaborePopup, 900);
   }
 
   function setupSidebarControls() {

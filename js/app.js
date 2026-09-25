@@ -615,23 +615,58 @@
       };
     }
 
-    // Painel Flutuante Colabore com o Projeto (Canto Inferior Esquerdo)
+    // ═══ POP-UP MODAL: COLABORE COM O PROJETO ═══
     const colaboreToggleBtn = document.getElementById('btn-colabore-toggle');
-    const colaborePanel = document.getElementById('colabore-panel');
-    const colaboreCloseBtn = document.getElementById('colabore-close-btn');
+    const colaborePanel     = document.getElementById('colabore-panel');
+    const colaboreCloseBtn  = document.getElementById('colabore-close-btn');
+    const colaboreBackdrop  = document.getElementById('colabore-backdrop');
 
-    if (colaboreToggleBtn && colaborePanel) {
-      colaboreToggleBtn.onclick = () => {
-        const isHidden = colaborePanel.style.display === 'none' || !colaborePanel.style.display;
-        colaborePanel.style.display = isHidden ? 'flex' : 'none';
-      };
+    function openColaborePopup() {
+      if (!colaborePanel) return;
+      colaborePanel.style.display = 'flex';
+      if (colaboreBackdrop) {
+        colaboreBackdrop.style.display = 'block';
+        requestAnimationFrame(() => colaboreBackdrop.classList.add('active'));
+      }
+      requestAnimationFrame(() => colaborePanel.classList.add('active'));
     }
 
-    if (colaboreCloseBtn && colaborePanel) {
-      colaboreCloseBtn.onclick = () => {
+    function closeColaborePopup() {
+      if (!colaborePanel) return;
+      colaborePanel.classList.remove('active');
+      if (colaboreBackdrop) colaboreBackdrop.classList.remove('active');
+      setTimeout(() => {
         colaborePanel.style.display = 'none';
+        if (colaboreBackdrop) colaboreBackdrop.style.display = 'none';
+      }, 250);
+    }
+
+    if (colaboreToggleBtn) {
+      colaboreToggleBtn.onclick = () => {
+        if (colaborePanel && colaborePanel.classList.contains('active')) {
+          closeColaborePopup();
+        } else {
+          openColaborePopup();
+        }
       };
     }
+
+    if (colaboreCloseBtn) {
+      colaboreCloseBtn.onclick = closeColaborePopup;
+    }
+
+    if (colaboreBackdrop) {
+      colaboreBackdrop.onclick = closeColaborePopup;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && colaborePanel && colaborePanel.classList.contains('active')) {
+        closeColaborePopup();
+      }
+    });
+
+    // Abre como pop-up ao carregar a página
+    setTimeout(openColaborePopup, 900);
   }
 
   function escapeHtml(str) {

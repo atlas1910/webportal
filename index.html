@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATLAS1910 - Acervo Cartográfico do Corinthians</title>
+  <title>ATLAS1910 — Acervo Cartográfico do Corinthians</title>
   <!-- Metadados e URL Oficial -->
   <link rel="canonical" href="https://atlas1910.vercel.app/">
   <meta name="description" content="Acervo Cartográfico do Sport Club Corinthians Paulista. Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.">
-  <meta property="og:title" content="ATLAS1910 - Acervo Cartográfico do Corinthians">
+  <meta property="og:title" content="ATLAS1910 — Acervo Cartográfico do Corinthians">
   <meta property="og:description" content="Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.">
   <meta property="og:url" content="https://atlas1910.vercel.app/">
   <meta property="og:type" content="website">
@@ -157,14 +157,17 @@
         🤝 Colabore com o projeto
       </button>
 
-      <!-- Ficha Flutuante "Colabore com o Projeto" -->
-      <div id="colabore-panel" class="colabore-panel" style="display: none;">
+      <!-- Backdrop escurecido do Pop-up "Colabore com o Projeto" -->
+      <div id="colabore-backdrop" class="colabore-backdrop" style="display: none;"></div>
+
+      <!-- Pop-up Modal "Colabore com o Projeto" -->
+      <div id="colabore-panel" class="colabore-panel" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="colabore-dialog-title">
         <div class="colabore-header">
           <div class="colabore-title-box">
             <span class="colabore-tag">APOIE O ATLAS</span>
-            <h3 class="colabore-title">Colabore com o Projeto</h3>
+            <h3 id="colabore-dialog-title" class="colabore-title">Colabore com o Projeto</h3>
           </div>
-          <button id="colabore-close-btn" class="icon-btn sm" title="Fechar painel">&times;</button>
+          <button id="colabore-close-btn" class="icon-btn sm" title="Fechar janela" aria-label="Fechar janela">&times;</button>
         </div>
         <div class="colabore-body">
           <p class="colabore-desc">

@@ -1069,8 +1069,7 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
     font-size: 10.5px;
   }
 
-  .attr-panel,
-  .colabore-panel {
+  .attr-panel {
     top: auto;
     bottom: 68px;
     left: 10px;
@@ -1144,25 +1143,53 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   transform: translateY(-1px);
 }
 
+/* --------------------------------------------------------------------------
+   POP-UP MODAL "COLABORE COM O PROJETO"
+   -------------------------------------------------------------------------- */
+.colabore-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1500;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.colabore-backdrop.active {
+  opacity: 1;
+}
+
 .colabore-panel {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  width: 290px;
-  max-width: calc(100vw - 40px);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  max-height: 90vh;
   background: var(--attr-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  box-shadow: var(--attr-shadow);
-  z-index: 1020;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-focus);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
+  z-index: 1510;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
+.colabore-panel.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
 .colabore-header {
-  padding: 9px 12px;
+  padding: 12px 16px 10px;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -1177,100 +1204,44 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   font-weight: 700;
 }
 .colabore-title {
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 13.5px;
+  font-weight: 800;
   margin: 2px 0 0 0;
   color: var(--text);
+  letter-spacing: -0.01em;
 }
 .colabore-body {
-  padding: 12px;
+  padding: 14px 16px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  overflow-y: auto;
 }
 .colabore-desc {
-  font-size: 11px;
+  font-size: 11.5px;
   color: var(--text-dim);
-  line-height: 1.4;
-  margin: 0 0 10px 0;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
 }
 .colabore-qr-box {
   background: #000000;
-  padding: 12px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 4px;
+  width: 100%;
 }
 .colabore-qr-img {
-  width: 210px;
+  width: 100%;
+  max-width: 220px;
   height: auto;
-  max-width: 100%;
   display: block;
   border-radius: 6px;
   object-fit: contain;
-}
-.colabore-pix-box {
-  width: 100%;
-}
-.colabore-pix-label {
-  font-size: 10px;
-  font-family: var(--font-mono);
-  color: var(--text-muted);
-  display: block;
-  margin-bottom: 4px;
-}
-.colabore-pix-row {
-  display: flex;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 4px 6px;
-  gap: 6px;
-}
-[data-theme="light"] .colabore-pix-row {
-  background: rgba(0, 0, 0, 0.05);
-}
-.colabore-pix-key {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text);
-  flex: 1;
-  text-align: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.btn-copy-pix {
-  background: var(--accent);
-  color: var(--accent-contrast);
-  border: none;
-  border-radius: 4px;
-  font-family: var(--font-display);
-  font-size: 10px;
-  font-weight: 700;
-  padding: 4px 8px;
-  cursor: pointer;
-  transition: opacity 0.15s ease;
-}
-.btn-copy-pix:hover {
-  opacity: 0.85;
-}
-.copy-status {
-  display: none;
-  font-size: 10px;
-  color: #38bdf8;
-  font-weight: 600;
-  margin-top: 4px;
-}
-[data-theme="light"] .copy-status {
-  color: #0284c7;
 }
 
 /* --------------------------------------------------------------------------
