@@ -1,0 +1,66 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "linha": "Linha 1 — Azul",
+        "tipo": "Metrô Subterrâneo / Elevado",
+        "extensao_km": 20.2,
+        "estacoes": 23,
+        "conexao_estadios": "Acesso ao Pacaembu (via Linha 2 em Ana Rosa / Paraíso)"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-46.6236, -23.6483],
+          [-46.6280, -23.6100],
+          [-46.6333, -23.5505],
+          [-46.6350, -23.5150],
+          [-46.6100, -23.4850]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "linha": "Linha 3 — Vermelha",
+        "tipo": "Metrô de Alta Capacidade",
+        "extensao_km": 22.0,
+        "estacoes": 18,
+        "conexao_estadios": "Linha direta para Neo Química Arena (Estação Corinthians-Itaquera)"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-46.6800, -23.5260],
+          [-46.6450, -23.5350],
+          [-46.6333, -23.5475],
+          [-46.5925, -23.5385],
+          [-46.5350, -23.5380],
+          [-46.4742, -23.5420]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "linha": "Linha 11 — Coral (CPTM)",
+        "tipo": "Trem Metropolitano Expresso",
+        "extensao_km": 50.8,
+        "estacoes": 16,
+        "conexao_estadios": "Expresso da Copa / Expresso Torcedor direto da Luz para Corinthians-Itaquera"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-46.6350, -23.5350],
+          [-46.6100, -23.5380],
+          [-46.5400, -23.5370],
+          [-46.4742, -23.5410],
+          [-46.3500, -23.5300]
+        ]
+      }
+    }
+  ]
+}

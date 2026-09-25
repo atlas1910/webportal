@@ -1,0 +1,69 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Neo Química Arena",
+        "proprietario": "Sport Club Corinthians Paulista",
+        "inauguracao": "10/05/2014",
+        "capacidade": 49205,
+        "bairro": "Itaquera",
+        "cidade": "São Paulo",
+        "destaque": "Palco de abertura da Copa do Mundo 2014 e casa oficial do Corinthians."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.4742, -23.5453]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Estádio Alfredo Schürig (Fazendinha / Pq. São Jorge)",
+        "proprietario": "Sport Club Corinthians Paulista",
+        "inauguracao": "22/07/1928",
+        "capacidade": 16000,
+        "bairro": "Tatuapé / Pq. São Jorge",
+        "cidade": "São Paulo",
+        "destaque": "Sede histórica onde o Timão conquistou inúmeros títulos da época de ouro."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.5739, -23.5262]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Estádio Municipal Paulo Machado de Carvalho (Pacaembu)",
+        "proprietario": "Municipal / Concessionária Allegra",
+        "inauguracao": "27/04/1940",
+        "capacidade": 40199,
+        "bairro": "Pacaembu",
+        "cidade": "São Paulo",
+        "destaque": "Segunda casa e palco eterno da conquista invicta da Copa Libertadores 2012."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.6664, -23.5445]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Estádio da Ponte Grande (Histórico)",
+        "proprietario": "Corinthians (1918 a 1927 - Extinto)",
+        "inauguracao": "17/03/1918",
+        "capacidade": 8000,
+        "bairro": "Bom Retiro / Ponte Pequena",
+        "cidade": "São Paulo",
+        "destaque": "Primeiro estádio próprio construído com esforço comunitário da Fiel Torcida."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.6267, -23.5230]
+      }
+    }
+  ]
+}
