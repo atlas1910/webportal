@@ -620,6 +620,7 @@
     const colaborePanel     = document.getElementById('colabore-panel');
     const colaboreCloseBtn  = document.getElementById('colabore-close-btn');
     const colaboreBackdrop  = document.getElementById('colabore-backdrop');
+    const COLABORE_SHOWN_KEY = 'atlas1910_colabore_popup_shown';
 
     function openColaborePopup() {
       if (!colaborePanel) return;
@@ -646,6 +647,8 @@
         if (colaborePanel && colaborePanel.classList.contains('active')) {
           closeColaborePopup();
         } else {
+          // Ao abrir manualmente, registra para não incomodar no timer automático
+          localStorage.setItem(COLABORE_SHOWN_KEY, 'true');
           openColaborePopup();
         }
       };
@@ -665,8 +668,15 @@
       }
     });
 
-    // Abre como pop-up ao carregar a página
-    setTimeout(openColaborePopup, 900);
+    // Aparece só depois de 1 minuto (60.000 ms) que a pessoa estiver no site e aparece só uma vez
+    if (!localStorage.getItem(COLABORE_SHOWN_KEY)) {
+      setTimeout(() => {
+        if (!localStorage.getItem(COLABORE_SHOWN_KEY)) {
+          openColaborePopup();
+          localStorage.setItem(COLABORE_SHOWN_KEY, 'true');
+        }
+      }, 60000);
+    }
   }
 
   function escapeHtml(str) {

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATLAS1910 - Acervo Cartográfico do Corinthians</title>
+  <title>ATLAS1910 — Acervo Cartográfico do Corinthians</title>
   <!-- Metadados e URL Oficial -->
   <link rel="canonical" href="https://atlas1910.vercel.app/">
   <meta name="description" content="Acervo Cartográfico do Sport Club Corinthians Paulista. Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.">
-  <meta property="og:title" content="ATLAS1910 - Acervo Cartográfico do Corinthians">
+  <meta property="og:title" content="ATLAS1910 — Acervo Cartográfico do Corinthians">
   <meta property="og:description" content="Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.">
   <meta property="og:url" content="https://atlas1910.vercel.app/">
   <meta property="og:type" content="website">
@@ -22,11 +22,6 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/style.css">
- <!-- Vercel Web Analytics -->
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body data-theme="dark">
   <div id="app">
@@ -133,10 +128,15 @@
         <!-- Botões dos Basemaps gerados via js/basemaps.js -->
       </nav>
 
-      <!-- Botão flutuante para reabrir a Inspeção Espacial (quando minimizada) -->
-      <button id="btn-attr-toggle" class="btn-attr-toggle" title="Abrir ficha de inspeção espacial">
-        📍 Inspeção Espacial
-      </button>
+      <!-- ═══ BOTÕES FLUTUANTES (Alinhados na vertical — visíveis apenas com Camadas recolhida) ═══ -->
+      <div id="floating-actions-bar" class="floating-actions-bar">
+        <button id="btn-attr-toggle" class="btn-attr-toggle" title="Abrir ficha de inspeção espacial">
+          📍 Inspeção Espacial
+        </button>
+        <button id="btn-colabore-toggle" class="btn-colabore-toggle" title="Apoie o projeto ATLAS1910">
+          🤝 Colabore com o projeto
+        </button>
+      </div>
 
       <!-- Ficha de Atributos Flutuante (Inicia minimizada, abre ao clicar no botão ou no ponto) -->
       <div id="attr-panel" class="attr-panel" style="display: none;">
@@ -156,11 +156,6 @@
           <div class="attr-hint">Clique em qualquer estádio ou ponto no mapa para visualizar sua ficha histórica.</div>
         </div>
       </div>
-
-      <!-- ═══ BOTÃO FLUTUANTE "COLABORE COM O PROJETO" (Canto Inferior Esquerdo) ═══ -->
-      <button id="btn-colabore-toggle" class="btn-colabore-toggle" title="Apoie o projeto ATLAS1910">
-        🤝 Colabore com o projeto
-      </button>
 
       <!-- Backdrop escurecido do Pop-up "Colabore com o Projeto" -->
       <div id="colabore-backdrop" class="colabore-backdrop" style="display: none;"></div>

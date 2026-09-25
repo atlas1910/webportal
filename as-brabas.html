@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATLAS1910 - As Brabas (Futebol Feminino do Corinthians)</title>
+  <title>ATLAS1910 — As Brabas (Futebol Feminino do Corinthians)</title>
   <!-- Metadados e URL Oficial -->
   <link rel="canonical" href="https://atlas1910.vercel.app/as-brabas.html">
   <meta name="description" content="Acervo Histórico e Cartográfico do Futebol Feminino do Sport Club Corinthians Paulista — As Brabas. Mapeamento de estádios, jogos, placares e títulos.">
-  <meta property="og:title" content="ATLAS1910 - As Brabas (Corinthians Feminino)">
+  <meta property="og:title" content="ATLAS1910 — As Brabas (Corinthians Feminino)">
   <meta property="og:description" content="A história espacial das Brabas: títulos da Libertadores, Brasileirão, Paulistão e todos os estádios percorridos.">
   <meta property="og:url" content="https://atlas1910.vercel.app/as-brabas.html">
   <meta property="og:type" content="website">
@@ -167,10 +167,15 @@
         <!-- Gerado via basemaps.js -->
       </nav>
 
-      <!-- Botão flutuante para reabrir a Inspeção Espacial (quando minimizada) -->
-      <button id="btn-attr-toggle" class="btn-attr-toggle" title="Abrir ficha de inspeção do estádio">
-        📍 Inspeção Espacial
-      </button>
+      <!-- ═══ BOTÕES FLUTUANTES (Alinhados na vertical — visíveis apenas com Camadas recolhida) ═══ -->
+      <div id="floating-actions-bar" class="floating-actions-bar">
+        <button id="btn-attr-toggle" class="btn-attr-toggle" title="Abrir ficha de inspeção do estádio">
+          📍 Inspeção Espacial
+        </button>
+        <button id="btn-colabore-toggle" class="btn-colabore-toggle" title="Apoie o projeto ATLAS1910">
+          🤝 Colabore com o projeto
+        </button>
+      </div>
 
       <!-- Ficha de Atributos Flutuante das Brabas -->
       <div id="attr-panel" class="attr-panel" style="display: none;">
@@ -187,11 +192,6 @@
           <div class="attr-hint">Clique em qualquer círculo no mapa para inspecionar os jogos das Brabas naquele estádio.</div>
         </div>
       </div>
-
-      <!-- ═══ BOTÃO FLUTUANTE "COLABORE COM O PROJETO" (Canto Inferior Esquerdo) ═══ -->
-      <button id="btn-colabore-toggle" class="btn-colabore-toggle" title="Apoie o projeto ATLAS1910">
-        🤝 Colabore com o projeto
-      </button>
 
       <!-- Backdrop escurecido do Pop-up "Colabore com o Projeto" -->
       <div id="colabore-backdrop" class="colabore-backdrop" style="display: none;"></div>

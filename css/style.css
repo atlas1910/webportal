@@ -782,12 +782,36 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
    PAINEL DE ATRIBUTOS (INSPEÇÃO ESPACIAL) — MINIMIZADO E COMPACTO
    -------------------------------------------------------------------------- */
 
-/* Botão flutuante para reabrir a Inspeção Espacial */
-.btn-attr-toggle {
+/* --------------------------------------------------------------------------
+   BARRA DE AÇÕES FLUTUANTES VERTICAL (Inspeção Espacial + Colabore com o Projeto)
+   Só fica visível quando a aba "Camadas" (sidebar) estiver recolhida!
+   -------------------------------------------------------------------------- */
+.floating-actions-bar {
   position: absolute;
   bottom: 20px;
-  right: 20px;
-  z-index: 900;
+  left: 20px;
+  z-index: 920;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Visível apenas quando #sidebar estiver recolhida (.collapsed) no desktop */
+#sidebar.collapsed ~ #map-container .floating-actions-bar,
+.sidebar-collapsed #map-container .floating-actions-bar {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Botões flutuantes empilhados na vertical */
+.btn-attr-toggle,
+.btn-colabore-toggle {
   background: var(--attr-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -805,9 +829,12 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   gap: 6px;
   transition: all 0.2s ease;
   user-select: none;
+  white-space: nowrap;
 }
-.btn-attr-toggle:hover {
-  border-color: var(--border-focus);
+
+.btn-attr-toggle:hover,
+.btn-colabore-toggle:hover {
+  border-color: var(--accent);
   background-color: var(--panel-hover);
   transform: translateY(-1px);
 }
@@ -1054,19 +1081,16 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
     border-radius: 16px;
   }
 
-  /* Painel de atributos em mobile: compacto e acima da navegação */
-  .btn-attr-toggle {
-    bottom: 68px;
-    right: 12px;
-    padding: 6px 12px;
-    font-size: 10.5px;
-  }
-
-  .btn-colabore-toggle {
-    bottom: 68px;
+  /* Barra de ações flutuantes no mobile: posicionada acima do botão central ☰ Camadas */
+  .floating-actions-bar {
+    bottom: 70px;
     left: 12px;
-    padding: 6px 12px;
-    font-size: 10.5px;
+    gap: 6px;
+  }
+  #sidebar.mobile-hidden ~ #map-container .floating-actions-bar {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .attr-panel {
@@ -1111,37 +1135,7 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   backface-visibility: hidden;
 }
 
-/* --------------------------------------------------------------------------
-   BOTÃO E PAINEL FLUTUANTE "COLABORE COM O PROJETO" (CANTO INFERIOR ESQUERDO)
-   -------------------------------------------------------------------------- */
-.btn-colabore-toggle {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  z-index: 920;
-  background: var(--attr-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 8px 14px;
-  font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text);
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease;
-  user-select: none;
-}
-.btn-colabore-toggle:hover {
-  border-color: var(--accent);
-  background-color: var(--panel-hover);
-  transform: translateY(-1px);
-}
+
 
 /* --------------------------------------------------------------------------
    POP-UP MODAL "COLABORE COM O PROJETO"
