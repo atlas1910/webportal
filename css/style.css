@@ -2,36 +2,87 @@
    ATLAS1910 — DESIGN SYSTEM DO ACERVO CORINTHIANO
    ========================================================================== */
 
-:root {
-  /* Cores Base */
+/* --------------------------------------------------------------------------
+   VARIÁVEIS DE TEMA: LUZ NOTURNA (DARK) E MODO NORMAL (LIGHT)
+   -------------------------------------------------------------------------- */
+
+/* Modo Escuro (Luz Noturna — Padrão) */
+:root, body[data-theme="dark"] {
   --bg: #09090b;
   --panel: #111114;
   --panel-2: #17171c;
   --panel-hover: #1f1f26;
   --border: #26262a;
   --border-subtle: #1c1c20;
-  --border-focus: #4b4b54;
+  --border-focus: #52525b;
 
-  /* Texto */
   --text: #f4f4f5;
   --text-muted: #a1a1aa;
   --text-dim: #71717a;
 
-  /* Identidade Visual Timão */
   --corinthians-black: #000000;
   --corinthians-white: #ffffff;
   --corinthians-gold: #c8aa6e;
-  --accent: #ffffff;
-  --accent-glow: rgba(255, 255, 255, 0.12);
-  --success: #10b981;
+  --corinthians-silver: #d4d4d8;
 
-  /* Tipografia Padrão */
+  --accent: #ffffff;
+  --accent-contrast: #09090b;
+  --map-bg: #05070a;
+
+  --attr-bg: rgba(17, 17, 20, 0.95);
+  --attr-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+
+  --badge-bg: #ffffff;
+  --badge-text: #000000;
+
+  --toggle-btn-bg: #1f1f26;
+  --toggle-btn-text: #f4f4f5;
+  --toggle-btn-border: #3f3f46;
+}
+
+/* Modo Normal (Claro — Fundo Branco, Escrito em Preto) */
+body[data-theme="light"] {
+  --bg: #f8f9fa;
+  --panel: #ffffff;
+  --panel-2: #f1f3f5;
+  --panel-hover: #e9ecef;
+  --border: #dcdfe3;
+  --border-subtle: #eaedf0;
+  --border-focus: #18181b;
+
+  --text: #09090b;
+  --text-muted: #4b5563;
+  --text-dim: #6b7280;
+
+  --corinthians-black: #000000;
+  --corinthians-white: #ffffff;
+  --corinthians-gold: #946f25;
+  --corinthians-silver: #4b5563;
+
+  --accent: #09090b;
+  --accent-contrast: #ffffff;
+  --map-bg: #e5e7eb;
+
+  --attr-bg: rgba(255, 255, 255, 0.96);
+  --attr-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+
+  --badge-bg: #000000;
+  --badge-text: #ffffff;
+
+  --toggle-btn-bg: #f1f3f5;
+  --toggle-btn-text: #09090b;
+  --toggle-btn-border: #d1d5db;
+}
+
+/* --------------------------------------------------------------------------
+   TIPOGRAFIA
+   -------------------------------------------------------------------------- */
+:root {
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-display: 'Syne', sans-serif;
 }
 
-/* Modos de Fonte Dinâmicos */
 body[data-font="syne"] {
   --font-display: 'Syne', sans-serif;
 }
@@ -45,7 +96,9 @@ body[data-font="inter"] {
   --font-display: 'Inter', sans-serif;
 }
 
-/* Proteção contra Cópia e Seleção */
+/* --------------------------------------------------------------------------
+   PROTEÇÃO DE CONTEÚDO (ANTI-DOWNLOAD / SEM SELEÇÃO)
+   -------------------------------------------------------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -65,6 +118,7 @@ html, body {
   color: var(--text);
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 #app {
@@ -87,6 +141,7 @@ html, body {
   height: 100%;
   overflow-y: auto;
   z-index: 20;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 #sidebar::-webkit-scrollbar {
@@ -99,9 +154,10 @@ html, body {
 
 /* Cabeçalho da Barra Lateral */
 .app-header {
-  padding: 22px 20px 18px;
+  padding: 20px 20px 16px;
   border-bottom: 1px solid var(--border);
   background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 100%);
+  transition: border-color 0.25s ease;
 }
 
 .logo-row {
@@ -114,32 +170,34 @@ html, body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 11px;
 }
 
 .brand-badge {
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  background-color: var(--corinthians-white);
-  color: var(--corinthians-black);
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
   padding: 4px 7px;
   border-radius: 6px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.25);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .portal-title {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  color: var(--corinthians-white);
+  color: var(--text);
+  transition: color 0.25s ease;
 }
 
 .portal-sub {
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--corinthians-gold);
   font-weight: 600;
   margin-top: 2px;
@@ -147,18 +205,49 @@ html, body {
 }
 
 .portal-intro {
-  font-size: 12px;
+  font-size: 11.5px;
   line-height: 1.5;
   color: var(--text-dim);
   margin-top: 6px;
+}
+
+/* Ferramentas do Cabeçalho: Botão Luz Noturna & Configurações */
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--toggle-btn-bg);
+  color: var(--toggle-btn-text);
+  border: 1px solid var(--toggle-btn-border);
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.btn-theme-toggle:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+.theme-icon {
+  font-size: 12px;
 }
 
 .icon-btn {
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 8px;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -167,7 +256,7 @@ html, body {
   transition: 0.15s;
 }
 .icon-btn:hover {
-  border-color: var(--text-muted);
+  border-color: var(--border-focus);
   color: var(--text);
   background-color: var(--panel-2);
 }
@@ -184,6 +273,7 @@ html, body {
 .section {
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
+  transition: border-color 0.25s ease;
 }
 
 .section-header {
@@ -195,22 +285,11 @@ html, body {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.06em;
   color: var(--text-dim);
   text-transform: uppercase;
-}
-
-.badge-status {
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  font-weight: 600;
-  background-color: rgba(16, 185, 129, 0.12);
-  color: var(--success);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  padding: 2px 6px;
-  border-radius: 4px;
 }
 
 .badge-count {
@@ -231,7 +310,7 @@ details.theme-card {
   border-radius: 10px;
   background-color: var(--panel-2);
   overflow: hidden;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background-color 0.25s;
 }
 details.theme-card[open] {
   border-color: var(--border-focus);
@@ -244,8 +323,9 @@ details.theme-card summary {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
+  color: var(--text);
 }
 details.theme-card summary::-webkit-details-marker {
   display: none;
@@ -266,7 +346,7 @@ details.theme-card[open] summary::after {
   height: 9px;
   border-radius: 50%;
   flex-shrink: 0;
-  box-shadow: 0 0 6px rgba(255,255,255,0.25);
+  box-shadow: 0 0 6px rgba(0,0,0,0.25);
 }
 
 .theme-title-text {
@@ -286,7 +366,7 @@ details.theme-card[open] summary::after {
 .layer-row {
   padding: 10px 14px 10px 32px;
   border-top: 1px solid var(--border-subtle);
-  background-color: rgba(0,0,0,0.15);
+  background-color: rgba(0,0,0,0.03);
 }
 
 .layer-main {
@@ -374,9 +454,9 @@ details.theme-card[open] summary::after {
   border: 1px solid var(--border);
   color: var(--text-muted);
   border-radius: 8px;
-  padding: 10px 8px;
-  font-size: 11.5px;
-  font-weight: 500;
+  padding: 9px 8px;
+  font-size: 11px;
+  font-weight: 600;
   cursor: pointer;
   text-align: center;
   transition: all 0.15s ease;
@@ -388,7 +468,7 @@ details.theme-card[open] summary::after {
 .basemap-btn.active {
   background-color: var(--accent);
   border-color: var(--accent);
-  color: #09090b;
+  color: var(--accent-contrast);
   font-weight: 700;
 }
 
@@ -404,6 +484,7 @@ details.theme-card[open] summary::after {
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 12px 14px;
+  transition: background-color 0.25s, border-color 0.25s;
 }
 .stat-card .label {
   font-size: 10.5px;
@@ -412,9 +493,9 @@ details.theme-card[open] summary::after {
 }
 .stat-card .value {
   font-family: var(--font-mono);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
-  color: var(--corinthians-white);
+  color: var(--text);
 }
 
 .app-footer {
@@ -423,11 +504,13 @@ details.theme-card[open] summary::after {
   border-top: 1px solid var(--border);
   font-size: 11px;
   color: var(--text-dim);
+  transition: border-color 0.25s;
 }
 .footer-sub {
   font-size: 10px;
   margin-top: 4px;
-  color: #52525b;
+  color: var(--text-dim);
+  opacity: 0.8;
 }
 
 /* ==========================================================================
@@ -437,7 +520,8 @@ details.theme-card[open] summary::after {
   flex: 1;
   position: relative;
   height: 100%;
-  background-color: #05070a;
+  background-color: var(--map-bg);
+  transition: background-color 0.25s;
 }
 
 #map {
@@ -446,7 +530,7 @@ details.theme-card[open] summary::after {
 }
 
 .leaflet-container {
-  background-color: #05070a !important;
+  background-color: var(--map-bg) !important;
 }
 
 /* Painel de Atributos Flutuante */
@@ -458,15 +542,15 @@ details.theme-card[open] summary::after {
   max-height: 48vh;
   display: flex;
   flex-direction: column;
-  background: rgba(17, 17, 20, 0.94);
+  background: var(--attr-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--attr-shadow);
   z-index: 1000;
   overflow: hidden;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, background-color 0.25s, border-color 0.25s;
 }
 
 .attr-header {
@@ -494,7 +578,7 @@ details.theme-card[open] summary::after {
   font-family: var(--font-display);
   font-size: 13.5px;
   font-weight: 700;
-  color: var(--corinthians-white);
+  color: var(--text);
   margin-top: 2px;
 }
 
@@ -508,7 +592,7 @@ details.theme-card[open] summary::after {
   background: var(--panel-2);
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 5px 8px;
+  padding: 6px 8px;
   font-size: 11px;
   color: var(--text);
   outline: none;
@@ -553,11 +637,11 @@ details.theme-card[open] summary::after {
   word-break: break-word;
   max-width: 65%;
   -webkit-user-select: text;
-  user-select: text; /* Permite ler/copiar valor de atributo se o visitante quiser anotar */
+  user-select: text;
 }
 
 /* ==========================================================================
-   MODAIS & OVERLAYS
+   MODAIS
    ========================================================================== */
 .modal-overlay {
   position: fixed;
@@ -565,7 +649,7 @@ details.theme-card[open] summary::after {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -587,7 +671,7 @@ details.theme-card[open] summary::after {
   border-radius: 14px;
   width: 90%;
   max-width: 440px;
-  box-shadow: 0 24px 48px rgba(0,0,0,0.8);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.3);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -604,7 +688,7 @@ details.theme-card[open] summary::after {
   font-family: var(--font-display);
   font-size: 16px;
   font-weight: 700;
-  color: var(--corinthians-white);
+  color: var(--text);
 }
 
 .modal-close {
@@ -649,11 +733,11 @@ details.theme-card[open] summary::after {
 
 .btn-primary {
   background-color: var(--accent);
-  color: #09090b;
+  color: var(--accent-contrast);
   font-weight: 700;
 }
 .btn-primary:hover {
-  background-color: #e4e4e7;
+  filter: brightness(1.1);
 }
 
 .form-group {

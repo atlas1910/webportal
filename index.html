@@ -16,7 +16,7 @@
   
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-font="syne">
+<body data-font="syne" data-theme="dark">
   <div id="app">
     <!-- Barra Lateral do Acervo -->
     <aside id="sidebar">
@@ -29,9 +29,15 @@
               <p class="portal-sub">Acervo Cartográfico do Corinthians</p>
             </div>
           </div>
-          <button id="btn-open-settings" class="icon-btn" title="Personalizar Fontes e Visual">
-            ⚙️
-          </button>
+          <div class="header-tools">
+            <button id="btn-theme-toggle" class="btn-theme-toggle" title="Alternar entre Modo Normal (Claro) e Luz Noturna (Escuro)">
+              <span class="theme-icon">☀️</span>
+              <span class="theme-label">Modo Normal</span>
+            </button>
+            <button id="btn-open-settings" class="icon-btn" title="Personalizar Fontes">
+              ⚙️
+            </button>
+          </div>
         </div>
         <p class="portal-intro">
           Explore a geografia corinthiana: estádios, sedes históricas, subsedes de torcidas e a mobilidade urbana de São Paulo.
@@ -53,7 +59,6 @@
       <section class="section">
         <div class="section-header">
           <span class="section-title">MAPA DE FUNDO (BASEMAPS)</span>
-          <span class="badge-status" id="carto-badge" title="Chave CARTO ativa">CARTO Ativo</span>
         </div>
         <div class="basemap-grid" id="basemap-grid">
           <!-- Botões dos Basemaps -->
@@ -117,12 +122,6 @@
             <option value="inter">Inter (Suave & Minimalista)</option>
           </select>
           <p class="input-hint">Escolha a identidade visual que mais combina com a sua apresentação cartográfica.</p>
-        </div>
-
-        <div class="form-group">
-          <label for="carto-key-input">Chave de API CARTO</label>
-          <input type="text" id="carto-key-input" value="cb1_2x6s_1_031c60b747aa34393292ab97">
-          <p class="input-hint">Autentica as camadas escuras e de ruas da CARTO.</p>
         </div>
       </div>
       <div class="modal-footer">

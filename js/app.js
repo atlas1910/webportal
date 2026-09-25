@@ -1,7 +1,7 @@
 /**
  * ==========================================================================
  * ATLAS1910 — Acervo Cartográfico do Corinthians
- * Núcleo da Aplicação (Leaflet, Camadas do QGIS, Proteção de Dados e UI)
+ * Núcleo da Aplicação (Leaflet, Camadas do QGIS, Proteção de Dados e Temas)
  * ==========================================================================
  */
 
@@ -11,36 +11,41 @@
   let map;
   const loadedLayers = {}; // id -> { leafletLayer, data, count, config, themeId }
   let currentSelectedFeatureProps = null;
+  let currentTheme = "dark"; // "dark" (Luz Noturna) ou "light" (Modo Normal)
 
   /* ==========================================================================
      1. INICIALIZAÇÃO
      ========================================================================== */
   async function init() {
-    // 1. Criar mapa Leaflet centralizado na Grande SP
+    // 1. Carregar tema preferido salvo (ou padrão dark)
+    const savedTheme = localStorage.getItem('atlas1910_theme') || "dark";
+    applyTheme(savedTheme, false);
+
+    // 2. Criar mapa Leaflet centralizado na Grande SP
     map = L.map('map', {
       zoomControl: true,
       attributionControl: true
     }).setView([-23.5505, -46.6333], 9);
 
-    // 2. Inicializar Mapas Base com a Chave CARTO
-    BasemapManager.init(map);
+    // 3. Inicializar Mapas Base sincronizados com o tema atual
+    BasemapManager.init(map, currentTheme);
 
-    // 3. Ativar Mecanismos de Proteção contra Download e Cópia
+    // 4. Ativar Mecanismos de Proteção contra Download e Cópia
     setupProtection();
 
-    // 4. Carregar todas as camadas definidas no CATALOGO_TEMAS
+    // 5. Carregar todas as camadas definidas no CATALOGO_TEMAS
     await loadAllCatalogLayers();
 
-    // 5. Renderizar Lista de Temáticas na Barra Lateral
+    // 6. Renderizar Lista de Temáticas na Barra Lateral
     renderThemesUI();
 
-    // 6. Atualizar Estatísticas
+    // 7. Atualizar Estatísticas
     updateStats();
 
-    // 7. Configurar Ouvintes de Eventos da Interface
+    // 8. Configurar Ouvintes de Eventos da Interface
     setupUIEvents();
 
-    // 8. Restaurar Fonte Salva se houver
+    // 9. Restaurar Fonte Salva se houver
     const savedFont = localStorage.getItem('atlas1910_font');
     if (savedFont) {
       applyFont(savedFont);
@@ -65,7 +70,7 @@
       }
     });
 
-    // Evita arraste de imagens/SVG
+    // Evita arraste acidental de imagens/SVG
     document.addEventListener('dragstart', function(e) {
       e.preventDefault();
     });
@@ -145,7 +150,7 @@
         return L.circleMarker(latlng, {
           radius: 7,
           fillColor: color,
-          color: '#ffffff',
+          color: '#000000',
           weight: 1.5,
           fillOpacity: 0.9 * opacity,
           opacity: opacity
@@ -309,7 +314,40 @@
   }
 
   /* ==========================================================================
-     7. PERSONALIZAÇÃO DE TIPOGRAFIA
+     7. GERENCIAMENTO DE TEMA (LUZ NOTURNA VS MODO NORMAL)
+     ========================================================================== */
+  function applyTheme(theme, syncBasemap = true) {
+    currentTheme = theme;
+    document.body.dataset.theme = theme;
+    localStorage.setItem('atlas1910_theme', theme);
+
+    const toggleBtn = document.getElementById('btn-theme-toggle');
+    if (toggleBtn) {
+      const iconSpan = toggleBtn.querySelector('.theme-icon');
+      const labelSpan = toggleBtn.querySelector('.theme-label');
+      if (theme === "dark") {
+        iconSpan.textContent = "☀️";
+        labelSpan.textContent = "Modo Normal";
+        toggleBtn.title = "Mudar para Modo Normal (Claro / Fundo Branco)";
+      } else {
+        iconSpan.textContent = "🌙";
+        labelSpan.textContent = "Luz Noturna";
+        toggleBtn.title = "Mudar para Luz Noturna (Escuro / Quase Todo Negro)";
+      }
+    }
+
+    if (syncBasemap && typeof BasemapManager !== 'undefined') {
+      BasemapManager.onThemeChange(theme);
+    }
+  }
+
+  function toggleTheme() {
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    applyTheme(nextTheme, true);
+  }
+
+  /* ==========================================================================
+     8. PERSONALIZAÇÃO DE TIPOGRAFIA
      ========================================================================== */
   function applyFont(fontKey) {
     document.body.dataset.font = fontKey;
@@ -319,10 +357,16 @@
   }
 
   /* ==========================================================================
-     8. OUvINTES DE EVENTOS DA INTERFACE
+     9. OUVINTES DE EVENTOS DA INTERFACE
      ========================================================================== */
   function setupUIEvents() {
     const themeListEl = document.getElementById('theme-list');
+
+    // Botão Luz Noturna / Modo Normal
+    const themeToggleBtn = document.getElementById('btn-theme-toggle');
+    if (themeToggleBtn) {
+      themeToggleBtn.onclick = toggleTheme;
+    }
 
     // Ligar / Desligar Camadas
     themeListEl.addEventListener('change', function(e) {
@@ -400,10 +444,6 @@
 
     document.getElementById('font-family-select').onchange = (e) => {
       applyFont(e.target.value);
-    };
-
-    document.getElementById('carto-key-input').onchange = (e) => {
-      BasemapManager.setApiKey(e.target.value);
     };
 
     // Painel de Atributos

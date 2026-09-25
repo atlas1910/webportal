@@ -1,4 +1,4 @@
-# ATLAS1910 - Geoportal sobre o Corinthians
+# ATLAS1910 — Geoportal Analítico e Espacial
 
 Geoportal temático e analítico moderno desenvolvido com **Leaflet.js**, suporte à chave de autenticação **CARTO**, mapas base de alta resolução e mecanismo avançado de **Upload e Categorização de Arquivos Espaciais** diretamente no navegador.
 
@@ -24,12 +24,12 @@ Abra o arquivo `index.html` em qualquer navegador web moderno (Google Chrome, Ed
 
 ## 🛠️ Funcionalidades Principais
 
-### 1. Mapas Base Sem Bloqueio & Chave CARTO
-- **CARTO Dark Matter (Escuro)**: Configurado com os subdomínios `abcd` e a chave de API fornecida (`cb1_2x6s_1_031c60b747aa34393292ab97`) via parâmetros rastertiles oficiais.
-- **Esri Dark Gray Canvas**: Alternativa dark premium com estabilidade máxima e zero bloqueio de CORS.
-- **CARTO Voyager & Positron (Claro)**: Basemaps detalhados e minimalistas autenticados.
-- **Satélite Esri (World Imagery)**: Imagens de satélite de altíssima definição sem limite de requisição.
-- **OpenStreetMap (OSM)**: Camada de ruas padrão.
+### 1. Mapas Base Sem Bloqueio
+- **Esri Dark Gray Canvas**: Alternativa dark premium com estabilidade máxima, sem necessidade de autenticação e visual sofisticado em preto.
+- **CARTO Dark Matter (Escuro)**: Camada escura oficial em alta resolução.
+- **Esri Claro & CARTO Claro (Positron)**: Camadas limpas e claras para visualização no Modo Normal.
+- **Satélite (World Imagery)**: Imagens de satélite de altíssima definição sem limites de requisição.
+- **Ruas (OpenStreetMap)**: Mapa viário global.
 
 ### 2. Upload de Arquivos & Categorização Dinâmica
 Clique no botão **"+ Importar Camada"** ou arraste arquivos para a tela:

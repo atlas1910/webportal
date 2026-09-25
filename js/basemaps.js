@@ -1,47 +1,40 @@
 /**
+ * ==========================================================================
  * ATLAS1910 — Módulo de Mapas Base (Basemaps)
- * Gerencia camadas de fundo com autenticação CARTO API Key e provedores resilientes
+ * Provedores resilientes de alta disponibilidade sem necessidade de login ou chaves expostas
+ * ==========================================================================
  */
 
 const BasemapManager = (function() {
-  let currentKey = "cb1_2x6s_1_031c60b747aa34393292ab97";
-  let activeBasemapName = "CARTO Escuro";
   let mapInstance = null;
+  let activeBasemapName = "Esri Escuro";
   let activeTileLayer = null;
-
-  // Função auxiliar para montar URL da CARTO com chave de API e subdomínios abcd
-  function getCartoUrl(style, retina = true) {
-    const r = retina ? '{r}' : '';
-    // Formato rastertiles suporta api_key
-    return `https://{s}.basemaps.cartocdn.com/rastertiles/${style}/{z}/{x}/{y}${r}.png?api_key=${currentKey}`;
-  }
 
   function createBasemapLayers() {
     return {
-      "CARTO Escuro": L.tileLayer(getCartoUrl('dark_all'), {
+      "Esri Escuro": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+        maxZoom: 19
+      }),
+      "CARTO Escuro": L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png', {
         subdomains: 'abcd',
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>',
         maxZoom: 20
       }),
-      "Esri Dark Canvas": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      "Esri Claro": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
         attribution: '&copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
         maxZoom: 19
       }),
-      "CARTO Voyager": L.tileLayer(getCartoUrl('voyager'), {
+      "CARTO Claro": L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png', {
         subdomains: 'abcd',
         attribution: '&copy; OSM, &copy; CARTO',
         maxZoom: 20
       }),
-      "Satélite Esri": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      "Satélite": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
         attribution: '&copy; Esri, Maxar, Earthstar Geographics',
         maxZoom: 19
       }),
-      "CARTO Claro": L.tileLayer(getCartoUrl('light_all'), {
-        subdomains: 'abcd',
-        attribution: '&copy; OSM, &copy; CARTO',
-        maxZoom: 20
-      }),
-      "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      "Ruas (OSM)": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         subdomains: 'abc',
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 19
@@ -52,35 +45,15 @@ const BasemapManager = (function() {
   let basemapLayers = {};
 
   return {
-    init(map) {
+    init(map, initialTheme = "dark") {
       mapInstance = map;
       basemapLayers = createBasemapLayers();
 
-      // Ativar mapa padrão
+      activeBasemapName = initialTheme === "light" ? "Esri Claro" : "Esri Escuro";
       activeTileLayer = basemapLayers[activeBasemapName];
       activeTileLayer.addTo(mapInstance);
 
       this.renderControls();
-    },
-
-    setApiKey(newKey) {
-      if (!newKey || newKey.trim() === '') return;
-      currentKey = newKey.trim();
-      
-      // Recriar camadas
-      const currentActive = activeBasemapName;
-      if (activeTileLayer) {
-        mapInstance.removeLayer(activeTileLayer);
-      }
-      basemapLayers = createBasemapLayers();
-      activeTileLayer = basemapLayers[currentActive];
-      activeTileLayer.addTo(mapInstance);
-
-      const badge = document.getElementById('carto-badge');
-      if (badge) {
-        badge.textContent = 'CARTO Atualizado';
-        setTimeout(() => { badge.textContent = 'CARTO Ativo'; }, 2000);
-      }
     },
 
     switchBasemap(name) {
@@ -94,11 +67,22 @@ const BasemapManager = (function() {
       activeTileLayer.addTo(mapInstance);
       activeBasemapName = name;
 
-      // Atualiza botões
       const buttons = document.querySelectorAll('.basemap-btn');
       buttons.forEach(btn => {
         btn.classList.toggle('active', btn.dataset.basemap === name);
       });
+    },
+
+    onThemeChange(theme) {
+      if (theme === "light") {
+        if (activeBasemapName === "Esri Escuro" || activeBasemapName === "CARTO Escuro") {
+          this.switchBasemap("Esri Claro");
+        }
+      } else {
+        if (activeBasemapName === "Esri Claro" || activeBasemapName === "CARTO Claro") {
+          this.switchBasemap("Esri Escuro");
+        }
+      }
     },
 
     renderControls() {
@@ -118,10 +102,6 @@ const BasemapManager = (function() {
 
     getActiveBasemap() {
       return activeBasemapName;
-    },
-
-    getApiKey() {
-      return currentKey;
     }
   };
 })();
