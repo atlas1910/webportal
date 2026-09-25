@@ -686,15 +686,15 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-/* Marcadores Personalizados com Escudo */
+/* Marcadores Personalizados — Otimizados para Alto Desempenho e Fluidez */
 .custom-image-marker {
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
+  filter: none !important;
+  transition: none !important;
+  will-change: auto;
 }
 .custom-image-marker:hover {
-  transform: scale(1.35);
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.75));
+  transform: scale(1.22);
   z-index: 1000 !important;
 }
 

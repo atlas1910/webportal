@@ -22,10 +22,11 @@
     const savedTheme = localStorage.getItem('atlas1910_theme') || "dark";
     applyTheme(savedTheme, false);
 
-    // 2. Criar mapa Leaflet centralizado na Grande SP
+    // 2. Criar mapa Leaflet otimizado com preferCanvas ativado
     map = L.map('map', {
       zoomControl: true,
-      attributionControl: true
+      attributionControl: true,
+      preferCanvas: true
     }).setView([-23.5505, -46.6333], 9);
 
     // 3. Inicializar Mapas Base sincronizados com o tema atual
@@ -122,8 +123,12 @@
 
     return L.geoJSON(geojson, {
       pointToLayer: function(feature, latlng) {
-        // Suporte ao Escudo do Corinthians ou Imagem Personalizada
-        const iconPath = (feature.properties && (feature.properties.icone || feature.properties.icon || feature.properties.imagem_marcador)) || layerConfig.icone;
+        // Seleção de ícone com suporte a variantes claro/escuro
+        let iconPath = (feature.properties && (feature.properties.icone || feature.properties.icon || feature.properties.imagem_marcador)) || layerConfig.icone;
+        if (layerConfig.iconeDark && layerConfig.iconeLight) {
+          iconPath = currentTheme === 'light' ? layerConfig.iconeLight : layerConfig.iconeDark;
+        }
+
         if (iconPath) {
           const size = layerConfig.tamanhoIcone || [22, 22];
           return L.marker(latlng, {
@@ -197,7 +202,6 @@
     let totalActive = 0;
 
     CATALOGO_TEMAS.forEach(tema => {
-      // Se não houver camadas no tema, pula ou não renderiza detalhes vazios
       if (!tema.camadas || tema.camadas.length === 0) return;
 
       const details = document.createElement('details');
@@ -309,11 +313,8 @@
   function formatAttributeValue(val) {
     if (val === null || val === undefined) return '';
     let str = String(val);
-    // Converte <br> em quebras de linha limpas
     str = str.replace(/<br\s*\/?>/gi, '\n');
-    // Remove outras tags HTML
     str = str.replace(/<\/?[^>]+(>|$)/g, '');
-    // Faz o escape de segurança e reintroduz quebra de linha visual
     return escapeHtml(str).replace(/\n/g, '<br>');
   }
 
@@ -351,6 +352,28 @@
   /* ==========================================================================
      7. GERENCIAMENTO DE TEMA (MODO 🏴 / MODO 🏳️)
      ========================================================================== */
+  function updateThemedIcons(theme) {
+    Object.values(loadedLayers).forEach(layerObj => {
+      const cfg = layerObj.config;
+      if (cfg.iconeDark && cfg.iconeLight && layerObj.leafletLayer) {
+        const iconUrl = theme === 'light' ? cfg.iconeLight : cfg.iconeDark;
+        const size = cfg.tamanhoIcone || [26, 26];
+        const newIcon = L.icon({
+          iconUrl: iconUrl,
+          iconSize: size,
+          iconAnchor: [size[0] / 2, size[1] / 2],
+          popupAnchor: [0, -size[1] / 2],
+          className: 'custom-image-marker'
+        });
+        layerObj.leafletLayer.eachLayer(marker => {
+          if (marker && typeof marker.setIcon === 'function') {
+            marker.setIcon(newIcon);
+          }
+        });
+      }
+    });
+  }
+
   function applyTheme(theme, syncBasemap = true) {
     currentTheme = theme;
     document.body.dataset.theme = theme;
@@ -374,6 +397,9 @@
     if (logoImg) {
       logoImg.src = theme === "dark" ? "assets/logo-dark.png" : "assets/logo-light.png";
     }
+
+    // Atualiza ícones com suporte a variantes claro/escuro (ex: campos mandante)
+    updateThemedIcons(theme);
 
     if (syncBasemap && typeof BasemapManager !== 'undefined') {
       BasemapManager.onThemeChange(theme);

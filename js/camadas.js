@@ -19,8 +19,10 @@ const CATALOGO_TEMAS = [
         arquivo: "data/estadios/estadios_mandante.geojson",
         tipo: "ponto",
         forma: "circulo",
-        icone: "assets/icones/escudo_corinthians.png",
-        tamanhoIcone: [24, 24],
+        iconeDark: "assets/icones/icone_campo_dark.png",
+        iconeLight: "assets/icones/icone_campo_light.png",
+        icone: "assets/icones/icone_campo_dark.png",
+        tamanhoIcone: [26, 26],
         cor: "#c8aa6e",
         ativa: true,
         opacidade: 1.0
@@ -31,7 +33,7 @@ const CATALOGO_TEMAS = [
         arquivo: "data/estadios/estadios_mundo.geojson",
         tipo: "ponto",
         forma: "circulo",
-        icone: "assets/icones/escudo_corinthians.png",
+        icone: "assets/icones/escudo_atual_mundo.png",
         tamanhoIcone: [20, 20],
         cor: "#ffffff",
         ativa: true,
@@ -41,23 +43,35 @@ const CATALOGO_TEMAS = [
   },
 
   /* ========================================================================
-     2. HISTÓRIA
+     2. HISTÓRIA & MEMÓRIA
      ======================================================================== */
   {
     id: "historia",
-    nome: "História",
+    nome: "História & Memória",
     cor: "#d4d4d8", // Platina
     camadas: [
       {
-        id: "marcos_historicos_1910",
-        nome: "Marcos da Fundação & Memória (1910)",
-        arquivo: "data/historia/marcos_historicos.geojson",
+        id: "eventos_historicos",
+        nome: "Eventos Históricos & Mobilizações (ex: Invasão de 1976)",
+        arquivo: "data/historia/eventos_historicos.geojson",
+        tipo: "ponto",
+        forma: "diamante",
+        icone: "assets/icones/bandeira.svg",
+        tamanhoIcone: [24, 24],
+        cor: "#c8aa6e",
+        ativa: true,
+        opacidade: 1.0
+      },
+      {
+        id: "marcos_fundacao",
+        nome: "Marcos da Fundação (1910)",
+        arquivo: "data/historia/marcos_fundacao.geojson",
         tipo: "ponto",
         forma: "anel",
-        icone: "assets/icones/escudo_corinthians.png",
-        tamanhoIcone: [20, 20],
+        icone: "assets/icones/pin_corinthians.svg",
+        tamanhoIcone: [24, 24],
         cor: "#d4d4d8",
-        ativa: true,
+        ativa: false,
         opacidade: 1.0
       }
     ]
