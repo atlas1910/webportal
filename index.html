@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas SP — Geoportal Temático</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e15;
+    --panel:#11161f;
+    --panel-2:#171e2b;
+    --border:#242c3c;
+    --text:#e8ecf4;
+    --text-dim:#8993a8;
+    --torcida:#e5484d;
+    --ferrovia:#3aa0ff;
+    --estadio:#f2b705;
+    --accent:#5b8def;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);}
+  #app{display:flex;height:100vh;overflow:hidden;}
+
+  #sidebar{
+    width:340px;min-width:340px;background:var(--panel);border-right:1px solid var(--border);
+    display:flex;flex-direction:column;overflow-y:auto;
+  }
+  #sidebar::-webkit-scrollbar{width:8px;}
+  #sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+
+  header{padding:22px 20px 16px;border-bottom:1px solid var(--border);}
+  header h1{margin:0;font-size:19px;font-weight:700;letter-spacing:-0.01em;}
+  header p{margin:6px 0 0;font-size:13px;color:var(--text-dim);line-height:1.5;}
+
+  .section{padding:16px 20px;border-bottom:1px solid var(--border);}
+  .section-title{font-size:12px;font-weight:600;color:var(--text-dim);margin:0 0 10px;}
+
+  details.theme{margin-bottom:10px;border:1px solid var(--border);border-radius:10px;background:var(--panel-2);overflow:hidden;}
+  details.theme[open]{}
+  details.theme summary{
+    list-style:none;cursor:pointer;padding:11px 12px;display:flex;align-items:center;gap:9px;font-weight:600;font-size:13.5px;
+  }
+  details.theme summary::-webkit-details-marker{display:none;}
+  details.theme summary::after{content:'▾';margin-left:auto;color:var(--text-dim);font-size:11px;transition:transform .15s;}
+  details.theme[open] summary::after{transform:rotate(180deg);}
+  .dot{width:9px;height:9px;border-radius:50%;flex:none;}
+
+  .layer-row{padding:9px 12px 12px 33px;border-top:1px solid var(--border);}
+  .layer-row label{display:flex;align-items:center;gap:8px;font-size:12.5px;cursor:pointer;}
+  .layer-row input[type=checkbox]{accent-color:var(--accent);width:14px;height:14px;flex:none;}
+  .layer-row .count{margin-left:auto;color:var(--text-dim);font-size:11px;font-family:'JetBrains Mono',monospace;}
+  .opacity-row{display:flex;align-items:center;gap:8px;margin-top:6px;padding-left:22px;}
+  .opacity-row span{font-size:10.5px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;width:32px;flex:none;}
+  .opacity-row input[type=range]{flex:1;accent-color:var(--accent);height:3px;}
+
+  .basemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .basemap-btn{
+    border:1px solid var(--border);background:var(--panel-2);color:var(--text-dim);border-radius:8px;
+    padding:9px 6px;font-size:12px;font-weight:500;cursor:pointer;text-align:center;transition:.12s;
+  }
+  .basemap-btn:hover{border-color:var(--accent);color:var(--text);}
+  .basemap-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+  .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .stat-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:11px 12px;}
+  .stat-card .label{font-size:10.5px;color:var(--text-dim);margin-bottom:4px;}
+  .stat-card .value{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:20px;}
+
+  .note{font-size:11.5px;color:var(--text-dim);line-height:1.5;background:var(--panel-2);border:1px solid var(--border);
+    border-radius:8px;padding:10px 11px;margin-top:4px;}
+  .note b{color:var(--text);}
+
+  footer{padding:14px 20px 20px;font-size:11px;color:var(--text-dim);}
+
+  #map{flex:1;position:relative;background:#060a10;}
+  .leaflet-container{background:#060a10;}
+
+  #attr-panel{
+    position:absolute;bottom:16px;right:16px;width:290px;max-height:46vh;overflow-y:auto;
+    background:rgba(17,22,31,.94);backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:12px;
+    padding:14px 15px;z-index:1000;font-size:12.5px;
+  }
+  #attr-panel h3{margin:0 0 8px;font-size:13px;font-weight:700;}
+  #attr-panel .hint{color:var(--text-dim);line-height:1.5;}
+  #attr-panel .row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-top:1px solid var(--border);}
+  #attr-panel .row:first-of-type{border-top:none;}
+  #attr-panel .k{color:var(--text-dim);}
+  #attr-panel .v{font-weight:600;text-align:right;}
+
+  @media (max-width:720px){
+    #app{flex-direction:column;}
+    #sidebar{width:100%;min-width:0;max-height:46vh;}
+    #map{flex:1;}
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="sidebar">
+    <header>
+      <h1>Atlas SP · Geoportal Temático</h1>
+      <p>Camadas de mapa reunidas por tema. Dados de exemplo — substitua pelos seus arquivos (GeoJSON, shapefile ou CSV georreferenciado).</p>
+    </header>
+
+    <div class="section">
+      <p class="section-title">CAMADAS</p>
+      <div id="theme-list"></div>
+    </div>
+
+    <div class="section">
+      <p class="section-title">MAPA DE FUNDO</p>
+      <div class="basemap-grid" id="basemap-grid"></div>
+    </div>
+
+    <div class="section">
+      <p class="section-title">ESTATÍSTICAS</p>
+      <div class="stats-grid" id="stats-grid"></div>
+    </div>
+
+    <div class="section">
+      <div class="note"><b>Próximo passo:</b> envie os arquivos reais de cada tema (Camisa 12, malha ferroviária, estádios) para eu trocar os dados de exemplo pelos seus dados.</div>
+    </div>
+
+    <footer>Atlas SP · v0.1 · Leaflet</footer>
+  </div>
+
+  <div id="map">
+    <div id="attr-panel">
+      <h3>Ficha de Atributos</h3>
+      <div class="hint" id="attr-body">Clique em qualquer feição no mapa para ver seus atributos aqui.</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+// ---------- Dados de exemplo (substituir pelos arquivos reais) ----------
+const camisa12 = {type:"FeatureCollection",features:[
+  {type:"Feature",properties:{nome:"Subsede Centro",cidade:"São Paulo",membros_aprox:220},geometry:{type:"Point",coordinates:[-46.6333,-23.5505]}},
+  {type:"Feature",properties:{nome:"Subsede Zona Sul",cidade:"Santos",membros_aprox:95},geometry:{type:"Point",coordinates:[-46.3336,-23.9608]}},
+  {type:"Feature",properties:{nome:"Subsede Campinas",cidade:"Campinas",membros_aprox:130},geometry:{type:"Point",coordinates:[-47.0626,-22.9099]}},
+  {type:"Feature",properties:{nome:"Subsede Sorocaba",cidade:"Sorocaba",membros_aprox:80},geometry:{type:"Point",coordinates:[-47.4525,-23.5015]}},
+  {type:"Feature",properties:{nome:"Subsede Ribeirão Preto",cidade:"Ribeirão Preto",membros_aprox:70},geometry:{type:"Point",coordinates:[-47.8103,-21.1775]}}
+]};
+
+const linhasFerrovia = {type:"FeatureCollection",features:[
+  {type:"Feature",properties:{linha:"Linha 1 — Azul (exemplo)",operadora:"Metrô"},geometry:{type:"LineString",coordinates:[
+    [-46.6236,-23.6483],[-46.6280,-23.6100],[-46.6333,-23.5505],[-46.6350,-23.5150],[-46.6100,-23.4850]]}},
+  {type:"Feature",properties:{linha:"Linha 4 — Amarela (exemplo)",operadora:"ViaQuatro"},geometry:{type:"LineString",coordinates:[
+    [-46.7350,-23.5920],[-46.6900,-23.5750],[-46.6450,-23.5480],[-46.6350,-23.5350],[-46.6350,-23.5350]]}}
+]};
+
+const ocorrenciasFerrovia = {type:"FeatureCollection",features:[
+  {type:"Feature",properties:{tipo:"Falha técnica (exemplo)",linha:"Linha 1 — Azul",data:"2025-03-12"},geometry:{type:"Point",coordinates:[-46.6333,-23.5505]}},
+  {type:"Feature",properties:{tipo:"Princípio de incêndio (exemplo)",linha:"Linha 4 — Amarela",data:"2024-11-02"},geometry:{type:"Point",coordinates:[-46.6900,-23.5750]}},
+  {type:"Feature",properties:{tipo:"Falha de sinalização (exemplo)",linha:"Linha 1 — Azul",data:"2025-07-20"},geometry:{type:"Point",coordinates:[-46.6280,-23.6100]}}
+]};
+
+const estadios = {type:"FeatureCollection",features:[
+  {type:"Feature",properties:{nome:"Neo Química Arena",clube:"Corinthians",capacidade_aprox:49000},geometry:{type:"Point",coordinates:[-46.4742,-23.5453]}},
+  {type:"Feature",properties:{nome:"Allianz Parque",clube:"Palmeiras",capacidade_aprox:43700},geometry:{type:"Point",coordinates:[-46.6788,-23.5273]}},
+  {type:"Feature",properties:{nome:"Morumbis",clube:"São Paulo",capacidade_aprox:67000},geometry:{type:"Point",coordinates:[-46.7192,-23.6003]}},
+  {type:"Feature",properties:{nome:"Pacaembu",clube:"Municipal / diversos",capacidade_aprox:40000},geometry:{type:"Point",coordinates:[-46.6664,-23.5445]}}
+]};
+
+// ---------- Configuração dos temas ----------
+const THEMES = [
+  {id:'torcida', name:'Torcida Organizada — Camisa 12', color:'var(--torcida)', hex:'#e5484d', layers:[
+    {id:'subsedes', name:'Subsedes', type:'point', data:camisa12}
+  ]},
+  {id:'ferrovia', name:'Malha Ferroviária de SP', color:'var(--ferrovia)', hex:'#3aa0ff', layers:[
+    {id:'linhas', name:'Linhas Metrô/CPTM', type:'line', data:linhasFerrovia},
+    {id:'ocorrencias', name:'Ocorrências históricas', type:'point', data:ocorrenciasFerrovia}
+  ]},
+  {id:'estadios', name:'Estádios', color:'var(--estadio)', hex:'#f2b705', layers:[
+    {id:'pontos', name:'Estádios (localização + capacidade)', type:'point', data:estadios}
+  ]}
+];
+
+const BASEMAPS = {
+  Escuro:  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap, &copy; CARTO',maxZoom:19}),
+  Satélite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'&copy; Esri',maxZoom:19}),
+  Ruas:    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}),
+  Relevo:  L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenTopoMap',maxZoom:17})
+};
+
+// ---------- Mapa ----------
+const map = L.map('map',{zoomControl:true,attributionControl:true}).setView([-22.9,-47.3],7);
+BASEMAPS.Escuro.addTo(map);
+
+function showAttrs(props){
+  const body = document.getElementById('attr-body');
+  const rows = Object.entries(props).map(([k,v])=>
+    `<div class="row"><span class="k">${k.replace(/_/g,' ')}</span><span class="v">${v}</span></div>`
+  ).join('');
+  body.innerHTML = rows || '<span class="hint">Sem atributos.</span>';
+}
+
+const layerRegistry = {}; // id -> {leafletLayer, count, hex, type}
+
+THEMES.forEach(theme=>{
+  theme.layers.forEach(layer=>{
+    let leafletLayer;
+    if(layer.type==='point'){
+      leafletLayer = L.geoJSON(layer.data,{
+        pointToLayer:(f,latlng)=>L.circleMarker(latlng,{radius:7,fillColor:theme.hex,color:'#fff',weight:1.5,fillOpacity:0.9}),
+        onEachFeature:(f,l)=>l.on('click',()=>showAttrs(f.properties))
+      });
+    } else {
+      leafletLayer = L.geoJSON(layer.data,{
+        style:{color:theme.hex,weight:4,opacity:0.9},
+        onEachFeature:(f,l)=>l.on('click',()=>showAttrs(f.properties))
+      });
+    }
+    leafletLayer.addTo(map);
+    layerRegistry[layer.id] = {leafletLayer, count:layer.data.features.length, hex:theme.hex, type:layer.type};
+  });
+});
+
+// ---------- Sidebar: temas + camadas ----------
+const themeListEl = document.getElementById('theme-list');
+THEMES.forEach(theme=>{
+  const det = document.createElement('details');
+  det.className='theme'; det.open=true;
+  det.innerHTML = `<summary><span class="dot" style="background:${theme.hex}"></span>${theme.name}</summary>`;
+  theme.layers.forEach(layer=>{
+    const reg = layerRegistry[layer.id];
+    const row = document.createElement('div');
+    row.className='layer-row';
+    row.innerHTML = `
+      <label>
+        <input type="checkbox" checked data-layer="${layer.id}">
+        ${layer.name}
+        <span class="count">${reg.count}</span>
+      </label>
+      <div class="opacity-row">
+        <span>100%</span>
+        <input type="range" min="0" max="100" value="100" data-opacity="${layer.id}">
+      </div>`;
+    det.appendChild(row);
+  });
+  themeListEl.appendChild(det);
+});
+
+themeListEl.addEventListener('change', e=>{
+  if(e.target.dataset.layer){
+    const reg = layerRegistry[e.target.dataset.layer];
+    if(e.target.checked) reg.leafletLayer.addTo(map); else map.removeLayer(reg.leafletLayer);
+  }
+});
+themeListEl.addEventListener('input', e=>{
+  if(e.target.dataset.opacity){
+    const reg = layerRegistry[e.target.dataset.opacity];
+    const val = e.target.value/100;
+    reg.leafletLayer.eachLayer(l=>{
+      if(reg.type==='point') l.setStyle({fillOpacity:val*0.9, opacity:val});
+      else l.setStyle({opacity:val});
+    });
+    e.target.previousElementSibling.textContent = e.target.value+'%';
+  }
+});
+
+// ---------- Basemap switcher ----------
+const bmGrid = document.getElementById('basemap-grid');
+let activeBm = 'Escuro';
+Object.keys(BASEMAPS).forEach(name=>{
+  const btn = document.createElement('button');
+  btn.className = 'basemap-btn'+(name===activeBm?' active':'');
+  btn.textContent = name;
+  btn.onclick = ()=>{
+    if(name===activeBm) return;
+    map.removeLayer(BASEMAPS[activeBm]);
+    BASEMAPS[name].addTo(map);
+    activeBm = name;
+    [...bmGrid.children].forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  };
+  bmGrid.appendChild(btn);
+});
+
+// ---------- Estatísticas ----------
+const statsGrid = document.getElementById('stats-grid');
+const totalFeatures = Object.values(layerRegistry).reduce((s,r)=>s+r.count,0);
+[
+  {label:'Camadas ativas', value:Object.keys(layerRegistry).length},
+  {label:'Feições no total', value:totalFeatures},
+  {label:'Temas', value:THEMES.length},
+  {label:'Área coberta', value:'SP · Estado'}
+].forEach(s=>{
+  const card = document.createElement('div');
+  card.className='stat-card';
+  card.innerHTML = `<div class="label">${s.label}</div><div class="value">${s.value}</div>`;
+  statsGrid.appendChild(card);
+});
+</script>
+</body>
+</html>
