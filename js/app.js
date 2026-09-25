@@ -331,26 +331,32 @@
   }
 
   /* ==========================================================================
-     7. GERENCIAMENTO DE TEMA (LUZ NOTURNA VS MODO NORMAL)
+     7. GERENCIAMENTO DE TEMA (MODO 🏴 / MODO 🏳️)
      ========================================================================== */
   function applyTheme(theme, syncBasemap = true) {
     currentTheme = theme;
     document.body.dataset.theme = theme;
     localStorage.setItem('atlas1910_theme', theme);
 
+    // Atualiza texto do botão de tema
     const toggleBtn = document.getElementById('btn-theme-toggle');
     if (toggleBtn) {
-      const iconSpan = toggleBtn.querySelector('.theme-icon');
       const labelSpan = toggleBtn.querySelector('.theme-label');
       if (theme === "dark") {
-        iconSpan.textContent = "☀️";
-        labelSpan.textContent = "Modo Normal";
-        toggleBtn.title = "Mudar para Modo Normal (Claro / Fundo Branco)";
+        // Estamos no modo escuro → botão oferece mudança para o claro
+        if (labelSpan) labelSpan.textContent = "Modo 🏳️";
+        toggleBtn.title = "Mudar para Modo 🏳️ (Claro)";
       } else {
-        iconSpan.textContent = "🌙";
-        labelSpan.textContent = "Luz Noturna";
-        toggleBtn.title = "Mudar para Luz Noturna (Escuro / Quase Todo Negro)";
+        // Estamos no modo claro → botão oferece mudança para o escuro
+        if (labelSpan) labelSpan.textContent = "Modo 🏴";
+        toggleBtn.title = "Mudar para Modo 🏴 (Escuro)";
       }
+    }
+
+    // Atualiza logotipo: dark usa logo-dark.png, light usa logo-light.png
+    const logoImg = document.getElementById('site-logo');
+    if (logoImg) {
+      logoImg.src = theme === "dark" ? "assets/logo-dark.png" : "assets/logo-light.png";
     }
 
     if (syncBasemap && typeof BasemapManager !== 'undefined') {
@@ -374,16 +380,56 @@
   }
 
   /* ==========================================================================
+     8.5 CONTROLES DA SIDEBAR (RECOLHER/EXPANDIR DESKTOP + DRAWER MOBILE)
+     ========================================================================== */
+  function setupSidebarControls() {
+    const sidebar       = document.getElementById('sidebar');
+    const collapseBtn   = document.getElementById('btn-sidebar-collapse');
+    const expandBtn     = document.getElementById('btn-sidebar-expand');
+    const mobilePanelBtn = document.getElementById('btn-mobile-panel');
+
+    // Desktop — recolher
+    if (collapseBtn) {
+      collapseBtn.addEventListener('click', function() {
+        sidebar.classList.add('collapsed');
+        if (expandBtn) expandBtn.classList.add('visible');
+        // Forçar redimensionamento do mapa após a transição
+        setTimeout(() => { if (map) map.invalidateSize(); }, 320);
+      });
+    }
+
+    // Desktop — expandir
+    if (expandBtn) {
+      expandBtn.addEventListener('click', function() {
+        sidebar.classList.remove('collapsed');
+        expandBtn.classList.remove('visible');
+        setTimeout(() => { if (map) map.invalidateSize(); }, 320);
+      });
+    }
+
+    // Mobile — toggle drawer de camadas
+    if (mobilePanelBtn) {
+      mobilePanelBtn.addEventListener('click', function() {
+        const isHidden = sidebar.classList.toggle('mobile-hidden');
+        mobilePanelBtn.textContent = isHidden ? '☰ Camadas' : '✕ Fechar';
+      });
+    }
+  }
+
+  /* ==========================================================================
      9. OUVINTES DE EVENTOS DA INTERFACE
      ========================================================================== */
   function setupUIEvents() {
     const themeListEl = document.getElementById('theme-list');
 
-    // Botão Luz Noturna / Modo Normal
+    // Botão Modo 🏴 / Modo 🏳️
     const themeToggleBtn = document.getElementById('btn-theme-toggle');
     if (themeToggleBtn) {
       themeToggleBtn.onclick = toggleTheme;
     }
+
+    // Controles de sidebar
+    setupSidebarControls();
 
     // Ligar / Desligar Camadas
     themeListEl.addEventListener('change', function(e) {

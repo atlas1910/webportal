@@ -25,21 +25,29 @@
 </head>
 <body data-font="syne" data-theme="dark">
   <div id="app">
-    <!-- Barra Lateral do Acervo -->
+
+    <!-- ═══ BARRA LATERAL DO ACERVO ═══ -->
     <aside id="sidebar">
+
+      <!-- Botão de recolher (visível apenas no desktop) -->
+      <button id="btn-sidebar-collapse" class="btn-sidebar-collapse" title="Recolher painel">
+        ◀
+      </button>
+
       <header class="app-header">
         <div class="logo-row">
           <div class="brand">
-            <span class="brand-badge">1910</span>
-            <div>
+            <!-- Logotipo adaptado ao tema (dark / light) -->
+            <img id="site-logo" class="site-logo" src="assets/logo-dark.png" alt="ATLAS1910">
+            <div class="brand-text">
               <h1 class="portal-title">ATLAS1910</h1>
               <p class="portal-sub">Acervo Cartográfico do Corinthians</p>
             </div>
           </div>
           <div class="header-tools">
-            <button id="btn-theme-toggle" class="btn-theme-toggle" title="Alternar entre Modo Normal (Claro) e Luz Noturna (Escuro)">
-              <span class="theme-icon">☀️</span>
-              <span class="theme-label">Modo Normal</span>
+            <!-- Botão de alternância de tema (Modo 🏴 / Modo 🏳️) -->
+            <button id="btn-theme-toggle" class="btn-theme-toggle" title="Alternar modo visual">
+              <span class="theme-label">Modo 🏳️</span>
             </button>
             <button id="btn-open-settings" class="icon-btn" title="Personalizar Fontes">
               ⚙️
@@ -89,7 +97,12 @@
       </footer>
     </aside>
 
-    <!-- Área Principal do Mapa -->
+    <!-- Botão para expandir a sidebar quando recolhida (desktop) -->
+    <button id="btn-sidebar-expand" class="btn-sidebar-expand" title="Expandir painel">
+      ▶ Painel
+    </button>
+
+    <!-- ═══ ÁREA PRINCIPAL DO MAPA ═══ -->
     <main id="map-container">
       <div id="map"></div>
 
@@ -111,6 +124,11 @@
       </div>
     </main>
   </div>
+
+  <!-- MOBILE: botão flutuante para mostrar/ocultar o painel -->
+  <button id="btn-mobile-panel" class="btn-mobile-panel" title="Mostrar painel de camadas">
+    ☰ Camadas
+  </button>
 
   <!-- MODAL: Configurações de Aparência (Fontes) -->
   <div id="modal-settings" class="modal-overlay">

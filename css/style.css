@@ -3,10 +3,10 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   VARIÁVEIS DE TEMA: LUZ NOTURNA (DARK) E MODO NORMAL (LIGHT)
+   VARIÁVEIS DE TEMA: MODO 🏴 (DARK) E MODO 🏳️ (LIGHT)
    -------------------------------------------------------------------------- */
 
-/* Modo Escuro (Luz Noturna — Padrão) */
+/* Modo 🏴 — Bandeira Preta (Padrão) */
 :root, body[data-theme="dark"] {
   --bg: #09090b;
   --panel: #111114;
@@ -20,10 +20,7 @@
   --text-muted: #a1a1aa;
   --text-dim: #71717a;
 
-  --corinthians-black: #000000;
-  --corinthians-white: #ffffff;
   --corinthians-gold: #c8aa6e;
-  --corinthians-silver: #d4d4d8;
 
   --accent: #ffffff;
   --accent-contrast: #09090b;
@@ -35,12 +32,17 @@
   --badge-bg: #ffffff;
   --badge-text: #000000;
 
-  --toggle-btn-bg: #1f1f26;
+  --toggle-btn-bg: #26262a;
   --toggle-btn-text: #f4f4f5;
   --toggle-btn-border: #3f3f46;
+
+  --logo-src: url('../assets/logo-dark.png');
+
+  --sidebar-collapse-bg: #17171c;
+  --sidebar-collapse-color: #a1a1aa;
 }
 
-/* Modo Normal (Claro — Fundo Branco, Escrito em Preto) */
+/* Modo 🏳️ — Bandeira Branca */
 body[data-theme="light"] {
   --bg: #f8f9fa;
   --panel: #ffffff;
@@ -54,10 +56,7 @@ body[data-theme="light"] {
   --text-muted: #4b5563;
   --text-dim: #6b7280;
 
-  --corinthians-black: #000000;
-  --corinthians-white: #ffffff;
   --corinthians-gold: #946f25;
-  --corinthians-silver: #4b5563;
 
   --accent: #09090b;
   --accent-contrast: #ffffff;
@@ -72,6 +71,11 @@ body[data-theme="light"] {
   --toggle-btn-bg: #f1f3f5;
   --toggle-btn-text: #09090b;
   --toggle-btn-border: #d1d5db;
+
+  --logo-src: url('../assets/logo-light.png');
+
+  --sidebar-collapse-bg: #f1f3f5;
+  --sidebar-collapse-color: #4b5563;
 }
 
 /* --------------------------------------------------------------------------
@@ -81,23 +85,16 @@ body[data-theme="light"] {
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-display: 'Syne', sans-serif;
+  --sidebar-width: 420px;
 }
 
-body[data-font="syne"] {
-  --font-display: 'Syne', sans-serif;
-}
-body[data-font="space"] {
-  --font-display: 'Space Grotesk', sans-serif;
-}
-body[data-font="montserrat"] {
-  --font-display: 'Montserrat', sans-serif;
-}
-body[data-font="inter"] {
-  --font-display: 'Inter', sans-serif;
-}
+body[data-font="syne"]       { --font-display: 'Syne', sans-serif; }
+body[data-font="space"]      { --font-display: 'Space Grotesk', sans-serif; }
+body[data-font="montserrat"] { --font-display: 'Montserrat', sans-serif; }
+body[data-font="inter"]      { --font-display: 'Inter', sans-serif; }
 
 /* --------------------------------------------------------------------------
-   PROTEÇÃO DE CONTEÚDO (ANTI-DOWNLOAD / SEM SELEÇÃO)
+   PROTEÇÃO DE CONTEÚDO (ANTI-DOWNLOAD)
    -------------------------------------------------------------------------- */
 * {
   box-sizing: border-box;
@@ -105,14 +102,12 @@ body[data-font="inter"] {
   padding: 0;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
 html, body {
   height: 100%;
   width: 100%;
-  margin: 0;
   font-family: var(--font-body);
   background-color: var(--bg);
   color: var(--text);
@@ -126,37 +121,110 @@ html, body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  position: relative;
 }
 
 /* ==========================================================================
-   BARRA LATERAL (SIDEBAR)
+   BARRA LATERAL (SIDEBAR) — DESKTOP
    ========================================================================== */
 #sidebar {
-  width: 360px;
-  min-width: 360px;
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
   background-color: var(--panel);
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   z-index: 20;
-  transition: background-color 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  transition:
+    width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    min-width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
-#sidebar::-webkit-scrollbar {
-  width: 6px;
-}
-#sidebar::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
+/* Estado recolhido da sidebar (desktop) */
+#sidebar.collapsed {
+  width: 0;
+  min-width: 0;
+  overflow: hidden;
+  border-right: none;
 }
 
-/* Cabeçalho da Barra Lateral */
+#sidebar::-webkit-scrollbar { width: 5px; }
+#sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* --------------------------------------------------------------------------
+   BOTÃO DE RECOLHER / EXPANDIR SIDEBAR (DESKTOP)
+   -------------------------------------------------------------------------- */
+.btn-sidebar-collapse {
+  position: absolute;
+  top: 50%;
+  right: -16px;
+  transform: translateY(-50%);
+  z-index: 30;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.25);
+  transition: all 0.2s ease;
+}
+.btn-sidebar-collapse:hover {
+  color: var(--text);
+  border-color: var(--border-focus);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Botão de expandir — aparece fixo na beira esquerda quando recolhido */
+.btn-sidebar-expand {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 25;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  padding: 12px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.3);
+  transition: all 0.25s ease;
+}
+.btn-sidebar-expand.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.btn-sidebar-expand:hover {
+  color: var(--text);
+  border-color: var(--border-focus);
+}
+
+/* ==========================================================================
+   CABEÇALHO DA BARRA LATERAL
+   ========================================================================== */
 .app-header {
-  padding: 20px 20px 16px;
+  padding: 18px 20px 14px;
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 100%);
+  flex-shrink: 0;
   transition: border-color 0.25s ease;
 }
 
@@ -165,43 +233,50 @@ html, body {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
+  gap: 10px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
+  min-width: 0;
 }
 
-.brand-badge {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  background-color: var(--badge-bg);
-  color: var(--badge-text);
-  padding: 4px 7px;
-  border-radius: 6px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.25s ease, color 0.25s ease;
+/* Logotipo dinâmico */
+.site-logo {
+  height: 44px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
+}
+
+.brand-text {
+  min-width: 0;
 }
 
 .portal-title {
   font-family: var(--font-display);
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.1;
   color: var(--text);
+  white-space: nowrap;
   transition: color 0.25s ease;
 }
 
 .portal-sub {
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--corinthians-gold);
   font-weight: 600;
   margin-top: 2px;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .portal-intro {
@@ -211,35 +286,36 @@ html, body {
   margin-top: 6px;
 }
 
-/* Ferramentas do Cabeçalho: Botão Luz Noturna & Configurações */
+/* --------------------------------------------------------------------------
+   FERRAMENTAS DO CABEÇALHO
+   -------------------------------------------------------------------------- */
 .header-tools {
   display: flex;
   align-items: center;
   gap: 6px;
+  flex-shrink: 0;
 }
 
+/* Botão Modo 🏴 / Modo 🏳️ */
 .btn-theme-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background-color: var(--toggle-btn-bg);
   color: var(--toggle-btn-text);
   border: 1px solid var(--toggle-btn-border);
   border-radius: 20px;
-  padding: 5px 10px;
-  font-size: 11.5px;
+  padding: 5px 12px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
   transition: all 0.2s ease;
   user-select: none;
 }
 .btn-theme-toggle:hover {
   transform: translateY(-1px);
   filter: brightness(1.1);
-}
-
-.theme-icon {
-  font-size: 12px;
 }
 
 .icon-btn {
@@ -254,6 +330,7 @@ html, body {
   color: var(--text-muted);
   cursor: pointer;
   transition: 0.15s;
+  flex-shrink: 0;
 }
 .icon-btn:hover {
   border-color: var(--border-focus);
@@ -273,6 +350,7 @@ html, body {
 .section {
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
   transition: border-color 0.25s ease;
 }
 
@@ -298,7 +376,9 @@ html, body {
   color: var(--text-dim);
 }
 
-/* Lista de Temáticas e Camadas */
+/* --------------------------------------------------------------------------
+   LISTA DE TEMÁTICAS E CAMADAS
+   -------------------------------------------------------------------------- */
 .theme-list {
   display: flex;
   flex-direction: column;
@@ -312,9 +392,7 @@ details.theme-card {
   overflow: hidden;
   transition: border-color 0.2s, background-color 0.25s;
 }
-details.theme-card[open] {
-  border-color: var(--border-focus);
-}
+details.theme-card[open] { border-color: var(--border-focus); }
 
 details.theme-card summary {
   list-style: none;
@@ -323,13 +401,11 @@ details.theme-card summary {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text);
 }
-details.theme-card summary::-webkit-details-marker {
-  display: none;
-}
+details.theme-card summary::-webkit-details-marker { display: none; }
 details.theme-card summary::after {
   content: '▾';
   margin-left: auto;
@@ -337,16 +413,13 @@ details.theme-card summary::after {
   font-size: 11px;
   transition: transform 0.15s ease;
 }
-details.theme-card[open] summary::after {
-  transform: rotate(180deg);
-}
+details.theme-card[open] summary::after { transform: rotate(180deg); }
 
 .theme-color-dot {
   width: 9px;
   height: 9px;
   border-radius: 50%;
   flex-shrink: 0;
-  box-shadow: 0 0 6px rgba(0,0,0,0.25);
 }
 
 .theme-title-text {
@@ -442,11 +515,13 @@ details.theme-card[open] summary::after {
   cursor: pointer;
 }
 
-/* Grid de Mapas Base */
+/* --------------------------------------------------------------------------
+   GRID DE MAPAS BASE
+   -------------------------------------------------------------------------- */
 .basemap-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
 }
 
 .basemap-btn {
@@ -454,8 +529,8 @@ details.theme-card[open] summary::after {
   border: 1px solid var(--border);
   color: var(--text-muted);
   border-radius: 8px;
-  padding: 9px 8px;
-  font-size: 11px;
+  padding: 9px 6px;
+  font-size: 10.5px;
   font-weight: 600;
   cursor: pointer;
   text-align: center;
@@ -472,7 +547,9 @@ details.theme-card[open] summary::after {
   font-weight: 700;
 }
 
-/* Grid de Estatísticas */
+/* --------------------------------------------------------------------------
+   GRID DE ESTATÍSTICAS
+   -------------------------------------------------------------------------- */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -499,18 +576,19 @@ details.theme-card[open] summary::after {
 }
 
 .app-footer {
-  padding: 16px 20px;
+  padding: 14px 20px;
   margin-top: auto;
   border-top: 1px solid var(--border);
   font-size: 11px;
   color: var(--text-dim);
+  flex-shrink: 0;
   transition: border-color 0.25s;
 }
 .footer-sub {
   font-size: 10px;
   margin-top: 4px;
   color: var(--text-dim);
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 /* ==========================================================================
@@ -520,20 +598,16 @@ details.theme-card[open] summary::after {
   flex: 1;
   position: relative;
   height: 100%;
+  min-width: 0;
   background-color: var(--map-bg);
   transition: background-color 0.25s;
 }
 
-#map {
-  width: 100%;
-  height: 100%;
-}
+#map { width: 100%; height: 100%; }
 
-.leaflet-container {
-  background-color: var(--map-bg) !important;
-}
+.leaflet-container { background-color: var(--map-bg) !important; }
 
-/* Marcadores Personalizados com Imagem (SVG, PNG, WebP) */
+/* Marcadores Personalizados com Imagem */
 .custom-image-marker {
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -544,7 +618,9 @@ details.theme-card[open] summary::after {
   filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.7));
 }
 
-/* Painel de Atributos Flutuante */
+/* --------------------------------------------------------------------------
+   PAINEL DE ATRIBUTOS FLUTUANTE
+   -------------------------------------------------------------------------- */
 .attr-panel {
   position: absolute;
   bottom: 24px;
@@ -572,10 +648,7 @@ details.theme-card[open] summary::after {
   justify-content: space-between;
 }
 
-.attr-title-box {
-  display: flex;
-  flex-direction: column;
-}
+.attr-title-box { display: flex; flex-direction: column; }
 
 .attr-tag {
   font-family: var(--font-mono);
@@ -608,9 +681,7 @@ details.theme-card[open] summary::after {
   color: var(--text);
   outline: none;
 }
-.attr-search-box input:focus {
-  border-color: var(--border-focus);
-}
+.attr-search-box input:focus { border-color: var(--border-focus); }
 
 .attr-content {
   padding: 12px 14px;
@@ -631,9 +702,7 @@ details.theme-card[open] summary::after {
   padding: 6px 0;
   border-top: 1px solid var(--border-subtle);
 }
-.attr-row:first-child {
-  border-top: none;
-}
+.attr-row:first-child { border-top: none; }
 
 .attr-key {
   color: var(--text-dim);
@@ -656,10 +725,7 @@ details.theme-card[open] summary::after {
    ========================================================================== */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(4px);
   display: flex;
@@ -671,10 +737,7 @@ details.theme-card[open] summary::after {
   transition: opacity 0.2s ease;
 }
 
-.modal-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
 
 .modal-card {
   background: var(--panel);
@@ -709,9 +772,7 @@ details.theme-card[open] summary::after {
   font-size: 20px;
   cursor: pointer;
 }
-.modal-close:hover {
-  color: var(--text);
-}
+.modal-close:hover { color: var(--text); }
 
 .modal-body {
   padding: 20px;
@@ -747,9 +808,7 @@ details.theme-card[open] summary::after {
   color: var(--accent-contrast);
   font-weight: 700;
 }
-.btn-primary:hover {
-  filter: brightness(1.1);
-}
+.btn-primary:hover { filter: brightness(1.1); }
 
 .form-group {
   display: flex;
@@ -778,22 +837,108 @@ details.theme-card[open] summary::after {
   margin-top: 3px;
 }
 
-/* Responsividade */
+/* ==========================================================================
+   MOBILE: BOTÃO FLUTUANTE E SIDEBAR COMO DRAWER
+   ========================================================================== */
+
+/* Botão flutuante ☰ Camadas — só aparece em mobile */
+.btn-mobile-panel {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  transition: all 0.2s ease;
+}
+.btn-mobile-panel:hover { filter: brightness(1.1); transform: translateX(-50%) translateY(-2px); }
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+
+/* --- Tablet (821px – 1199px) --- */
+@media (max-width: 1199px) and (min-width: 821px) {
+  :root { --sidebar-width: 340px; }
+  .site-logo { height: 36px; }
+  .portal-title { font-size: 16px; }
+}
+
+/* --- Mobile (≤ 820px) --- */
 @media (max-width: 820px) {
-  #app {
-    flex-direction: column;
-  }
+  /* Layout vertical */
+  #app { flex-direction: column; }
+
+  /* Sidebar como drawer vindo de baixo */
   #sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     min-width: 0;
-    max-height: 48vh;
+    height: auto;
+    max-height: 36vh;       /* compacto: apenas 36% da tela */
     border-right: none;
-    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    border-radius: 16px 16px 0 0;
+    z-index: 500;
+    overflow-y: auto;
+    transform: translateY(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), max-height 0.3s;
   }
-  #attr-panel {
-    bottom: 12px;
-    right: 12px;
-    left: 12px;
+
+  /* Sidebar oculta em mobile */
+  #sidebar.mobile-hidden {
+    transform: translateY(110%);
+  }
+
+  /* O mapa ocupa 100% em mobile */
+  #map-container {
+    height: 100vh;
+    width: 100%;
+  }
+
+  /* Botão flutuante ☰ Camadas visível em mobile */
+  .btn-mobile-panel { display: flex; }
+
+  /* Botões de colapso desktop ocultos em mobile */
+  .btn-sidebar-collapse,
+  .btn-sidebar-expand { display: none !important; }
+
+  /* Painel de atributos em mobile: ancorado à base com espaço para o drawer */
+  .attr-panel {
+    bottom: auto;
+    top: 8px;
+    right: 8px;
+    left: 8px;
     width: auto;
+    max-height: 45vh;
   }
+
+  /* Compactar o cabeçalho no mobile */
+  .app-header { padding: 12px 14px 10px; }
+
+  .site-logo { height: 32px; }
+
+  .portal-title { font-size: 15px; }
+  .portal-sub { font-size: 10px; }
+  .portal-intro { display: none; } /* remove descrição em mobile para economizar espaço */
+
+  .btn-theme-toggle { font-size: 11px; padding: 4px 9px; }
+
+  /* Seções mais compactas */
+  .section { padding: 12px 14px; }
+
+  /* Grid de basemaps 3 colunas → 2 colunas em mobile */
+  .basemap-grid { grid-template-columns: repeat(2, 1fr); }
 }
