@@ -1,7 +1,4 @@
 {
-  "version": 2,
-  "name": "atlas1910-geoportal",
-  "public": true,
   "cleanUrls": true,
   "headers": [
     {
