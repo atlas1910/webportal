@@ -677,8 +677,6 @@
     const colaboreBtn = document.getElementById('btn-colabore-toggle');
     const colaborePanel = document.getElementById('colabore-panel');
     const colaboreClose = document.getElementById('colabore-close-btn');
-    const copyBtn = document.getElementById('btn-copy-pix');
-    const copyStatus = document.getElementById('copy-status');
 
     if (colaboreBtn && colaborePanel) {
       colaboreBtn.onclick = () => {
@@ -688,18 +686,6 @@
     if (colaboreClose && colaborePanel) {
       colaboreClose.onclick = () => {
         colaborePanel.style.display = 'none';
-      };
-    }
-    if (copyBtn) {
-      copyBtn.onclick = () => {
-        navigator.clipboard.writeText("1910atlas@gmail.com").then(() => {
-          if (copyStatus) {
-            copyStatus.style.display = 'block';
-            setTimeout(() => { copyStatus.style.display = 'none'; }, 3000);
-          }
-        }).catch(err => {
-          console.warn("Falha ao copiar:", err);
-        });
       };
     }
   }

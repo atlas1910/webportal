@@ -619,8 +619,6 @@
     const colaboreToggleBtn = document.getElementById('btn-colabore-toggle');
     const colaborePanel = document.getElementById('colabore-panel');
     const colaboreCloseBtn = document.getElementById('colabore-close-btn');
-    const copyPixBtn = document.getElementById('btn-copy-pix');
-    const copyStatus = document.getElementById('copy-status');
 
     if (colaboreToggleBtn && colaborePanel) {
       colaboreToggleBtn.onclick = () => {
@@ -632,19 +630,6 @@
     if (colaboreCloseBtn && colaborePanel) {
       colaboreCloseBtn.onclick = () => {
         colaborePanel.style.display = 'none';
-      };
-    }
-
-    if (copyPixBtn) {
-      copyPixBtn.onclick = () => {
-        navigator.clipboard.writeText("1910atlas@gmail.com").then(() => {
-          if (copyStatus) {
-            copyStatus.style.display = 'block';
-            setTimeout(() => { copyStatus.style.display = 'none'; }, 3000);
-          }
-        }).catch(err => {
-          console.warn("Erro ao copiar chave Pix:", err);
-        });
       };
     }
   }
