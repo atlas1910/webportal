@@ -27,7 +27,7 @@
   --accent-contrast: #09090b;
   --map-bg: #05070a;
 
-  --attr-bg: rgba(17, 17, 20, 0.92);
+  --attr-bg: rgba(17, 17, 20, 0.94);
   --attr-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
 
   --badge-bg: #ffffff;
@@ -36,6 +36,13 @@
   --toggle-btn-bg: #26262a;
   --toggle-btn-text: #f4f4f5;
   --toggle-btn-border: #3f3f46;
+
+  /* Botão proeminente de contraste inverso (Modo Escuro: Branco Sólido com Texto Preto) */
+  --prominent-btn-bg: #ffffff;
+  --prominent-btn-text: #09090b;
+  --prominent-btn-border: #ffffff;
+  --prominent-btn-hover-bg: #c8aa6e;
+  --prominent-btn-hover-text: #000000;
 
   --logo-src: url('../assets/logo-dark.png');
 }
@@ -60,7 +67,7 @@ body[data-theme="light"] {
   --accent-contrast: #ffffff;
   --map-bg: #e5e7eb;
 
-  --attr-bg: rgba(255, 255, 255, 0.94);
+  --attr-bg: rgba(255, 255, 255, 0.96);
   --attr-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
 
   --badge-bg: #000000;
@@ -69,6 +76,13 @@ body[data-theme="light"] {
   --toggle-btn-bg: #f1f3f5;
   --toggle-btn-text: #09090b;
   --toggle-btn-border: #d1d5db;
+
+  /* Botão proeminente de contraste inverso (Modo Claro: Preto Sólido com Texto Branco) */
+  --prominent-btn-bg: #09090b;
+  --prominent-btn-text: #ffffff;
+  --prominent-btn-border: #09090b;
+  --prominent-btn-hover-bg: #946f25;
+  --prominent-btn-hover-text: #ffffff;
 
   --logo-src: url('../assets/logo-light.png');
 }
@@ -174,7 +188,7 @@ html, body {
    CABEÇALHO DA BARRA LATERAL
    ========================================================================== */
 .app-header {
-  padding: 20px 22px 16px;
+  padding: 20px 22px 14px;
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
   transition: border-color 0.25s ease;
@@ -291,8 +305,8 @@ html, body {
   background-color: var(--panel-hover);
 }
 .icon-btn.sm {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   border-radius: 6px;
   font-size: 13px;
 }
@@ -302,37 +316,76 @@ html, body {
   display: none;
 }
 
-/* Botão de recolher no desktop */
-.btn-collapse-desktop {
-  display: inline-flex;
+/* --------------------------------------------------------------------------
+   BARRA PROEMINENTE DE OCULTAR PAINEL (CONTRASTE INVERTIDO)
+   Destaque total para facilitar para os usuários
+   -------------------------------------------------------------------------- */
+.sidebar-collapse-container {
+  padding: 10px 22px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--panel-2);
+  flex-shrink: 0;
+}
+
+.btn-prominent-collapse {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background-color: var(--prominent-btn-bg);
+  color: var(--prominent-btn-text);
+  border: 1.5px solid var(--prominent-btn-border);
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  user-select: none;
+}
+.btn-prominent-collapse:hover {
+  background-color: var(--prominent-btn-hover-bg);
+  color: var(--prominent-btn-hover-text);
+  border-color: var(--prominent-btn-hover-bg);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+.collapse-icon {
+  font-size: 11px;
 }
 
 /* --------------------------------------------------------------------------
-   BOTÃO DE EXPANDIR SIDEBAR (DESKTOP)
-   Posicionado abaixo dos controles de zoom da Leaflet
+   BOTÃO DE EXPANDIR SIDEBAR NO MAPA (DESKTOP)
+   Contraste Inverso idêntico ao botão de recolher
    -------------------------------------------------------------------------- */
 .btn-sidebar-expand {
   position: absolute;
   top: 86px;
   left: 12px;
   z-index: 900;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 8px 14px;
+  background-color: var(--prominent-btn-bg);
+  color: var(--prominent-btn-text);
+  border: 1.5px solid var(--prominent-btn-border);
+  border-radius: 24px;
+  padding: 9px 18px;
   font-family: var(--font-display);
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--text);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   opacity: 0;
   pointer-events: none;
   transform: translateX(-12px);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
 }
 .btn-sidebar-expand.visible {
   opacity: 1;
@@ -340,13 +393,14 @@ html, body {
   transform: translateX(0);
 }
 .btn-sidebar-expand:hover {
-  border-color: var(--border-focus);
-  background-color: var(--panel-hover);
+  background-color: var(--prominent-btn-hover-bg);
+  color: var(--prominent-btn-hover-text);
+  border-color: var(--prominent-btn-hover-bg);
   transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 .expand-icon {
   font-size: 10px;
-  color: var(--corinthians-gold);
 }
 
 /* ==========================================================================
@@ -632,31 +686,64 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-/* Marcadores Personalizados com Imagem */
+/* Marcadores Personalizados com Escudo */
 .custom-image-marker {
-  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
 }
 .custom-image-marker:hover {
-  transform: scale(1.22);
-  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.7));
+  transform: scale(1.35);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.75));
+  z-index: 1000 !important;
 }
 
 /* --------------------------------------------------------------------------
-   PAINEL DE ATRIBUTOS FLUTUANTE
+   PAINEL DE ATRIBUTOS (INSPEÇÃO ESPACIAL) — MINIMIZADO E COMPACTO
    -------------------------------------------------------------------------- */
-.attr-panel {
+
+/* Botão flutuante para reabrir a Inspeção Espacial */
+.btn-attr-toggle {
   position: absolute;
-  bottom: 24px;
-  right: 24px;
-  width: 320px;
-  max-height: 48vh;
-  display: flex;
-  flex-direction: column;
+  bottom: 20px;
+  right: 20px;
+  z-index: 900;
   background: var(--attr-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.btn-attr-toggle:hover {
+  border-color: var(--border-focus);
+  background-color: var(--panel-hover);
+  transform: translateY(-1px);
+}
+
+/* Painel de Atributos Compacto */
+.attr-panel {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 285px;
+  max-height: 38vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--attr-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--attr-shadow);
@@ -666,7 +753,7 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
 }
 
 .attr-header {
-  padding: 12px 14px;
+  padding: 9px 12px;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -677,7 +764,7 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
 
 .attr-tag {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 8.5px;
   letter-spacing: 0.05em;
   color: var(--corinthians-gold);
   font-weight: 700;
@@ -685,14 +772,18 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
 
 .attr-header h3 {
   font-family: var(--font-display);
-  font-size: 13.5px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--text);
-  margin-top: 2px;
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 210px;
 }
 
 .attr-search-box {
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -701,38 +792,39 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   background: var(--panel-2);
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 6px 8px;
-  font-size: 11px;
+  padding: 5px 8px;
+  font-size: 10.5px;
   color: var(--text);
   outline: none;
 }
 .attr-search-box input:focus { border-color: var(--border-focus); }
 
 .attr-content {
-  padding: 12px 14px;
+  padding: 10px 12px;
   overflow-y: auto;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .attr-hint {
   color: var(--text-dim);
-  line-height: 1.5;
-  font-size: 11.5px;
+  line-height: 1.45;
+  font-size: 11px;
 }
 
 .attr-row {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
-  padding: 6px 0;
+  gap: 10px;
+  padding: 5px 0;
   border-top: 1px solid var(--border-subtle);
 }
 .attr-row:first-child { border-top: none; }
 
 .attr-key {
   color: var(--text-dim);
-  font-size: 11px;
+  font-size: 10.5px;
   text-transform: capitalize;
+  flex-shrink: 0;
 }
 
 .attr-val {
@@ -740,9 +832,11 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   color: var(--text);
   text-align: right;
   word-break: break-word;
-  max-width: 65%;
+  max-width: 70%;
   -webkit-user-select: text;
   user-select: text;
+  font-size: 11px;
+  line-height: 1.35;
 }
 
 /* ==========================================================================
@@ -824,7 +918,7 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   }
 
   .drawer-handle-bar { display: flex; }
-  .btn-collapse-desktop { display: none !important; }
+  .sidebar-collapse-container { display: none !important; }
   .btn-close-mobile { display: inline-flex !important; }
   .btn-sidebar-expand { display: none !important; }
 
@@ -835,7 +929,7 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   .site-logo { height: 30px; }
   .portal-title { font-size: 15px; }
   .portal-sub { font-size: 10px; }
-  .portal-intro { display: none; } /* Oculta descrição para economizar espaço vertical */
+  .portal-intro { display: none; }
 
   .section { padding: 12px 16px; }
 
@@ -880,13 +974,20 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
     border-radius: 16px;
   }
 
-  /* Painel de atributos em mobile */
+  /* Painel de atributos em mobile: compacto e acima da navegação */
+  .btn-attr-toggle {
+    bottom: 68px;
+    right: 12px;
+    padding: 6px 12px;
+    font-size: 10.5px;
+  }
+
   .attr-panel {
-    top: 56px;
-    bottom: auto;
+    top: auto;
+    bottom: 68px;
     left: 10px;
     right: 10px;
     width: auto;
-    max-height: 38vh;
+    max-height: 30vh;
   }
 }

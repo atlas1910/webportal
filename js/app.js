@@ -122,10 +122,10 @@
 
     return L.geoJSON(geojson, {
       pointToLayer: function(feature, latlng) {
-        // Suporte a Simbologia com Imagem Personalizada (PNG, SVG, WebP)
+        // Suporte ao Escudo do Corinthians ou Imagem Personalizada
         const iconPath = (feature.properties && (feature.properties.icone || feature.properties.icon || feature.properties.imagem_marcador)) || layerConfig.icone;
         if (iconPath) {
-          const size = layerConfig.tamanhoIcone || [30, 30];
+          const size = layerConfig.tamanhoIcone || [22, 22];
           return L.marker(latlng, {
             icon: L.icon({
               iconUrl: iconPath,
@@ -157,7 +157,7 @@
             opacity: opacity
           });
         }
-        // Círculo preenchido
+        // Círculo preenchido padrão
         return L.circleMarker(latlng, {
           radius: 7,
           fillColor: color,
@@ -197,6 +197,9 @@
     let totalActive = 0;
 
     CATALOGO_TEMAS.forEach(tema => {
+      // Se não houver camadas no tema, pula ou não renderiza detalhes vazios
+      if (!tema.camadas || tema.camadas.length === 0) return;
+
       const details = document.createElement('details');
       details.className = 'theme-card';
       details.open = true;
@@ -244,10 +247,11 @@
   }
 
   /* ==========================================================================
-     5. FICHA DE ATRIBUTOS FLUTUANTE
+     5. FICHA DE ATRIBUTOS FLUTUANTE (INSPEÇÃO ESPACIAL)
      ========================================================================== */
   function showFeatureAttributes(layerName, props) {
     const panel = document.getElementById('attr-panel');
+    const toggleBtn = document.getElementById('btn-attr-toggle');
     const titleEl = document.getElementById('attr-layer-name');
     const searchInput = document.getElementById('attr-search-input');
 
@@ -258,16 +262,22 @@
     if (searchInput) searchInput.value = '';
 
     renderAttributesList(currentSelectedFeatureProps, '');
+    
+    // Abre a ficha e oculta o botão flutuante de reabertura
     panel.style.display = 'flex';
+    if (toggleBtn) toggleBtn.style.display = 'none';
   }
 
   function renderAttributesList(props, filterText) {
     const bodyEl = document.getElementById('attr-body');
     if (!bodyEl) return;
 
-    const entries = Object.entries(props || {});
+    // Ignora colunas técnicas internas do QGIS/KML se existirem
+    const ignoredKeys = new Set(['altitudeMo', 'tessellate', 'extrude', 'visibility', 'drawOrder', 'icon', 'fid', 'id']);
+    
+    const entries = Object.entries(props || {}).filter(([k]) => !ignoredKeys.has(k));
     if (entries.length === 0) {
-      bodyEl.innerHTML = '<div class="attr-hint">Nenhum atributo registrado para esta feição.</div>';
+      bodyEl.innerHTML = '<div class="attr-hint">Nenhum detalhe adicional registrado para este ponto.</div>';
       return;
     }
 
@@ -278,21 +288,33 @@
     });
 
     if (filtered.length === 0) {
-      bodyEl.innerHTML = '<div class="attr-hint">Nenhum atributo corresponde ao filtro.</div>';
+      bodyEl.innerHTML = '<div class="attr-hint">Nenhum dado corresponde ao filtro digitado.</div>';
       return;
     }
 
     const html = filtered.map(([key, val]) => {
       const cleanKey = key.replace(/_/g, ' ');
+      const cleanVal = formatAttributeValue(val);
       return `
         <div class="attr-row">
           <span class="attr-key">${escapeHtml(cleanKey)}</span>
-          <span class="attr-val">${escapeHtml(String(val))}</span>
+          <span class="attr-val">${cleanVal}</span>
         </div>
       `;
     }).join('');
 
     bodyEl.innerHTML = html;
+  }
+
+  function formatAttributeValue(val) {
+    if (val === null || val === undefined) return '';
+    let str = String(val);
+    // Converte <br> em quebras de linha limpas
+    str = str.replace(/<br\s*\/?>/gi, '\n');
+    // Remove outras tags HTML
+    str = str.replace(/<\/?[^>]+(>|$)/g, '');
+    // Faz o escape de segurança e reintroduz quebra de linha visual
+    return escapeHtml(str).replace(/\n/g, '<br>');
   }
 
   /* ==========================================================================
@@ -309,11 +331,13 @@
       totalFeatures += loadedLayers[k].count || 0;
     });
 
+    const activeThemes = CATALOGO_TEMAS.filter(t => t.camadas && t.camadas.length > 0).length;
+
     const stats = [
       { label: 'Camadas do Acervo', value: layerKeys.length },
       { label: 'Feições Cartográficas', value: totalFeatures.toLocaleString('pt-BR') },
-      { label: 'Temáticas Disponíveis', value: (typeof CATALOGO_TEMAS !== 'undefined' ? CATALOGO_TEMAS.length : 3) },
-      { label: 'Foco Geográfico', value: 'SP & Brasil' }
+      { label: 'Temáticas Disponíveis', value: activeThemes },
+      { label: 'Foco Geográfico', value: 'SP, Brasil & Mundo' }
     ];
 
     container.innerHTML = stats.map(s => `
@@ -516,16 +540,35 @@
       }
     });
 
-    // Painel de Atributos
-    document.getElementById('attr-close-btn').onclick = () => {
-      document.getElementById('attr-panel').style.display = 'none';
-    };
+    // Painel de Atributos (Inspeção Espacial)
+    const attrPanel = document.getElementById('attr-panel');
+    const attrToggleBtn = document.getElementById('btn-attr-toggle');
+    const attrCloseBtn = document.getElementById('attr-close-btn');
 
-    document.getElementById('attr-search-input').oninput = (e) => {
-      if (currentSelectedFeatureProps) {
-        renderAttributesList(currentSelectedFeatureProps, e.target.value);
-      }
-    };
+    // Minimizar / Fechar ficha
+    if (attrCloseBtn) {
+      attrCloseBtn.onclick = () => {
+        attrPanel.style.display = 'none';
+        if (attrToggleBtn) attrToggleBtn.style.display = 'inline-flex';
+      };
+    }
+
+    // Reabrir ficha minimizada pelo botão flutuante
+    if (attrToggleBtn) {
+      attrToggleBtn.onclick = () => {
+        attrPanel.style.display = 'flex';
+        attrToggleBtn.style.display = 'none';
+      };
+    }
+
+    const searchInput = document.getElementById('attr-search-input');
+    if (searchInput) {
+      searchInput.oninput = (e) => {
+        if (currentSelectedFeatureProps) {
+          renderAttributesList(currentSelectedFeatureProps, e.target.value);
+        }
+      };
+    }
   }
 
   function escapeHtml(str) {

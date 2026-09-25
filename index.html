@@ -49,10 +49,6 @@
             <button id="btn-theme-toggle" class="btn-theme-toggle" title="Alternar modo visual">
               <span class="theme-label">Modo 🏳️</span>
             </button>
-            <!-- Botão para recolher a sidebar no desktop -->
-            <button id="btn-sidebar-collapse" class="icon-btn btn-collapse-desktop" title="Recolher painel de camadas">
-              ◀
-            </button>
             <!-- Botão para fechar o painel gaveta no mobile -->
             <button id="btn-mobile-close" class="icon-btn btn-close-mobile" title="Fechar painel">
               ✕
@@ -60,9 +56,17 @@
           </div>
         </div>
         <p class="portal-intro">
-          Explore a geografia corinthiana: estádios, sedes históricas, subsedes de torcidas e a mobilidade urbana de São Paulo.
+          Explore a geografia corinthiana: estádios, campos históricos e a memória do Time do Povo em São Paulo e pelo mundo.
         </p>
       </header>
+
+      <!-- BARRA DE DESTAQUE: OCULTAR PAINEL (Contraste Invertido) -->
+      <div class="sidebar-collapse-container">
+        <button id="btn-sidebar-collapse" class="btn-prominent-collapse" title="Ocultar painel do acervo para expandir o mapa">
+          <span class="collapse-icon">◀</span>
+          <span class="collapse-text">OCULTAR PAINEL DO ACERVO</span>
+        </button>
+      </div>
 
       <!-- Conteúdo rolável da barra lateral -->
       <div class="sidebar-scrollable">
@@ -102,10 +106,10 @@
     <main id="map-container">
       <div id="map"></div>
 
-      <!-- Botão para expandir a sidebar quando recolhida (desktop) -->
-      <button id="btn-sidebar-expand" class="btn-sidebar-expand" title="Expandir painel de camadas">
+      <!-- Botão para expandir a sidebar quando recolhida (desktop) com Contraste Invertido -->
+      <button id="btn-sidebar-expand" class="btn-sidebar-expand" title="Mostrar painel de camadas">
         <span class="expand-icon">▶</span>
-        <span class="expand-label">Camadas do Acervo</span>
+        <span class="expand-label">MOSTRAR PAINEL DO ACERVO</span>
       </button>
 
       <!-- ═══ MAPAS BASE FLUTUANTES (Canto Superior Direito — Horizontal) ═══ -->
@@ -113,20 +117,27 @@
         <!-- Botões dos Basemaps gerados via js/basemaps.js -->
       </nav>
 
-      <!-- Ficha de Atributos Flutuante -->
-      <div id="attr-panel" class="attr-panel">
+      <!-- Botão flutuante para reabrir a Inspeção Espacial (quando minimizada) -->
+      <button id="btn-attr-toggle" class="btn-attr-toggle" title="Abrir ficha de inspeção espacial">
+        📍 Inspeção Espacial
+      </button>
+
+      <!-- Ficha de Atributos Flutuante (Inicia minimizada, abre ao clicar no botão ou no ponto) -->
+      <div id="attr-panel" class="attr-panel" style="display: none;">
         <div class="attr-header">
           <div class="attr-title-box">
             <span class="attr-tag">INSPEÇÃO ESPACIAL</span>
             <h3 id="attr-layer-name">Ficha de Atributos</h3>
           </div>
-          <button id="attr-close-btn" class="icon-btn sm" title="Fechar">&times;</button>
+          <div class="attr-header-actions">
+            <button id="attr-close-btn" class="icon-btn sm" title="Minimizar ficha">&times;</button>
+          </div>
         </div>
         <div class="attr-search-box">
-          <input type="text" id="attr-search-input" placeholder="Filtrar informações..." />
+          <input type="text" id="attr-search-input" placeholder="Filtrar dados..." />
         </div>
         <div class="attr-content" id="attr-body">
-          <div class="attr-hint">Clique em qualquer ponto, linha ou área no mapa para visualizar sua ficha histórica e atributos.</div>
+          <div class="attr-hint">Clique em qualquer estádio ou ponto no mapa para visualizar sua ficha histórica.</div>
         </div>
       </div>
     </main>

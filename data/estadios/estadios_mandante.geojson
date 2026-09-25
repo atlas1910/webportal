@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "estadios_mandante",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Neo Química Arena", "Ano": "2014 até hoje", "Estadio": "Arena Corinthians" }, "geometry": { "type": "Point", "coordinates": [ -46.4742608, -23.5453223 ] } },
+{ "type": "Feature", "properties": { "Name": "Campo da Ponte Grande", "Ano": "1918 a 1927", "Estadio": "Campo da Ponte Grande" }, "geometry": { "type": "Point", "coordinates": [ -46.6284262, -23.52093 ] } },
+{ "type": "Feature", "properties": { "Name": "Campo do Lenheiro", "Ano": "1910 a 1912", "Estadio": "Campo do Lenheiro" }, "geometry": { "type": "Point", "coordinates": [ -46.6383658, -23.5312829 ] } },
+{ "type": "Feature", "properties": { "Name": "Estádio do Pacaembu", "Ano": "1940 a 2014", "Estadio": "Estádio do Pacaembu" }, "geometry": { "type": "Point", "coordinates": [ -46.6652719, -23.5485893 ] } },
+{ "type": "Feature", "properties": { "Name": "Parque São jorge", "Ano": "1928 a 1940", "Estadio": "Parque São Jorge (Fazendinha)" }, "geometry": { "type": "Point", "coordinates": [ -46.5685237, -23.5268413 ] } }
+]
+}
