@@ -10,15 +10,22 @@ const BasemapManager = (function() {
   let activeBasemapName = "Esri Escuro";
   let activeTileLayer = null;
 
-  // Definição dos mapas base oficiais 100% gratuitos e de alta disponibilidade
+  // Definição dos mapas base oficiais 100% gratuitos e de alta disponibilidade com sincronização de zoom
   function createBasemapLayers() {
+    const tileOptions = {
+      maxZoom: 19,
+      keepBuffer: 8,
+      updateWhenIdle: true,
+      updateWhenZooming: false
+    };
+
     return {
       "Esri Escuro": {
         label: "🌙 Escuro",
         title: "Modo Escuro (Esri Dark Canvas)",
         layer: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
           attribution: '&copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-          maxZoom: 19
+          ...tileOptions
         })
       },
       "Esri Claro": {
@@ -26,7 +33,7 @@ const BasemapManager = (function() {
         title: "Modo Claro (Esri Light Canvas)",
         layer: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
           attribution: '&copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-          maxZoom: 19
+          ...tileOptions
         })
       },
       "Satélite": {
@@ -34,7 +41,7 @@ const BasemapManager = (function() {
         title: "Fotografia Aérea e Satélite (Esri World Imagery)",
         layer: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
           attribution: '&copy; Esri, Maxar, Earthstar Geographics',
-          maxZoom: 19
+          ...tileOptions
         })
       },
       "Ruas (OSM)": {
@@ -43,7 +50,7 @@ const BasemapManager = (function() {
         layer: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           subdomains: 'abc',
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-          maxZoom: 19
+          ...tileOptions
         })
       }
     };

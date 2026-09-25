@@ -61,6 +61,38 @@ def sync_estadios():
                 print(f" -> Gerado {os.path.basename(out_path)} ({len(gdf)} estadios no mundo)")
             break
 
+def sync_brabas():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    brabas_dir = os.path.join(base_dir, "data", "as_brabas")
+    gpkg_brabas = os.path.join(brabas_dir, "AS_BRABAS.gpkg")
+
+    if os.path.exists(gpkg_brabas):
+        print(f"Sincronizando {os.path.basename(gpkg_brabas)}...")
+        layers = pyogrio.list_layers(gpkg_brabas)
+        layer_names = [l[0] for l in layers]
+
+        # 1. Jogos consolidado
+        gdfs = []
+        for lyr in ["Ate_2016", "Depois_da_reativacao"]:
+            if lyr in layer_names:
+                gdf = gpd.read_file(gpkg_brabas, layer=lyr)
+                gdfs.append(gdf)
+        if gdfs:
+            all_jogos = pd.concat(gdfs, ignore_index=True)
+            all_jogos = gpd.GeoDataFrame(all_jogos, geometry="geometry", crs="EPSG:4326")
+            out_jogos = os.path.join(brabas_dir, "as_brabas_jogos.geojson")
+            all_jogos.to_file(out_jogos, driver="GeoJSON")
+            print(f" -> Gerado {os.path.basename(out_jogos)} ({len(all_jogos)} jogos)")
+
+        # 2. Estadios consolidado
+        if "Estadios_As_Brabas" in layer_names:
+            gdf_est = gpd.read_file(gpkg_brabas, layer="Estadios_As_Brabas")
+            gdf_est = gpd.GeoDataFrame(gdf_est, geometry="geometry", crs="EPSG:4326")
+            out_est = os.path.join(brabas_dir, "as_brabas_estadios.geojson")
+            gdf_est.to_file(out_est, driver="GeoJSON")
+            print(f" -> Gerado {os.path.basename(out_est)} ({len(gdf_est)} estádios)")
+
 if __name__ == "__main__":
     sync_estadios()
+    sync_brabas()
     print("Sincronização concluída com sucesso!")

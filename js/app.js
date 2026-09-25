@@ -22,11 +22,16 @@
     const savedTheme = localStorage.getItem('atlas1910_theme') || "dark";
     applyTheme(savedTheme, false);
 
-    // 2. Criar mapa Leaflet otimizado com preferCanvas ativado
+    // 2. Criar mapa Leaflet otimizado com preferCanvas e sincronização total de zoom
     map = L.map('map', {
       zoomControl: true,
       attributionControl: true,
-      preferCanvas: true
+      preferCanvas: true,
+      zoomAnimation: true,
+      markerZoomAnimation: true,
+      fadeAnimation: true,
+      wheelPxPerZoomLevel: 120,
+      wheelDebounceTime: 25
     }).setView([-23.5505, -46.6333], 9);
 
     // 3. Inicializar Mapas Base sincronizados com o tema atual
@@ -398,6 +403,18 @@
       logoImg.src = theme === "dark" ? "assets/logo-dark.png" : "assets/logo-light.png";
     }
 
+    // Atualiza logo das Brabas de acordo com o modo visual:
+    // Fundo branco (Modo 🏳️): imagem com letras roxas escuras (brabas-light.png)
+    // Fundo preto (Modo 🏴): imagem com letras brancas com contorno roxo (brabas-dark.png)
+    const brabasImg = document.getElementById('brabas-icon-img');
+    if (brabasImg) {
+      brabasImg.src = theme === "dark" ? "assets/brabas-dark.png" : "assets/brabas-light.png";
+    }
+    const floatingBrabasImg = document.getElementById('floating-brabas-img');
+    if (floatingBrabasImg) {
+      floatingBrabasImg.src = theme === "dark" ? "assets/brabas-dark.png" : "assets/brabas-light.png";
+    }
+
     // Atualiza ícones com suporte a variantes claro/escuro (ex: campos mandante)
     updateThemedIcons(theme);
 
@@ -593,6 +610,39 @@
         if (currentSelectedFeatureProps) {
           renderAttributesList(currentSelectedFeatureProps, e.target.value);
         }
+      };
+    }
+
+    // Painel Flutuante Colabore com o Projeto (Canto Inferior Esquerdo)
+    const colaboreToggleBtn = document.getElementById('btn-colabore-toggle');
+    const colaborePanel = document.getElementById('colabore-panel');
+    const colaboreCloseBtn = document.getElementById('colabore-close-btn');
+    const copyPixBtn = document.getElementById('btn-copy-pix');
+    const copyStatus = document.getElementById('copy-status');
+
+    if (colaboreToggleBtn && colaborePanel) {
+      colaboreToggleBtn.onclick = () => {
+        const isHidden = colaborePanel.style.display === 'none' || !colaborePanel.style.display;
+        colaborePanel.style.display = isHidden ? 'flex' : 'none';
+      };
+    }
+
+    if (colaboreCloseBtn && colaborePanel) {
+      colaboreCloseBtn.onclick = () => {
+        colaborePanel.style.display = 'none';
+      };
+    }
+
+    if (copyPixBtn) {
+      copyPixBtn.onclick = () => {
+        navigator.clipboard.writeText("1910atlas@gmail.com").then(() => {
+          if (copyStatus) {
+            copyStatus.style.display = 'block';
+            setTimeout(() => { copyStatus.style.display = 'none'; }, 3000);
+          }
+        }).catch(err => {
+          console.warn("Erro ao copiar chave Pix:", err);
+        });
       };
     }
   }

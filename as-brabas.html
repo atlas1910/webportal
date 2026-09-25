@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATLAS1910 — Acervo Cartográfico do Corinthians</title>
+  <title>ATLAS1910 — As Brabas (Futebol Feminino do Corinthians)</title>
   <!-- Metadados e URL Oficial -->
-  <link rel="canonical" href="https://atlas1910.vercel.app/">
-  <meta name="description" content="Acervo Cartográfico do Sport Club Corinthians Paulista. Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.">
-  <meta property="og:title" content="ATLAS1910 — Acervo Cartográfico do Corinthians">
-  <meta property="og:description" content="Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.">
-  <meta property="og:url" content="https://atlas1910.vercel.app/">
+  <link rel="canonical" href="https://atlas1910.vercel.app/as-brabas.html">
+  <meta name="description" content="Acervo Histórico e Cartográfico do Futebol Feminino do Sport Club Corinthians Paulista — As Brabas. Mapeamento de estádios, jogos, placares e títulos.">
+  <meta property="og:title" content="ATLAS1910 — As Brabas (Corinthians Feminino)">
+  <meta property="og:description" content="A história espacial das Brabas: títulos da Libertadores, Brasileirão, Paulistão e todos os estádios percorridos.">
+  <meta property="og:url" content="https://atlas1910.vercel.app/as-brabas.html">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
@@ -26,7 +26,7 @@
 <body data-theme="dark">
   <div id="app">
 
-    <!-- ═══ BARRA LATERAL DO ACERVO ═══ -->
+    <!-- ═══ BARRA LATERAL DO ACERVO DAS BRABAS ═══ -->
     <aside id="sidebar" class="mobile-hidden">
 
       <!-- Alça de arrastar para visual mobile -->
@@ -37,75 +37,102 @@
       <header class="app-header">
         <div class="logo-row">
           <div class="brand">
-            <!-- Logotipo adaptado ao tema (dark / light) -->
             <img id="site-logo" class="site-logo" src="assets/logo-dark.png" alt="ATLAS1910">
             <div class="brand-text">
-              <h1 class="portal-title">ATLAS1910</h1>
-              <p class="portal-sub">Acervo Cartográfico do Corinthians</p>
+              <h1 class="portal-title">AS BRABAS</h1>
+              <p class="portal-sub">Corinthians Feminino Histórico</p>
             </div>
           </div>
           <div class="header-tools">
-            <!-- Botão de alternância de tema (Modo 🏴 / Modo 🏳️) -->
             <button id="btn-theme-toggle" class="btn-theme-toggle" title="Alternar modo visual">
               <span class="theme-label">Modo 🏳️</span>
             </button>
-            <!-- Botão para fechar o painel gaveta no mobile -->
             <button id="btn-mobile-close" class="icon-btn btn-close-mobile" title="Fechar painel">
               ✕
             </button>
           </div>
         </div>
-        <p class="portal-intro">
-          Explore a geografia corinthiana: estádios, campos históricos e a memória do Time do Povo em São Paulo e pelo mundo.
-        </p>
 
-        <!-- Botão Seção Especial As Brabas -->
+        <!-- Botão Voltar para a Home (Na mesma posição e com o mesmo ícone temático dinâmico) -->
         <div class="section-switch-container">
-          <a href="as-brabas.html" id="btn-section-nav" class="btn-section-nav brabas-mode" title="Ir para a seção exclusiva do Futebol Feminino">
+          <a href="index.html" id="btn-section-nav" class="btn-section-nav home-mode" title="Voltar para a página principal">
             <img id="brabas-icon-img" class="brabas-nav-img" src="assets/brabas-dark.png" alt="As Brabas">
             <span class="nav-text-group">
-              <span class="nav-title">AS BRABAS</span>
-              <span class="nav-subtitle">Futebol Feminino Histórico &rarr;</span>
+              <span class="nav-title">VOLTAR PARA A HOME</span>
+              <span class="nav-subtitle">&larr; Acervo Geral ATLAS1910</span>
             </span>
           </a>
         </div>
+
+        <p class="portal-intro">
+          O maior projeto do futebol feminino sul-americano: do pioneirismo em 1997 à dinastia histórica multicampeã a partir da reativação em 2016.
+        </p>
       </header>
 
-      <!-- BARRA DE DESTAQUE: OCULTAR PAINEL (Contraste Invertido) -->
+      <!-- BARRA DE DESTAQUE: OCULTAR PAINEL -->
       <div class="sidebar-collapse-container">
-        <button id="btn-sidebar-collapse" class="btn-prominent-collapse" title="Ocultar painel do acervo para expandir o mapa">
+        <button id="btn-sidebar-collapse" class="btn-prominent-collapse" title="Ocultar painel para expandir o mapa">
           <span class="collapse-icon">◀</span>
-          <span class="collapse-text">OCULTAR PAINEL DO ACERVO</span>
+          <span class="collapse-text">OCULTAR PAINEL DAS BRABAS</span>
         </button>
       </div>
 
       <!-- Conteúdo rolável da barra lateral -->
       <div class="sidebar-scrollable">
-        <!-- Seção: Camadas e Temáticas -->
+        <!-- Seção: Filtros Interativos das Brabas -->
         <section class="section">
           <div class="section-header">
-            <span class="section-title">TEMÁTICAS & CAMADAS</span>
-            <span class="badge-count" id="active-layer-count">0 ativas</span>
+            <span class="section-title">FILTROS ESPACIAIS & TEMPORAIS</span>
+            <span class="badge-count" id="filtered-stadium-count">Carregando...</span>
           </div>
-          <div id="theme-list" class="theme-list">
-            <!-- Temas e camadas injetados via js/camadas.js -->
+          <div class="theme-card" style="padding: 12px; margin-bottom: 12px;">
+            <div class="filter-group">
+              <label class="filter-label" for="filter-era">Período / Era:</label>
+              <select id="filter-era" class="filter-select">
+                <option value="todas">Todas as Eras (1997 - Presente)</option>
+                <option value="depois_2016" selected>Depois da Reativação (2016-Presente)</option>
+                <option value="ate_2016">Até 2016 (Era Pioneira)</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label" for="filter-comp">Competição:</label>
+              <select id="filter-comp" class="filter-select">
+                <option value="todas">Todas as Competições</option>
+                <option value="LIBERTADORES">Copa Libertadores</option>
+                <option value="BRASILEIRO">Campeonato Brasileiro</option>
+                <option value="COPA DO BRASIL">Copa do Brasil</option>
+                <option value="PAULISTA">Campeonato Paulista</option>
+                <option value="SUPERCOPA">Supercopa do Brasil</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label" for="filter-mando">Mando de Campo:</label>
+              <select id="filter-mando" class="filter-select">
+                <option value="todos">Todos os Mandos</option>
+                <option value="mandante">Corinthians Mandante</option>
+                <option value="visitante">Corinthians Visitante</option>
+                <option value="neutro">Campo Neutro / Torneio</option>
+              </select>
+            </div>
           </div>
         </section>
 
-        <!-- Seção: Estatísticas do Acervo -->
+        <!-- Seção: Estatísticas Históricas das Brabas -->
         <section class="section">
           <div class="section-header">
-            <span class="section-title">ESTATÍSTICAS DO ACERVO</span>
+            <span class="section-title">DINASTIA DAS BRABAS</span>
           </div>
-          <div class="stats-grid" id="stats-grid">
-            <!-- Estatísticas geradas dinamicamente -->
+          <div class="stats-grid" id="brabas-stats-grid">
+            <!-- Estatísticas injetadas dinamicamente via brabas.js -->
           </div>
         </section>
 
         <!-- Rodapé -->
         <footer class="app-footer">
-          <div><strong>ATLAS1910</strong> · Todos os direitos reservados</div>
-          <div class="footer-sub">Mapeamento temático e espacial elaborado no QGIS</div>
+          <div><strong>ATLAS1910 — AS BRABAS</strong> · Base oficial Daniel Keppler</div>
+          <div class="footer-sub">Compilado em GeoPackage WGS84 para WebGIS e QGIS</div>
         </footer>
       </div>
     </aside>
@@ -117,38 +144,35 @@
     <main id="map-container">
       <div id="map"></div>
 
-      <!-- Botão para expandir a sidebar quando recolhida (desktop) com Contraste Invertido -->
-      <button id="btn-sidebar-expand" class="btn-sidebar-expand" title="Mostrar painel de camadas">
+      <!-- Botão para expandir a sidebar quando recolhida (desktop) -->
+      <button id="btn-sidebar-expand" class="btn-sidebar-expand" title="Mostrar painel das Brabas">
         <span class="expand-icon">▶</span>
-        <span class="expand-label">MOSTRAR PAINEL DO ACERVO</span>
+        <span class="expand-label">MOSTRAR PAINEL DAS BRABAS</span>
       </button>
 
-      <!-- ═══ MAPAS BASE FLUTUANTES (Canto Superior Direito — Horizontal) ═══ -->
+      <!-- ═══ MAPAS BASE FLUTUANTES (Canto Superior Direito) ═══ -->
       <nav id="basemap-bar" class="basemap-floating-bar" role="toolbar" aria-label="Alternar Mapa de Fundo">
-        <!-- Botões dos Basemaps gerados via js/basemaps.js -->
+        <!-- Gerado via basemaps.js -->
       </nav>
 
       <!-- Botão flutuante para reabrir a Inspeção Espacial (quando minimizada) -->
-      <button id="btn-attr-toggle" class="btn-attr-toggle" title="Abrir ficha de inspeção espacial">
+      <button id="btn-attr-toggle" class="btn-attr-toggle" title="Abrir ficha de inspeção do estádio">
         📍 Inspeção Espacial
       </button>
 
-      <!-- Ficha de Atributos Flutuante (Inicia minimizada, abre ao clicar no botão ou no ponto) -->
+      <!-- Ficha de Atributos Flutuante das Brabas -->
       <div id="attr-panel" class="attr-panel" style="display: none;">
         <div class="attr-header">
           <div class="attr-title-box">
-            <span class="attr-tag">INSPEÇÃO ESPACIAL</span>
-            <h3 id="attr-layer-name">Ficha de Atributos</h3>
+            <span class="attr-tag">FICHA DO ESTÁDIO</span>
+            <h3 id="attr-layer-name">Selecione um Estádio</h3>
           </div>
           <div class="attr-header-actions">
             <button id="attr-close-btn" class="icon-btn sm" title="Minimizar ficha">&times;</button>
           </div>
         </div>
-        <div class="attr-search-box">
-          <input type="text" id="attr-search-input" placeholder="Filtrar dados..." />
-        </div>
         <div class="attr-content" id="attr-body">
-          <div class="attr-hint">Clique em qualquer estádio ou ponto no mapa para visualizar sua ficha histórica.</div>
+          <div class="attr-hint">Clique em qualquer círculo no mapa para inspecionar os jogos das Brabas naquele estádio.</div>
         </div>
       </div>
 
@@ -187,8 +211,8 @@
   </div>
 
   <!-- MOBILE: botão flutuante para mostrar/ocultar o painel -->
-  <button id="btn-mobile-panel" class="btn-mobile-panel" title="Mostrar painel de camadas">
-    ☰ Camadas
+  <button id="btn-mobile-panel" class="btn-mobile-panel" title="Mostrar painel de filtros">
+    ☰ Filtros & Estatísticas
   </button>
 
   <!-- Leaflet JS -->
@@ -196,7 +220,6 @@
 
   <!-- Módulos da Aplicação -->
   <script src="js/basemaps.js"></script>
-  <script src="js/camadas.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/brabas.js"></script>
 </body>
 </html>

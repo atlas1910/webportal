@@ -1,5 +1,9 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/as-brabas", "destination": "/as-brabas.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -24,6 +28,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
         }
       ]
     }
