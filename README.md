@@ -11,11 +11,6 @@ Para evitar que o navegador restrinja o carregamento de arquivos GeoJSON locais 
 1. Dê um duplo clique no arquivo `run_portal.bat`
 2. O servidor iniciará em `http://localhost:8080` e abrirá automaticamente no seu navegador padrão.
 
-*Ou via terminal:*
-```bash
-cd C:\Users\Felipe\.gemini\antigravity\scratch\atlas1910_geoportal
-python -m http.server 8080
-```
 
 ### Opção 2: Abrir Diretamente
 Abra o arquivo `index.html` em qualquer navegador web moderno (Google Chrome, Edge, Firefox, Brave, Safari).
