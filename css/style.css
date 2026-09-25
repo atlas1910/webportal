@@ -88,6 +88,87 @@ body[data-theme="light"] {
 }
 
 /* --------------------------------------------------------------------------
+   TEMA AS BRABAS (ROXO) — MODO 🏴 (DARK ROXO) E MODO 🏳️ (LIGHT ROXO)
+   -------------------------------------------------------------------------- */
+body[data-section="brabas"][data-theme="dark"],
+body.brabas-theme[data-theme="dark"] {
+  --bg: #0b0514;
+  --panel: #130a21;
+  --panel-2: #1b0e2e;
+  --panel-hover: #261440;
+  --border: #381c5a;
+  --border-subtle: #25123d;
+  --border-focus: #a855f7;
+
+  --text: #f5f0ff;
+  --text-muted: #c4b5fd;
+  --text-dim: #8b5cf6;
+
+  --corinthians-gold: #c084fc;
+
+  --accent: #a855f7;
+  --accent-contrast: #ffffff;
+  --map-bg: #07030c;
+
+  --attr-bg: rgba(19, 10, 33, 0.96);
+  --attr-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+
+  --badge-bg: #c084fc;
+  --badge-text: #0b0514;
+
+  --toggle-btn-bg: #261440;
+  --toggle-btn-text: #f5f0ff;
+  --toggle-btn-border: #4c267a;
+
+  --prominent-btn-bg: #c084fc;
+  --prominent-btn-text: #0b0514;
+  --prominent-btn-border: #c084fc;
+  --prominent-btn-hover-bg: #e9d5ff;
+  --prominent-btn-hover-text: #0b0514;
+
+  --logo-src: url('../assets/ATLAS BRABAS 2.png');
+}
+
+body[data-section="brabas"][data-theme="light"],
+body.brabas-theme[data-theme="light"] {
+  --bg: #faf5ff;
+  --panel: #ffffff;
+  --panel-2: #f3e8ff;
+  --panel-hover: #e9d5ff;
+  --border: #d8b4fe;
+  --border-subtle: #ebdcfc;
+  --border-focus: #7c3aed;
+
+  --text: #2e1065;
+  --text-muted: #581c87;
+  --text-dim: #7e22ce;
+
+  --corinthians-gold: #7c3aed;
+
+  --accent: #7c3aed;
+  --accent-contrast: #ffffff;
+  --map-bg: #f3e8ff;
+
+  --attr-bg: rgba(255, 255, 255, 0.96);
+  --attr-shadow: 0 16px 36px rgba(107, 33, 168, 0.15);
+
+  --badge-bg: #7c3aed;
+  --badge-text: #ffffff;
+
+  --toggle-btn-bg: #f3e8ff;
+  --toggle-btn-text: #2e1065;
+  --toggle-btn-border: #c084fc;
+
+  --prominent-btn-bg: #7c3aed;
+  --prominent-btn-text: #ffffff;
+  --prominent-btn-border: #7c3aed;
+  --prominent-btn-hover-bg: #6b21a8;
+  --prominent-btn-hover-text: #ffffff;
+
+  --logo-src: url('../assets/ATLAS BRABAS.png');
+}
+
+/* --------------------------------------------------------------------------
    TIPOGRAFIA & DIMENSÕES
    -------------------------------------------------------------------------- */
 :root {
@@ -1006,11 +1087,9 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
 .leaflet-pane,
 .leaflet-tile-pane,
 .leaflet-marker-pane,
-.leaflet-overlay-pane,
-.leaflet-zoom-animated {
-  transform-origin: 0 0 !important;
-  backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
+.leaflet-overlay-pane {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 .leaflet-tile-container {
   will-change: transform;
@@ -1404,4 +1483,15 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
 }
 .filter-select:focus {
   border-color: #9f7aea;
+}
+
+.footer-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+.footer-link:hover {
+  opacity: 0.8;
 }

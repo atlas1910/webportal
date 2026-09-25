@@ -31,7 +31,7 @@
       markerZoomAnimation: true,
       fadeAnimation: true,
       wheelPxPerZoomLevel: 120,
-      wheelDebounceTime: 25
+      wheelDebounceTime: 40
     }).setView([-23.5505, -46.6333], 9);
 
     // 3. Inicializar Mapas Base sincronizados com o tema atual
@@ -397,22 +397,22 @@
       }
     }
 
-    // Atualiza logotipo: dark usa logo-dark.png, light usa logo-light.png
+    // Atualiza logotipo: dark usa PRETO-TRANSPARENTE.png, light usa BRANCO-TRANSPARENTE.png
     const logoImg = document.getElementById('site-logo');
     if (logoImg) {
-      logoImg.src = theme === "dark" ? "assets/logo-dark.png" : "assets/logo-light.png";
+      logoImg.src = theme === "dark" ? "assets/PRETO-TRANSPARENTE.png" : "assets/BRANCO-TRANSPARENTE.png";
     }
 
     // Atualiza logo das Brabas de acordo com o modo visual:
-    // Fundo branco (Modo 🏳️): imagem com letras roxas escuras (brabas-light.png)
-    // Fundo preto (Modo 🏴): imagem com letras brancas com contorno roxo (brabas-dark.png)
+    // Modo 🏴 (Dark): ATLAS BRABAS 2.png (linhas brancas / contraste no fundo escuro)
+    // Modo 🏳️ (Light): ATLAS BRABAS.png (linhas roxas escuras / contraste no fundo claro)
     const brabasImg = document.getElementById('brabas-icon-img');
     if (brabasImg) {
-      brabasImg.src = theme === "dark" ? "assets/brabas-dark.png" : "assets/brabas-light.png";
+      brabasImg.src = theme === "dark" ? "assets/ATLAS BRABAS 2.png" : "assets/ATLAS BRABAS.png";
     }
     const floatingBrabasImg = document.getElementById('floating-brabas-img');
     if (floatingBrabasImg) {
-      floatingBrabasImg.src = theme === "dark" ? "assets/brabas-dark.png" : "assets/brabas-light.png";
+      floatingBrabasImg.src = theme === "dark" ? "assets/ATLAS BRABAS 2.png" : "assets/ATLAS BRABAS.png";
     }
 
     // Atualiza ícones com suporte a variantes claro/escuro (ex: campos mandante)

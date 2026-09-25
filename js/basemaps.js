@@ -14,14 +14,14 @@ const BasemapManager = (function() {
   function createBasemapLayers() {
     const tileOptions = {
       maxZoom: 19,
-      keepBuffer: 8,
-      updateWhenIdle: true,
-      updateWhenZooming: false
+      keepBuffer: 4,
+      updateWhenIdle: false,
+      updateWhenZooming: true
     };
 
     return {
       "Esri Escuro": {
-        label: "🌙 Escuro",
+        label: "Escuro",
         title: "Modo Escuro (Esri Dark Canvas)",
         layer: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
           attribution: '&copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
@@ -29,7 +29,7 @@ const BasemapManager = (function() {
         })
       },
       "Esri Claro": {
-        label: "☀️ Claro",
+        label: "Claro",
         title: "Modo Claro (Esri Light Canvas)",
         layer: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
           attribution: '&copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
@@ -37,7 +37,7 @@ const BasemapManager = (function() {
         })
       },
       "Satélite": {
-        label: "🛰️ Satélite",
+        label: "Satélite",
         title: "Fotografia Aérea e Satélite (Esri World Imagery)",
         layer: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
           attribution: '&copy; Esri, Maxar, Earthstar Geographics',
@@ -45,7 +45,7 @@ const BasemapManager = (function() {
         })
       },
       "Ruas (OSM)": {
-        label: "🗺️ Ruas",
+        label: "Ruas",
         title: "Vias e Mobilidade (OpenStreetMap)",
         layer: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           subdomains: 'abc',

@@ -2,6 +2,7 @@
  * ==========================================================================
  * ATLAS1910 — AS BRABAS (Futebol Feminino do Corinthians)
  * Módulo Especializado de Mapeamento, Estatísticas e Inspeção Histórica
+ * Mesmos recursos, controles e lógica da Homepage
  * ==========================================================================
  */
 
@@ -10,9 +11,9 @@
 
   let map;
   let currentTheme = "dark";
+  const loadedLayers = {}; // id -> { leafletLayer, data, count, config, themeId }
   let rawJogos = [];
   let rawEstadios = [];
-  let currentMarkersLayer = null;
   let activeEra = "todas";
   let activeCompeticao = "todas";
   let activeMando = "todos";
@@ -24,7 +25,7 @@
     const savedTheme = localStorage.getItem('atlas1910_theme') || "dark";
     applyTheme(savedTheme, false);
 
-    // Mapa otimizado com sincronização total de zoom
+    // Mapa otimizado com sincronização total de zoom com os basemaps
     map = L.map('map', {
       zoomControl: true,
       attributionControl: true,
@@ -33,15 +34,16 @@
       markerZoomAnimation: true,
       fadeAnimation: true,
       wheelPxPerZoomLevel: 120,
-      wheelDebounceTime: 25
+      wheelDebounceTime: 40
     }).setView([-23.5505, -46.6333], 8);
 
     BasemapManager.init(map, currentTheme);
 
     setupProtection();
     await loadBrabasData();
+    await loadAllCatalogLayers();
+    renderThemesUI();
     renderBrabasStats();
-    applyFiltersAndRender();
     setupEvents();
   }
 
@@ -73,107 +75,298 @@
         rawEstadios = dataEst.features || [];
       }
     } catch (err) {
-      console.warn("Aviso ao carregar dados das Brabas:", err);
+      console.warn("Aviso ao carregar dados brutos das Brabas:", err);
     }
   }
 
   /* ==========================================================================
-     3. RENDERIZAÇÃO DOS ESTÁDIOS NO MAPA COM SINCRONIA
+     3. CARREGAMENTO DAS CAMADAS DO CATÁLOGO DAS BRABAS
      ========================================================================== */
-  function applyFiltersAndRender() {
-    if (currentMarkersLayer) {
-      map.removeLayer(currentMarkersLayer);
+  async function loadAllCatalogLayers() {
+    if (typeof CATALOGO_TEMAS_BRABAS === 'undefined') {
+      console.error("CATALOGO_TEMAS_BRABAS não definido em js/camadas.js");
+      return;
     }
 
-    // Filtrar jogos
+    for (const tema of CATALOGO_TEMAS_BRABAS) {
+      for (const camada of tema.camadas) {
+        try {
+          let geojson = null;
+          if (camada.arquivo) {
+            const resp = await fetch(camada.arquivo);
+            if (!resp.ok) throw new Error(`Status HTTP ${resp.status}`);
+            geojson = await resp.json();
+          } else if (camada.dados) {
+            geojson = camada.dados;
+          }
+
+          if (geojson && geojson.features) {
+            const leafletLayer = buildBrabasLeafletLayer(geojson, camada, tema.cor);
+            
+            loadedLayers[camada.id] = {
+              leafletLayer,
+              data: geojson,
+              count: geojson.features.length,
+              config: camada,
+              themeId: tema.id
+            };
+
+            if (camada.ativa) {
+              leafletLayer.addTo(map);
+            }
+          }
+        } catch (err) {
+          console.warn(`Aviso: Camada '${camada.nome}' (${camada.arquivo}) não pôde ser carregada:`, err.message);
+        }
+      }
+    }
+  }
+
+  function buildBrabasLeafletLayer(geojson, layerConfig, themeColor) {
+    const defaultColor = layerConfig.cor || themeColor || '#c084fc';
+    const opacity = layerConfig.opacidade !== undefined ? layerConfig.opacidade : 1;
+
+    return L.geoJSON(geojson, {
+      pointToLayer: function(feature, latlng) {
+        const p = feature.properties || {};
+        const estNome = (p['ESTÁDIO'] || p['EST\ufffdDIO'] || '').trim().toUpperCase();
+        
+        // Quantidade de jogos para cálculo de raio dinâmico
+        const totalJogos = Number(p.TOTAL_JOGOS || p['TOTAL_JOGOS'] || 1);
+        const radius = Math.min(Math.max(6 + Math.log2(totalJogos + 1) * 2.4, 6.5), 18);
+
+        // Destaque para palcos históricos
+        const isPrincipal = estNome.includes("PARQUE SÃO JORGE") || estNome.includes("FAZENDINHA") || estNome.includes("NEO QUÍMICA");
+        const fillColor = isPrincipal ? "#e879f9" : defaultColor;
+
+        return L.circleMarker(latlng, {
+          radius: radius,
+          fillColor: fillColor,
+          color: currentTheme === 'light' ? '#4c1d95' : '#ffffff',
+          weight: 1.5,
+          opacity: 0.95 * opacity,
+          fillOpacity: 0.85 * opacity
+        });
+      },
+      onEachFeature: function(feature, layer) {
+        layer.on('click', function(e) {
+          L.DomEvent.stopPropagation(e);
+          const p = feature.properties || {};
+          const estNome = (p['ESTÁDIO'] || p['EST\ufffdDIO'] || '').trim().toUpperCase();
+          
+          // Buscar todos os jogos deste estádio
+          const jogosDoEstadio = rawJogos.filter(j => {
+            const jEst = (j['ESTÁDIO'] || '').trim().toUpperCase();
+            return jEst === estNome;
+          });
+
+          showEstadioDetails(p, jogosDoEstadio);
+        });
+      }
+    });
+  }
+
+  /* ==========================================================================
+     4. RENDERIZAÇÃO DA BARRA LATERAL (TEMAS & CAMADAS — MESMA LÓGICA DA HOME)
+     ========================================================================== */
+  function renderThemesUI() {
+    const container = document.getElementById('theme-list');
+    if (!container) return;
+
+    container.innerHTML = '';
+    let totalActive = 0;
+
+    CATALOGO_TEMAS_BRABAS.forEach(tema => {
+      if (!tema.camadas || tema.camadas.length === 0) return;
+
+      const details = document.createElement('details');
+      details.className = 'theme-card';
+      details.open = true;
+
+      const summary = document.createElement('summary');
+      summary.innerHTML = `
+        <span class="theme-color-dot" style="background:${tema.cor}"></span>
+        <span class="theme-title-text">${escapeHtml(tema.nome)}</span>
+        <span class="theme-layer-count">${tema.camadas.length} ${tema.camadas.length === 1 ? 'camada' : 'camadas'}</span>
+      `;
+      details.appendChild(summary);
+
+      tema.camadas.forEach(camada => {
+        const loaded = loadedLayers[camada.id];
+        const isChecked = loaded && map.hasLayer(loaded.leafletLayer);
+        if (isChecked) totalActive++;
+
+        const row = document.createElement('div');
+        row.className = 'layer-row';
+        row.innerHTML = `
+          <div class="layer-main">
+            <label>
+              <input type="checkbox" ${isChecked ? 'checked' : ''} data-layer-id="${camada.id}">
+              <span class="layer-name" title="${escapeHtml(camada.nome)}">${escapeHtml(camada.nome)}</span>
+            </label>
+            <div class="layer-actions">
+              <button class="action-btn zoom-btn" title="Aproximar visualização" data-layer-id="${camada.id}">🔍</button>
+            </div>
+          </div>
+          <div class="layer-controls">
+            <span class="opacity-val">${Math.round((camada.opacidade || 1) * 100)}%</span>
+            <input type="range" min="0" max="100" value="${Math.round((camada.opacidade || 1) * 100)}" data-layer-id="${camada.id}">
+          </div>
+        `;
+        details.appendChild(row);
+      });
+
+      container.appendChild(details);
+    });
+
+    const activeBadge = document.getElementById('active-layer-count');
+    if (activeBadge) {
+      activeBadge.textContent = `${totalActive} ativas`;
+    }
+
+    // Ouvintes de checkbox, zoom e opacidade
+    container.querySelectorAll('input[type="checkbox"]').forEach(chk => {
+      chk.onchange = function() {
+        const layerId = this.dataset.layerId;
+        const layerObj = loadedLayers[layerId];
+        if (!layerObj) return;
+
+        if (this.checked) {
+          map.addLayer(layerObj.leafletLayer);
+        } else {
+          map.removeLayer(layerObj.leafletLayer);
+        }
+        updateActiveCount();
+        applyFiltersToActiveLayers();
+      };
+    });
+
+    container.querySelectorAll('.zoom-btn').forEach(btn => {
+      btn.onclick = function() {
+        const layerId = this.dataset.layerId;
+        const layerObj = loadedLayers[layerId];
+        if (!layerObj) return;
+
+        if (!map.hasLayer(layerObj.leafletLayer)) {
+          map.addLayer(layerObj.leafletLayer);
+          const chk = container.querySelector(`input[type="checkbox"][data-layer-id="${layerId}"]`);
+          if (chk) chk.checked = true;
+          updateActiveCount();
+        }
+
+        try {
+          const bounds = layerObj.leafletLayer.getBounds();
+          if (bounds && bounds.isValid()) {
+            map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
+          }
+        } catch (e) {
+          console.warn("Erro ao aproximar camada:", e);
+        }
+      };
+    });
+
+    container.querySelectorAll('input[type="range"]').forEach(slider => {
+      slider.oninput = function() {
+        const layerId = this.dataset.layerId;
+        const layerObj = loadedLayers[layerId];
+        if (!layerObj) return;
+
+        const val = parseInt(this.value, 10) / 100;
+        const label = this.parentElement.querySelector('.opacity-val');
+        if (label) label.textContent = `${Math.round(val * 100)}%`;
+
+        layerObj.config.opacidade = val;
+        layerObj.leafletLayer.eachLayer(marker => {
+          if (typeof marker.setStyle === 'function') {
+            marker.setStyle({
+              opacity: 0.95 * val,
+              fillOpacity: 0.85 * val
+            });
+          }
+        });
+      };
+    });
+
+    applyFiltersToActiveLayers();
+  }
+
+  function updateActiveCount() {
+    let totalActive = 0;
+    Object.values(loadedLayers).forEach(layerObj => {
+      if (map.hasLayer(layerObj.leafletLayer)) totalActive++;
+    });
+    const activeBadge = document.getElementById('active-layer-count');
+    if (activeBadge) {
+      activeBadge.textContent = `${totalActive} ativas`;
+    }
+  }
+
+  /* ==========================================================================
+     5. FILTROS INTERATIVOS & SINCRONIZAÇÃO
+     ========================================================================== */
+  function applyFiltersToActiveLayers() {
+    // Filtrar os jogos de acordo com os filtros selecionados
     const filteredJogos = rawJogos.filter(j => {
-      // Filtro Era
       if (activeEra === "ate_2016" && j.ERA !== "Até 2016") return false;
       if (activeEra === "depois_2016" && j.ERA !== "Depois da reativação") return false;
 
-      // Filtro Competição
       if (activeCompeticao !== "todas") {
         const comp = (j["COMPETIÇÃO"] || "").toUpperCase();
         if (!comp.includes(activeCompeticao.toUpperCase())) return false;
       }
 
-      // Filtro Mando
       if (activeMando !== "todos") {
-        const mando = (j["MANDANTE / VISITANTE (SCCP)"] || "").toLowerCase();
-        if (activeMando === "mandante" && !mando.includes("mandante")) return false;
-        if (activeMando === "visitante" && !mando.includes("visitante")) return false;
-        if (activeMando === "neutro" && !mando.includes("neutro")) return false;
+        const isMandante = j["MANDANTE / VISITANTE (SCCP)"] === "Sim" || j["TIME MANDANTE"] === "CORINTHIANS";
+        const isNeutro = j["MANDANTE / VISITANTE (SCCP)"] === "Neutro";
+        if (activeMando === "mandante" && !isMandante) return false;
+        if (activeMando === "visitante" && (isMandante || isNeutro)) return false;
+        if (activeMando === "neutro" && !isNeutro) return false;
       }
 
       return true;
     });
 
-    // Mapear estádios dos jogos filtrados
-    const estadiosMap = {};
-    filteredJogos.forEach(j => {
-      const estNome = (j["ESTÁDIO"] || "").trim().toUpperCase();
-      if (!estNome || estNome === "DESCONHECIDO") return;
-      if (!estadiosMap[estNome]) {
-        estadiosMap[estNome] = {
-          nome: j["ESTÁDIO"],
-          cidade: j["CIDADE"],
-          uf: j["ESTADO/PROVÍNCIA"],
-          pais: j["PAÍS"],
-          capacidade: j["CAPACIDADE"],
-          lat: parseFloat(j["LATITUDE"]),
-          lng: parseFloat(j["LONGITUDE"]),
-          jogos: []
-        };
-      }
-      estadiosMap[estNome].jogos.push(j);
+    const activeStadiumNames = new Set(filteredJogos.map(j => (j["ESTÁDIO"] || "").trim().toUpperCase()));
+
+    let totalVisible = 0;
+    Object.values(loadedLayers).forEach(layerObj => {
+      if (!map.hasLayer(layerObj.leafletLayer)) return;
+
+      layerObj.leafletLayer.eachLayer(marker => {
+        const f = marker.feature;
+        if (!f || !f.properties) return;
+        const estNome = (f.properties['ESTÁDIO'] || f.properties['EST\ufffdDIO'] || '').trim().toUpperCase();
+
+        const match = activeStadiumNames.has(estNome);
+        const op = layerObj.config.opacidade !== undefined ? layerObj.config.opacidade : 1;
+
+        if (match) {
+          totalVisible++;
+          if (typeof marker.setStyle === 'function') {
+            marker.setStyle({
+              opacity: 0.95 * op,
+              fillOpacity: 0.85 * op
+            });
+          }
+        } else {
+          if (typeof marker.setStyle === 'function') {
+            marker.setStyle({
+              opacity: 0.15 * op,
+              fillOpacity: 0.05 * op
+            });
+          }
+        }
+      });
     });
 
-    const markers = [];
-    Object.values(estadiosMap).forEach(est => {
-      if (isNaN(est.lat) || isNaN(est.lng)) return;
-
-      const totalJogos = est.jogos.length;
-      const vitorias = est.jogos.filter(j => j["RESULTADO"] === "VITÓRIA").length;
-      const empates = est.jogos.filter(j => j["RESULTADO"] === "EMPATE").length;
-      const derrotas = est.jogos.filter(j => j["RESULTADO"] === "DERROTA").length;
-      const aproveitamento = totalJogos > 0 ? Math.round(((vitorias * 3 + empates) / (totalJogos * 3)) * 100) : 0;
-
-      // Raio proporcional ao número de jogos (mínimo 6, máximo 18)
-      const radius = Math.min(Math.max(6 + Math.log2(totalJogos + 1) * 2.5, 6), 18);
-      
-      // Cor de acordo com o mando predominante ou destaque
-      const isFazendinhaOrArena = est.nome.includes("PARQUE SÃO JORGE") || est.nome.includes("NEO QUÍMICA") || est.nome.includes("ROCHDALÃO");
-      const fillColor = isFazendinhaOrArena ? "#9f7aea" : "#c8aa6e";
-
-      const marker = L.circleMarker([est.lat, est.lng], {
-        radius: radius,
-        fillColor: fillColor,
-        color: "#ffffff",
-        weight: 1.5,
-        opacity: 0.95,
-        fillOpacity: 0.85
-      });
-
-      marker.on('click', e => {
-        L.DomEvent.stopPropagation(e);
-        showEstadioDetails(est, totalJogos, vitorias, empates, derrotas, aproveitamento);
-      });
-
-      markers.push(marker);
-    });
-
-    currentMarkersLayer = L.featureGroup(markers);
-    currentMarkersLayer.addTo(map);
-
-    // Atualizar badges
     const countBadge = document.getElementById('filtered-stadium-count');
     if (countBadge) {
-      countBadge.textContent = `${markers.length} estádios (${filteredJogos.length} jogos)`;
+      countBadge.textContent = `${activeStadiumNames.size} estádios (${filteredJogos.length} jogos)`;
     }
   }
 
   /* ==========================================================================
-     4. ESTATÍSTICAS DAS BRABAS
+     6. ESTATÍSTICAS HISTÓRICAS DAS BRABAS
      ========================================================================== */
   function renderBrabasStats() {
     const totalJogos = rawJogos.length;
@@ -191,7 +384,7 @@
       { label: '🔥 Aproveitamento', value: `${aproveitamento}%` },
       { label: '🥅 Gols Marcados', value: golsPro },
       { label: '✅ Vitórias', value: vitorias },
-      { label: '🏟️ Estádios Mapeados', value: rawEstadios.length }
+      { label: '🏟️ Estádios Mapeados', value: rawEstadios.length || 128 }
     ];
 
     const container = document.getElementById('brabas-stats-grid');
@@ -206,17 +399,29 @@
   }
 
   /* ==========================================================================
-     5. INSPEÇÃO ESPACIAL DE ESTÁDIO DAS BRABAS
+     7. INSPEÇÃO ESPACIAL DE ESTÁDIO DAS BRABAS
      ========================================================================== */
-  function showEstadioDetails(est, total, vit, emp, der, aproveitamento) {
+  function showEstadioDetails(estProps, jogos) {
     const attrPanel = document.getElementById('attr-panel');
     const attrToggleBtn = document.getElementById('btn-attr-toggle');
     const attrBody = document.getElementById('attr-body');
     const titleEl = document.getElementById('attr-layer-name');
 
-    if (titleEl) titleEl.textContent = est.nome;
+    const estNome = estProps['ESTÁDIO'] || estProps['EST\ufffdDIO'] || 'Estádio';
+    if (titleEl) titleEl.textContent = estNome;
 
-    let jogosHtml = est.jogos.map(j => {
+    const total = jogos.length;
+    const vit = jogos.filter(j => j["RESULTADO"] === "VITÓRIA").length;
+    const emp = jogos.filter(j => j["RESULTADO"] === "EMPATE").length;
+    const der = jogos.filter(j => j["RESULTADO"] === "DERROTA").length;
+    const aproveitamento = total > 0 ? Math.round(((vit * 3 + emp) / (total * 3)) * 100) : 0;
+
+    const cidade = estProps.CIDADE || '';
+    const uf = estProps.ESTADO || estProps['ESTADO/PROVÍNCIA'] || '';
+    const pais = estProps['PAÍS'] || estProps['PA\ufffdS'] || '';
+    const capacidade = estProps.CAPACIDADE;
+
+    let jogosHtml = jogos.map(j => {
       const resClass = j["RESULTADO"] === "VITÓRIA" ? "win" : (j["RESULTADO"] === "EMPATE" ? "draw" : "loss");
       const autorasText = j["AUTORAS"] ? `<div class="jogo-autoras">⚽ <em>${escapeHtml(j["AUTORAS"])}</em></div>` : '';
       const publicoText = (j["PÚBLICO TOTAL"] && j["PÚBLICO TOTAL"] !== "ND" && j["PÚBLICO TOTAL"] !== "N/A") ? 
@@ -240,10 +445,14 @@
       `;
     }).join('');
 
+    if (total === 0) {
+      jogosHtml = '<div class="attr-hint">Nenhum registro de partida individual carregado para este estádio.</div>';
+    }
+
     attrBody.innerHTML = `
       <div class="estadio-summary-card">
-        <div class="estadio-location">📍 ${escapeHtml(est.cidade || "")}, ${escapeHtml(est.uf || "")} - ${escapeHtml(est.pais || "")}</div>
-        <div class="estadio-cap">Capacidade: ${est.capacidade ? Number(est.capacidade).toLocaleString('pt-BR') : 'N/D'} pessoas</div>
+        <div class="estadio-location">📍 ${escapeHtml(cidade)}, ${escapeHtml(uf)} - ${escapeHtml(pais)}</div>
+        <div class="estadio-cap">Capacidade: ${capacidade ? Number(capacidade).toLocaleString('pt-BR') : 'N/D'} pessoas</div>
         <div class="estadio-metrics-bar">
           <div class="metric"><span class="m-val">${total}</span> <span class="m-lbl">jogos</span></div>
           <div class="metric win"><span class="m-val">${vit}</span> <span class="m-lbl">vitórias</span></div>
@@ -252,7 +461,7 @@
           <div class="metric"><span class="m-val">${aproveitamento}%</span> <span class="m-lbl">aprov.</span></div>
         </div>
       </div>
-      <div class="matches-list-title">Histórico de Partidas (${est.jogos.length}):</div>
+      <div class="matches-list-title">Histórico de Partidas (${total}):</div>
       <div class="brabas-matches-container">
         ${jogosHtml}
       </div>
@@ -263,7 +472,58 @@
   }
 
   /* ==========================================================================
-     6. EVENTOS DA INTERFACE & FILTROS
+     8. GERENCIAMENTO DE TEMA ROXO (Modo 🏴 / Modo 🏳️)
+     ========================================================================== */
+  function applyTheme(theme, syncBasemap = true) {
+    currentTheme = theme;
+    document.body.dataset.theme = theme;
+    localStorage.setItem('atlas1910_theme', theme);
+
+    const toggleBtn = document.getElementById('btn-theme-toggle');
+    if (toggleBtn) {
+      const label = toggleBtn.querySelector('.theme-label');
+      if (theme === "dark") {
+        if (label) label.textContent = "Modo 🏳️";
+        toggleBtn.title = "Mudar para Modo 🏳️ (Roxo Claro)";
+      } else {
+        if (label) label.textContent = "Modo 🏴";
+        toggleBtn.title = "Mudar para Modo 🏴 (Roxo Escuro)";
+      }
+    }
+
+    // Alternância do ícone com os PNGs roxos da pasta oficial:
+    // Modo 🏴 (Dark Roxo): ATLAS BRABAS 2.png (linhas brancas / contraste com fundo escuro)
+    // Modo 🏳️ (Light Roxo): ATLAS BRABAS.png (linhas roxas escuras / contraste com fundo claro)
+    const siteLogo = document.getElementById('site-logo');
+    if (siteLogo) {
+      siteLogo.src = theme === "dark" ? "assets/ATLAS BRABAS 2.png" : "assets/ATLAS BRABAS.png";
+    }
+
+    const brabasLogo = document.getElementById('brabas-icon-img');
+    if (brabasLogo) {
+      brabasLogo.src = theme === "dark" ? "assets/ATLAS BRABAS 2.png" : "assets/ATLAS BRABAS.png";
+    }
+
+    // Atualiza cores dos marcadores no mapa
+    Object.values(loadedLayers).forEach(layerObj => {
+      if (layerObj.leafletLayer) {
+        layerObj.leafletLayer.eachLayer(marker => {
+          if (typeof marker.setStyle === 'function') {
+            marker.setStyle({
+              color: theme === 'light' ? '#4c1d95' : '#ffffff'
+            });
+          }
+        });
+      }
+    });
+
+    if (syncBasemap && typeof BasemapManager !== 'undefined') {
+      BasemapManager.onThemeChange(theme);
+    }
+  }
+
+  /* ==========================================================================
+     9. EVENTOS DA INTERFACE
      ========================================================================== */
   function setupEvents() {
     // Filtro Era
@@ -271,7 +531,7 @@
     if (eraSelect) {
       eraSelect.onchange = (e) => {
         activeEra = e.target.value;
-        applyFiltersAndRender();
+        applyFiltersToActiveLayers();
       };
     }
 
@@ -280,7 +540,7 @@
     if (compSelect) {
       compSelect.onchange = (e) => {
         activeCompeticao = e.target.value;
-        applyFiltersAndRender();
+        applyFiltersToActiveLayers();
       };
     }
 
@@ -289,7 +549,7 @@
     if (mandoSelect) {
       mandoSelect.onchange = (e) => {
         activeMando = e.target.value;
-        applyFiltersAndRender();
+        applyFiltersToActiveLayers();
       };
     }
 
@@ -302,7 +562,7 @@
       };
     }
 
-    // Inspeção Espacial
+    // Ficha de Inspeção Espacial
     const attrPanel = document.getElementById('attr-panel');
     const attrToggleBtn = document.getElementById('btn-attr-toggle');
     const attrCloseBtn = document.getElementById('attr-close-btn');
@@ -394,41 +654,6 @@
     };
     if (mobileCloseBtn) mobileCloseBtn.onclick = closeDrawer;
     if (backdrop) backdrop.onclick = closeDrawer;
-  }
-
-  /* ==========================================================================
-     7. TEMA VISUAL (Modo 🏴 / Modo 🏳️)
-     ========================================================================== */
-  function applyTheme(theme, syncBasemap = true) {
-    currentTheme = theme;
-    document.body.dataset.theme = theme;
-    localStorage.setItem('atlas1910_theme', theme);
-
-    const toggleBtn = document.getElementById('btn-theme-toggle');
-    if (toggleBtn) {
-      const label = toggleBtn.querySelector('.theme-label');
-      if (theme === "dark") {
-        if (label) label.textContent = "Modo 🏳️";
-        toggleBtn.title = "Mudar para Modo 🏳️ (Claro)";
-      } else {
-        if (label) label.textContent = "Modo 🏴";
-        toggleBtn.title = "Mudar para Modo 🏴 (Escuro)";
-      }
-    }
-
-    // Imagem do logotipo das Brabas: light usa primeira imagem (roxa escura), dark usa segunda (branca)
-    const brabasLogo = document.getElementById('brabas-icon-img');
-    if (brabasLogo) {
-      brabasLogo.src = theme === "dark" ? "assets/brabas-dark.png" : "assets/brabas-light.png";
-    }
-    const floatingLogo = document.getElementById('floating-brabas-img');
-    if (floatingLogo) {
-      floatingLogo.src = theme === "dark" ? "assets/brabas-dark.png" : "assets/brabas-light.png";
-    }
-
-    if (syncBasemap && typeof BasemapManager !== 'undefined') {
-      BasemapManager.onThemeChange(theme);
-    }
   }
 
   function escapeHtml(str) {

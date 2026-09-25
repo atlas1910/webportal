@@ -1,0 +1,1000 @@
+{
+  "type": "FeatureCollection",
+  "name": "as_brabas_estadios_mandante",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "1º DE MAIO (PRIMEIRÃO)",
+        "CIDADE": "SÃO BERNARDO DO CAMPO",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "15759",
+        "TOTAL_JOGOS": 2,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 2,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -23.699558583592914,
+        "LONGITUDE": -46.55493146008563
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.55493146008563,
+          -23.699558583592914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "ALFREDO SCHÜRIG (PARQUE SÃO JORGE / FAZENDINHA)",
+        "CIDADE": "SÃO PAULO ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "9800",
+        "TOTAL_JOGOS": 122,
+        "VITÓRIAS": 99,
+        "EMPATES": 12,
+        "DERROTAS": 11,
+        "APROVEITAMENTO_PCT": 84.4,
+        "GOLS_MARCADOS": 399,
+        "GOLS_SOFRIDOS": 95,
+        "LATITUDE": -23.526659630812546,
+        "LONGITUDE": -46.5694808951696
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.5694808951696,
+          -23.526659630812546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "ANTÔNIO SOARES DE OLIVEIRA",
+        "CIDADE": "GUARULHOS ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "6235",
+        "TOTAL_JOGOS": 5,
+        "VITÓRIAS": 4,
+        "EMPATES": 1,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 86.7,
+        "GOLS_MARCADOS": 18,
+        "GOLS_SOFRIDOS": 3,
+        "LATITUDE": -23.47036920270418,
+        "LONGITUDE": -46.551778361932165
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.551778361932165,
+          -23.47036920270418
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "ARSENIO ERICO",
+        "CIDADE": "ASSUNÇÃO",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "7500",
+        "TOTAL_JOGOS": 7,
+        "VITÓRIAS": 5,
+        "EMPATES": 2,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 81.0,
+        "GOLS_MARCADOS": 22,
+        "GOLS_SOFRIDOS": 2,
+        "LATITUDE": -25.298264179462183,
+        "LONGITUDE": -57.641082774528385
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.641082774528385,
+          -25.298264179462183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "CENTRO DE ALTO RENDIMIENTO DE FÚTBOL FEMININO - CARFEM",
+        "CIDADE": "YPANÉ",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "1000",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 2,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -25.47101951316703,
+        "LONGITUDE": -57.49956104369918
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.49956104369918,
+          -25.47101951316703
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "CENTRO DE TREINAMENTO DARTANHÃ",
+        "CIDADE": "GUARAREMA",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "DESCONHECIDA",
+        "TOTAL_JOGOS": 2,
+        "VITÓRIAS": 1,
+        "EMPATES": 1,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 66.7,
+        "GOLS_MARCADOS": 3,
+        "GOLS_SOFRIDOS": 2,
+        "LATITUDE": -23.414227998270004,
+        "LONGITUDE": -46.02247563397829
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.02247563397829,
+          -23.414227998270004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "CENTRO DE TREINAMENTO DAS CATEGORIAS DE BASE DO CORINTHIANS",
+        "CIDADE": "SÃO PAULO ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "CONFERIR",
+        "TOTAL_JOGOS": 2,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 2,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -23.493701238558412,
+        "LONGITUDE": -46.51148814299263
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.51148814299263,
+          -23.493701238558412
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "CENTRO DE TREINAMENTO DOUTOR JOAQUIM GRAVA",
+        "CIDADE": "SÃO PAULO ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "0.0",
+        "TOTAL_JOGOS": 17,
+        "VITÓRIAS": 8,
+        "EMPATES": 3,
+        "DERROTAS": 5,
+        "APROVEITAMENTO_PCT": 52.9,
+        "GOLS_MARCADOS": 36,
+        "GOLS_SOFRIDOS": 21,
+        "LATITUDE": -23.489299036314396,
+        "LONGITUDE": -46.50748810961753
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.50748810961753,
+          -23.489299036314396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "CLUB ATLÉTICO ACADEMIA DEPORTIVA",
+        "CIDADE": "ROSÁRIO",
+        "ESTADO": "SANTA FE",
+        "PAÍS": "ARGENTINA",
+        "CAPACIDADE": "DESCONHECIDA",
+        "TOTAL_JOGOS": 4,
+        "VITÓRIAS": 4,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 35,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -32.850463678761685,
+        "LONGITUDE": -60.71460878329617
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.71460878329617,
+          -32.850463678761685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "CLUBE ESPORTIVO RECREATIVO ARTHUR GARBELOTTO (FUNDAÇÃO)",
+        "CIDADE": "SÃO CAETANO DO SUL",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "1000",
+        "TOTAL_JOGOS": 2,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 13,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -23.604037641997845,
+        "LONGITUDE": -46.57096888610201
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.57096888610201,
+          -23.604037641997845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "COMPLEXO ESPORTIVO VILA PORTO",
+        "CIDADE": "BARUERI ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "0.0",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 3,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -23.49828194687862,
+        "LONGITUDE": -46.87185330508753
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.87185330508753,
+          -23.49828194687862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "CONDE RODOLFO CRESPI (RUA JAVARI)",
+        "CIDADE": "SÃO PAULO ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "3800",
+        "TOTAL_JOGOS": 7,
+        "VITÓRIAS": 6,
+        "EMPATES": 1,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 90.5,
+        "GOLS_MARCADOS": 26,
+        "GOLS_SOFRIDOS": 4,
+        "LATITUDE": -23.552485627232432,
+        "LONGITUDE": -46.601420574225386
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.601420574225386,
+          -23.552485627232432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "DEFENSORES DEL CHACO",
+        "CIDADE": "ASSUNÇÃO",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "42345",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 2,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -25.291906369779717,
+        "LONGITUDE": -57.65681557623464
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.65681557623464,
+          -25.291906369779717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "FLORENCIO SOLA",
+        "CIDADE": "LOMAS DE ZAMORA",
+        "ESTADO": "BUENOS AIRES",
+        "PAÍS": "ARGENTINA",
+        "CAPACIDADE": "35000",
+        "TOTAL_JOGOS": 4,
+        "VITÓRIAS": 1,
+        "EMPATES": 3,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 50.0,
+        "GOLS_MARCADOS": 3,
+        "GOLS_SOFRIDOS": 2,
+        "LATITUDE": -34.75053133505603,
+        "LONGITUDE": -58.387661248437816
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.387661248437816,
+          -34.75053133505603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "FRANCISCO RIBEIRO NOGUEIRA (NOGUEIRÃO)",
+        "CIDADE": "MOGI DAS CRUZES ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "14384",
+        "TOTAL_JOGOS": 5,
+        "VITÓRIAS": 3,
+        "EMPATES": 0,
+        "DERROTAS": 2,
+        "APROVEITAMENTO_PCT": 60.0,
+        "GOLS_MARCADOS": 19,
+        "GOLS_SOFRIDOS": 6,
+        "LATITUDE": -23.517361700125463,
+        "LONGITUDE": -46.20563853125041
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.20563853125041,
+          -23.517361700125463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "GENERAL ADRIÁN JARA (CONMEBOL)",
+        "CIDADE": "LUQUE",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "4000",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 1,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -25.26300146495579,
+        "LONGITUDE": -57.51814001406302
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.51814001406302,
+          -25.26300146495579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "GONZALO POZO RIPALDA (CHILLOGALLO)",
+        "CIDADE": "QUITO",
+        "ESTADO": "PICHINCHA",
+        "PAÍS": "EQUADOR",
+        "CAPACIDADE": "18799",
+        "TOTAL_JOGOS": 3,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 1,
+        "APROVEITAMENTO_PCT": 66.7,
+        "GOLS_MARCADOS": 10,
+        "GOLS_SOFRIDOS": 2,
+        "LATITUDE": -0.27863817534163016,
+        "LONGITUDE": -78.5457340754265
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.5457340754265,
+          -0.27863817534163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "JOAQUIM DE MORAIS FILHO (JOAQUINZÃO)",
+        "CIDADE": "TAUBATÉ ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "9600",
+        "TOTAL_JOGOS": 17,
+        "VITÓRIAS": 14,
+        "EMPATES": 2,
+        "DERROTAS": 1,
+        "APROVEITAMENTO_PCT": 86.3,
+        "GOLS_MARCADOS": 58,
+        "GOLS_SOFRIDOS": 10,
+        "LATITUDE": -23.02780096330927,
+        "LONGITUDE": -45.56983161590955
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -45.56983161590955,
+          -23.02780096330927
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "JOSÉ AMALFITANI iEL FORTÍN DE LINIERS)",
+        "CIDADE": "BUENOS AIRES",
+        "ESTADO": "BUENOS AIRES",
+        "PAÍS": "ARGENTINA",
+        "CAPACIDADE": "49540",
+        "TOTAL_JOGOS": 2,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 11,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -34.635154380242916,
+        "LONGITUDE": -58.51991662386432
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.51991662386432,
+          -34.635154380242916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "JOSÉ BATISTA PEREIRA FERNANDES (DISTRITAL DO INAMAR)",
+        "CIDADE": "DIADEMA",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "8075",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 1,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -23.72265991128569,
+        "LONGITUDE": -46.61270155300039
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.61270155300039,
+          -23.72265991128569
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "JOSÉ TORTORELLO",
+        "CIDADE": "SÃO CAETANO DO SUL",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "DESCONHECIDO",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 0,
+        "EMPATES": 0,
+        "DERROTAS": 1,
+        "APROVEITAMENTO_PCT": 0.0,
+        "GOLS_MARCADOS": 0,
+        "GOLS_SOFRIDOS": 1,
+        "LATITUDE": -23.64304411809633,
+        "LONGITUDE": -46.56998143226346
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.56998143226346,
+          -23.64304411809633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "LA ARBOLEDA",
+        "CIDADE": "ASSUNÇÃO",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "8000",
+        "TOTAL_JOGOS": 3,
+        "VITÓRIAS": 3,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 10,
+        "GOLS_SOFRIDOS": 2,
+        "LATITUDE": -25.257324985267747,
+        "LONGITUDE": -57.57451669872214
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.57451669872214,
+          -25.257324985267747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "LUIS ALFONSO GIAGNI",
+        "CIDADE": "VILLA ELISA",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "11000",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 3,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -25.36720022210868,
+        "LONGITUDE": -57.58427930241521
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.58427930241521,
+          -25.36720022210868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "MARCOS EDUARDO CAMARGO TRUVILHO (SERRA DA COLINA)",
+        "CIDADE": "IBIÚNA ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "3720",
+        "TOTAL_JOGOS": 2,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 1,
+        "APROVEITAMENTO_PCT": 50.0,
+        "GOLS_MARCADOS": 6,
+        "GOLS_SOFRIDOS": 5,
+        "LATITUDE": -23.650985481738065,
+        "LONGITUDE": -47.19294393125041
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -47.19294393125041,
+          -23.650985481738065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "MARTINS PEREIRA",
+        "CIDADE": "SÃO JOSÉ DOS CAMPOS ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "16500",
+        "TOTAL_JOGOS": 17,
+        "VITÓRIAS": 13,
+        "EMPATES": 4,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 84.3,
+        "GOLS_MARCADOS": 55,
+        "GOLS_SOFRIDOS": 14,
+        "LATITUDE": -23.1884912615151,
+        "LONGITUDE": -45.869827477202776
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -45.869827477202776,
+          -23.1884912615151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "METROPOLITANO DE TECHO",
+        "CIDADE": "BOGOTÁ",
+        "ESTADO": "DISTRITO CAPITAL",
+        "PAÍS": "COLÔMBIA",
+        "CAPACIDADE": "10000",
+        "TOTAL_JOGOS": 2,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 7,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": 4.623716907161779,
+        "LONGITUDE": -74.13634719943133
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.13634719943133,
+          4.623716907161779
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "NEO QUÍMICA ARENA (ARENA CORINTHIANS)",
+        "CIDADE": "SÃO PAULO ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "48905",
+        "TOTAL_JOGOS": 33,
+        "VITÓRIAS": 29,
+        "EMPATES": 4,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 91.9,
+        "GOLS_MARCADOS": 81,
+        "GOLS_SOFRIDOS": 18,
+        "LATITUDE": -23.545141276878514,
+        "LONGITUDE": -46.473682029403896
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.473682029403896,
+          -23.545141276878514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "NICOLAU ALAYON (COMENDADOR SOUZA)",
+        "CIDADE": "SÃO PAULO ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "10723",
+        "TOTAL_JOGOS": 7,
+        "VITÓRIAS": 5,
+        "EMPATES": 0,
+        "DERROTAS": 2,
+        "APROVEITAMENTO_PCT": 71.4,
+        "GOLS_MARCADOS": 21,
+        "GOLS_SOFRIDOS": 10,
+        "LATITUDE": -23.518152537113252,
+        "LONGITUDE": -46.68525286396975
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.68525286396975,
+          -23.518152537113252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "NUEVO FRANCISCO URBANO",
+        "CIDADE": "MORÓN",
+        "ESTADO": "BUENOS AIRES",
+        "PAÍS": "ARGENTINA",
+        "CAPACIDADE": "32000",
+        "TOTAL_JOGOS": 6,
+        "VITÓRIAS": 5,
+        "EMPATES": 1,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 88.9,
+        "GOLS_MARCADOS": 43,
+        "GOLS_SOFRIDOS": 1,
+        "LATITUDE": -34.66168741793206,
+        "LONGITUDE": -58.63084344659128
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.63084344659128,
+          -34.66168741793206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "OLÍMPICO ATAHUALPA",
+        "CIDADE": "QUITO",
+        "ESTADO": "PICHINCHA",
+        "PAÍS": "EQUADOR",
+        "CAPACIDADE": "35258",
+        "TOTAL_JOGOS": 6,
+        "VITÓRIAS": 5,
+        "EMPATES": 1,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 88.9,
+        "GOLS_MARCADOS": 16,
+        "GOLS_SOFRIDOS": 4,
+        "LATITUDE": -0.17726933113467663,
+        "LONGITUDE": -78.47619463125041
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.47619463125041,
+          -0.177269331134677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "OLÍMPICO PASCUAL GUERRERO (EL PASCUAL)",
+        "CIDADE": "CALI",
+        "ESTADO": "VALLE DEL CAUCA",
+        "PAÍS": "COLÔMBIA",
+        "CAPACIDADE": "42200",
+        "TOTAL_JOGOS": 4,
+        "VITÓRIAS": 3,
+        "EMPATES": 1,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 83.3,
+        "GOLS_MARCADOS": 11,
+        "GOLS_SOFRIDOS": 1,
+        "LATITUDE": 3.4301899432979908,
+        "LONGITUDE": -76.54056153125042
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.54056153125042,
+          3.430189943297991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "ORLANDO BATISTA NOVELI (ARENA BARUERI / CREFISA)",
+        "CIDADE": "BARUERI ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "31452",
+        "TOTAL_JOGOS": 35,
+        "VITÓRIAS": 24,
+        "EMPATES": 6,
+        "DERROTAS": 5,
+        "APROVEITAMENTO_PCT": 74.3,
+        "GOLS_MARCADOS": 114,
+        "GOLS_SOFRIDOS": 28,
+        "LATITUDE": -23.511935566878485,
+        "LONGITUDE": -46.89981033125041
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.89981033125041,
+          -23.511935566878485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "OSVALDO DOMÍNGUEZ DIBB (ANTIGO MANUEL FERREIRA)",
+        "CIDADE": "ASSUNÇÃO",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "25820",
+        "TOTAL_JOGOS": 2,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 11,
+        "GOLS_SOFRIDOS": 1,
+        "LATITUDE": -25.29146924080898,
+        "LONGITUDE": -57.60780712386432
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.60780712386432,
+          -25.29146924080898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "OSWALDO TEIXEIRA DUARTE (CANINDÉ)",
+        "CIDADE": "SÃO PAULO ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "21004",
+        "TOTAL_JOGOS": 24,
+        "VITÓRIAS": 20,
+        "EMPATES": 1,
+        "DERROTAS": 3,
+        "APROVEITAMENTO_PCT": 84.7,
+        "GOLS_MARCADOS": 73,
+        "GOLS_SOFRIDOS": 18,
+        "LATITUDE": -23.520132719349128,
+        "LONGITUDE": -46.618264502415194
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.618264502415194,
+          -23.520132719349128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "PAULO MACHADO DE CARVALHO (MERCADO LIVRE ARENA PACAEMBU)",
+        "CIDADE": "SÃO PAULO ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "37730",
+        "TOTAL_JOGOS": 11,
+        "VITÓRIAS": 9,
+        "EMPATES": 1,
+        "DERROTAS": 1,
+        "APROVEITAMENTO_PCT": 84.8,
+        "GOLS_MARCADOS": 26,
+        "GOLS_SOFRIDOS": 12,
+        "LATITUDE": -23.548265580968636,
+        "LONGITUDE": -46.66537788892085
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.66537788892085,
+          -23.548265580968636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "PREFEITO JOSÉ LIBERATTI (ROCHDALÃO)",
+        "CIDADE": "OSASCO ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "11780",
+        "TOTAL_JOGOS": 21,
+        "VITÓRIAS": 18,
+        "EMPATES": 2,
+        "DERROTAS": 1,
+        "APROVEITAMENTO_PCT": 88.9,
+        "GOLS_MARCADOS": 74,
+        "GOLS_SOFRIDOS": 9,
+        "LATITUDE": -23.51198315274678,
+        "LONGITUDE": -46.7755543024152
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.7755543024152,
+          -23.51198315274678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "RODRIGO PAZ DELGADO (CASA BLANCA)",
+        "CIDADE": "QUITO",
+        "ESTADO": "PICHINCHA",
+        "PAÍS": "EQUADOR",
+        "CAPACIDADE": "41575",
+        "TOTAL_JOGOS": 3,
+        "VITÓRIAS": 0,
+        "EMPATES": 2,
+        "DERROTAS": 1,
+        "APROVEITAMENTO_PCT": 22.2,
+        "GOLS_MARCADOS": 1,
+        "GOLS_SOFRIDOS": 2,
+        "LATITUDE": -0.10741937280164725,
+        "LONGITUDE": -78.48858918707433
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.48858918707433,
+          -0.107419372801647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "ÍCARO DE CASTRO MELO (OLÍMPICO DO IBIRAPUERA)",
+        "CIDADE": "SÃO PAULO ",
+        "ESTADO": "SÃO PAULO",
+        "PAÍS": "BRASIL",
+        "CAPACIDADE": "13400",
+        "TOTAL_JOGOS": 8,
+        "VITÓRIAS": 3,
+        "EMPATES": 1,
+        "DERROTAS": 4,
+        "APROVEITAMENTO_PCT": 41.7,
+        "GOLS_MARCADOS": 17,
+        "GOLS_SOFRIDOS": 15,
+        "LATITUDE": -23.578112052013303,
+        "LONGITUDE": -46.65369778153475
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.65369778153475,
+          -23.578112052013303
+        ]
+      }
+    }
+  ]
+}

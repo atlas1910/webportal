@@ -36,43 +36,42 @@ const CATALOGO_TEMAS = [
         icone: "assets/icones/escudo_atual_mundo.png",
         tamanhoIcone: [20, 20],
         cor: "#ffffff",
-        ativa: true,
+        ativa: false,
         opacidade: 0.95
       }
     ]
-  },
+  }
+];
 
-  /* ========================================================================
-     2. HISTÓRIA & MEMÓRIA
-     ======================================================================== */
+/* ==========================================================================
+   CATÁLOGO DE TEMÁTICAS E CAMADAS — AS BRABAS
+   Mesma lógica e uniformidade de recursos da Homepage
+   ========================================================================== */
+const CATALOGO_TEMAS_BRABAS = [
   {
-    id: "historia",
-    nome: "História & Memória",
-    cor: "#d4d4d8", // Platina
+    id: "estadios_brabas",
+    nome: "Estádios das Brabas",
+    cor: "#c084fc", // Roxo Brabas
     camadas: [
       {
-        id: "eventos_historicos",
-        nome: "Eventos Históricos & Mobilizações (ex: Invasão de 1976)",
-        arquivo: "data/historia/eventos_historicos.geojson",
+        id: "brabas_estadios_mandante",
+        nome: "Estádios que as Brabas utilizaram como mandante",
+        arquivo: "data/as_brabas/as_brabas_estadios_mandante.geojson",
         tipo: "ponto",
-        forma: "diamante",
-        icone: "assets/icones/bandeira.svg",
-        tamanhoIcone: [24, 24],
-        cor: "#c8aa6e",
+        forma: "circulo",
+        cor: "#c084fc",
         ativa: true,
         opacidade: 1.0
       },
       {
-        id: "marcos_fundacao",
-        nome: "Marcos da Fundação (1910)",
-        arquivo: "data/historia/marcos_fundacao.geojson",
+        id: "brabas_estadios_todos",
+        nome: "Todos os Estádios percorridos pelas Brabas",
+        arquivo: "data/as_brabas/as_brabas_estadios.geojson",
         tipo: "ponto",
-        forma: "anel",
-        icone: "assets/icones/pin_corinthians.svg",
-        tamanhoIcone: [24, 24],
-        cor: "#d4d4d8",
+        forma: "circulo",
+        cor: "#d8b4fe",
         ativa: false,
-        opacidade: 1.0
+        opacidade: 0.95
       }
     ]
   }
