@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atlas SP — Geoportal Temático</title>
+<title>ATLAS1910 — Geoportal</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0a0e15;
-    --panel:#11161f;
-    --panel-2:#171e2b;
-    --border:#242c3c;
-    --text:#e8ecf4;
-    --text-dim:#8993a8;
-    --torcida:#e5484d;
-    --ferrovia:#3aa0ff;
-    --estadio:#f2b705;
-    --accent:#5b8def;
+    --bg:#0a0a0a;
+    --panel:#131313;
+    --panel-2:#1b1b1b;
+    --border:#2c2c2c;
+    --text:#f2f2f2;
+    --text-dim:#8a8a8a;
+    --torcida:#ffffff;
+    --ferrovia:#8f8f8f;
+    --estadio:#c9c9c9;
+    --accent:#e5e5e5;
   }
   *{box-sizing:border-box;}
   html,body{height:100%;margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);}
@@ -63,7 +63,7 @@
     padding:9px 6px;font-size:12px;font-weight:500;cursor:pointer;text-align:center;transition:.12s;
   }
   .basemap-btn:hover{border-color:var(--accent);color:var(--text);}
-  .basemap-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .basemap-btn.active{background:var(--accent);border-color:var(--accent);color:#0a0a0a;}
 
   .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .stat-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:11px 12px;}
@@ -102,7 +102,7 @@
 <div id="app">
   <div id="sidebar">
     <header>
-      <h1>Atlas SP · Geoportal Temático</h1>
+      <h1>ATLAS1910 — Geoportal</h1>
       <p>Camadas de mapa reunidas por tema. Dados de exemplo — substitua pelos seus arquivos (GeoJSON, shapefile ou CSV georreferenciado).</p>
     </header>
 
@@ -125,7 +125,7 @@
       <div class="note"><b>Próximo passo:</b> envie os arquivos reais de cada tema (Camisa 12, malha ferroviária, estádios) para eu trocar os dados de exemplo pelos seus dados.</div>
     </div>
 
-    <footer>Atlas SP · v0.1 · Leaflet</footer>
+    <footer>ATLAS1910 · v0.1 · Leaflet</footer>
   </div>
 
   <div id="map">
@@ -169,15 +169,15 @@ const estadios = {type:"FeatureCollection",features:[
 
 // ---------- Configuração dos temas ----------
 const THEMES = [
-  {id:'torcida', name:'Torcida Organizada — Camisa 12', color:'var(--torcida)', hex:'#e5484d', layers:[
-    {id:'subsedes', name:'Subsedes', type:'point', data:camisa12}
+  {id:'torcida', name:'Torcida Organizada — Camisa 12', hex:'#ffffff', layers:[
+    {id:'subsedes', name:'Subsedes', type:'point', shape:'solid', data:camisa12}
   ]},
-  {id:'ferrovia', name:'Malha Ferroviária de SP', color:'var(--ferrovia)', hex:'#3aa0ff', layers:[
+  {id:'ferrovia', name:'Malha Ferroviária de SP', hex:'#8f8f8f', layers:[
     {id:'linhas', name:'Linhas Metrô/CPTM', type:'line', data:linhasFerrovia},
-    {id:'ocorrencias', name:'Ocorrências históricas', type:'point', data:ocorrenciasFerrovia}
+    {id:'ocorrencias', name:'Ocorrências históricas', type:'point', shape:'hollow', data:ocorrenciasFerrovia}
   ]},
-  {id:'estadios', name:'Estádios', color:'var(--estadio)', hex:'#f2b705', layers:[
-    {id:'pontos', name:'Estádios (localização + capacidade)', type:'point', data:estadios}
+  {id:'estadios', name:'Estádios', hex:'#c9c9c9', layers:[
+    {id:'pontos', name:'Estádios (localização + capacidade)', type:'point', shape:'diamond', data:estadios}
   ]}
 ];
 
@@ -207,12 +207,20 @@ THEMES.forEach(theme=>{
     let leafletLayer;
     if(layer.type==='point'){
       leafletLayer = L.geoJSON(layer.data,{
-        pointToLayer:(f,latlng)=>L.circleMarker(latlng,{radius:7,fillColor:theme.hex,color:'#fff',weight:1.5,fillOpacity:0.9}),
+        pointToLayer:(f,latlng)=>{
+          if(layer.shape==='diamond'){
+            return L.marker(latlng,{icon:L.divIcon({className:'',html:`<div style="width:11px;height:11px;background:${theme.hex};border:1.5px solid #fff;transform:rotate(45deg);"></div>`,iconSize:[11,11],iconAnchor:[5,5]})});
+          }
+          if(layer.shape==='hollow'){
+            return L.circleMarker(latlng,{radius:6,fillOpacity:0,color:theme.hex,weight:2});
+          }
+          return L.circleMarker(latlng,{radius:7,fillColor:theme.hex,color:'#fff',weight:1.5,fillOpacity:0.9});
+        },
         onEachFeature:(f,l)=>l.on('click',()=>showAttrs(f.properties))
       });
     } else {
       leafletLayer = L.geoJSON(layer.data,{
-        style:{color:theme.hex,weight:4,opacity:0.9},
+        style:{color:theme.hex,weight:4,opacity:0.9,dashArray:'6,4'},
         onEachFeature:(f,l)=>l.on('click',()=>showAttrs(f.properties))
       });
     }
@@ -257,8 +265,9 @@ themeListEl.addEventListener('input', e=>{
     const reg = layerRegistry[e.target.dataset.opacity];
     const val = e.target.value/100;
     reg.leafletLayer.eachLayer(l=>{
-      if(reg.type==='point') l.setStyle({fillOpacity:val*0.9, opacity:val});
-      else l.setStyle({opacity:val});
+      if(typeof l.setOpacity==='function'){ l.setOpacity(val); }
+      else if(reg.type==='point'){ l.setStyle({fillOpacity:val*0.9, opacity:val}); }
+      else { l.setStyle({opacity:val}); }
     });
     e.target.previousElementSibling.textContent = e.target.value+'%';
   }
