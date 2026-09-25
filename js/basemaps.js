@@ -16,7 +16,8 @@ const BasemapManager = (function() {
       maxZoom: 19,
       keepBuffer: 4,
       updateWhenIdle: false,
-      updateWhenZooming: true
+      updateWhenZooming: false,
+      noWrap: false
     };
 
     return {

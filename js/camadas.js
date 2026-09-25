@@ -33,6 +33,8 @@ const CATALOGO_TEMAS = [
         arquivo: "data/estadios/estadios_mundo.geojson",
         tipo: "ponto",
         forma: "circulo",
+        iconeDark: "assets/icones/escudo_atual_mundo.png",
+        iconeLight: "assets/icones/escudo_atual_mundo.png",
         icone: "assets/icones/escudo_atual_mundo.png",
         tamanhoIcone: [20, 20],
         cor: "#ffffff",
@@ -54,8 +56,9 @@ const CATALOGO_TEMAS_BRABAS = [
     cor: "#c084fc", // Roxo Brabas
     camadas: [
       {
-        id: "brabas_estadios_mandante",
-        nome: "Estádios que as Brabas utilizaram como mandante",
+        /* Legenda 1: Estádios em que as Brabas foram mandantes */
+        id: "brabas_mandantes",
+        nome: "Estádios em que as Brabas foram mandantes",
         arquivo: "data/as_brabas/as_brabas_estadios_mandante.geojson",
         tipo: "ponto",
         forma: "circulo",
@@ -64,12 +67,47 @@ const CATALOGO_TEMAS_BRABAS = [
         opacidade: 1.0
       },
       {
-        id: "brabas_estadios_todos",
-        nome: "Todos os Estádios percorridos pelas Brabas",
+        /* Legenda 2: Todos os que as Brabas jogaram (sem Estatísticas) */
+        id: "brabas_todos_sem_estatisticas",
+        nome: "Todos os que as Brabas jogaram (sem Estatísticas)",
+        arquivo: "data/as_brabas/as_brabas_estadios.geojson",
+        tipo: "ponto",
+        iconeDark: "assets/icones/escudo_atual_mundo.png",
+        iconeLight: "assets/icones/escudo_atual_mundo.png",
+        icone: "assets/icones/escudo_atual_mundo.png",
+        tamanhoIcone: [20, 20],
+        cor: "#ffffff",
+        ativa: false,
+        opacidade: 0.95,
+        filtros: {
+          periodo: {
+            "Antes de 2016": "ate_2016",
+            "2016-Presente": "depois_2016"
+          }
+        }
+      },
+      {
+        /* Legenda 3: Todos os que as Brabas jogaram no mundo (sem Estatísticas) */
+        id: "brabas_mundo_sem_estatisticas",
+        nome: "Estádios que as Brabas jogaram no mundo (sem Estatísticas)",
+        arquivo: "data/as_brabas/as_brabas_estadios_mundo.geojson",
+        tipo: "ponto",
+        iconeDark: "assets/icones/escudo_atual_mundo.png",
+        iconeLight: "assets/icones/escudo_atual_mundo.png",
+        icone: "assets/icones/escudo_atual_mundo.png",
+        tamanhoIcone: [20, 20],
+        cor: "#ffffff",
+        ativa: false,
+        opacidade: 0.95
+      },
+      {
+        /* Legenda 4 (ex-3): Todos os que as Brabas jogaram (Estatísticas) */
+        id: "brabas_todos_com_estatisticas",
+        nome: "Todos os que as Brabas jogaram (Estatísticas)",
         arquivo: "data/as_brabas/as_brabas_estadios.geojson",
         tipo: "ponto",
         forma: "circulo",
-        cor: "#d8b4fe",
+        cor: "#a855f7",
         ativa: false,
         opacidade: 0.95
       }

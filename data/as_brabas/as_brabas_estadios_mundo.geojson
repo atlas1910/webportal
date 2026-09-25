@@ -1,0 +1,577 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "ARSENIO ERICO",
+        "CIDADE": "ASSUNÇÃO",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "7500",
+        "TOTAL_JOGOS": 7,
+        "VITÓRIAS": 5,
+        "EMPATES": 2,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 81.0,
+        "GOLS_MARCADOS": 22,
+        "GOLS_SOFRIDOS": 2,
+        "LATITUDE": -25.298264179462183,
+        "LONGITUDE": -57.641082774528385
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.641082774528385,
+          -25.298264179462183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "CENTRO DE ALTO RENDIMIENTO DE FÚTBOL FEMININO - CARFEM",
+        "CIDADE": "YPANÉ",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "1000",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 2,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -25.47101951316703,
+        "LONGITUDE": -57.49956104369918
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.49956104369918,
+          -25.47101951316703
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "CENTRO DE ALTO RENDIMIENTO INDEPENDIENTE DEL VALLE",
+        "CIDADE": "QUITO",
+        "ESTADO": "PICHINCHA",
+        "PAÍS": "EQUADOR",
+        "CAPACIDADE": "DESCONHECIDA",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 1,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -0.345390436048672,
+        "LONGITUDE": -78.46804793194167
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.46804793194167,
+          -0.345390436048672
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "CLUB ATLÉTICO ACADEMIA DEPORTIVA",
+        "CIDADE": "ROSÁRIO",
+        "ESTADO": "SANTA FE",
+        "PAÍS": "ARGENTINA",
+        "CAPACIDADE": "DESCONHECIDA",
+        "TOTAL_JOGOS": 4,
+        "VITÓRIAS": 4,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 35,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -32.850463678761685,
+        "LONGITUDE": -60.71460878329617
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.71460878329617,
+          -32.850463678761685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "CPKC STADIUM",
+        "CIDADE": "KANSAS CITY",
+        "ESTADO": "MISSOURI",
+        "PAÍS": "EUA",
+        "CAPACIDADE": "11500",
+        "TOTAL_JOGOS": 4,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 2,
+        "APROVEITAMENTO_PCT": 50.0,
+        "GOLS_MARCADOS": 11,
+        "GOLS_SOFRIDOS": 4,
+        "LATITUDE": 39.11970445176154,
+        "LONGITUDE": -94.56594917586453
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.56594917586453,
+          39.11970445176154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "DEFENSORES DEL CHACO",
+        "CIDADE": "ASSUNÇÃO",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "42345",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 2,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -25.291906369779717,
+        "LONGITUDE": -57.65681557623464
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.65681557623464,
+          -25.291906369779717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "EMIRATES STADIUM (ARSENAL STADIUM)",
+        "CIDADE": "LONDRES",
+        "ESTADO": "HOLLOWAY",
+        "PAÍS": "INGLATERRA",
+        "CAPACIDADE": "60704",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 0,
+        "EMPATES": 0,
+        "DERROTAS": 1,
+        "APROVEITAMENTO_PCT": 0.0,
+        "GOLS_MARCADOS": 2,
+        "GOLS_SOFRIDOS": 3,
+        "LATITUDE": 51.555162121144335,
+        "LONGITUDE": -0.10804575171505924
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.108045751715059,
+          51.555162121144335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "ESTADIO BANCO GUAYAQUIL (ESTADIO IDV)",
+        "CIDADE": "QUITO",
+        "ESTADO": "PICHINCHA",
+        "PAÍS": "EQUADOR",
+        "CAPACIDADE": "12000",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 0,
+        "EMPATES": 1,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 33.3,
+        "GOLS_MARCADOS": 0,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -0.34917987956985463,
+        "LONGITUDE": -78.47030740156634
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.47030740156634,
+          -0.349179879569855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "FLORENCIO SOLA",
+        "CIDADE": "LOMAS DE ZAMORA",
+        "ESTADO": "BUENOS AIRES",
+        "PAÍS": "ARGENTINA",
+        "CAPACIDADE": "35000",
+        "TOTAL_JOGOS": 4,
+        "VITÓRIAS": 1,
+        "EMPATES": 3,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 50.0,
+        "GOLS_MARCADOS": 3,
+        "GOLS_SOFRIDOS": 2,
+        "LATITUDE": -34.75053133505603,
+        "LONGITUDE": -58.387661248437816
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.387661248437816,
+          -34.75053133505603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "GENERAL ADRIÁN JARA (CONMEBOL)",
+        "CIDADE": "LUQUE",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "4000",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 1,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -25.26300146495579,
+        "LONGITUDE": -57.51814001406302
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.51814001406302,
+          -25.26300146495579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "GONZALO POZO RIPALDA (CHILLOGALLO)",
+        "CIDADE": "QUITO",
+        "ESTADO": "PICHINCHA",
+        "PAÍS": "EQUADOR",
+        "CAPACIDADE": "18799",
+        "TOTAL_JOGOS": 3,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 1,
+        "APROVEITAMENTO_PCT": 66.7,
+        "GOLS_MARCADOS": 10,
+        "GOLS_SOFRIDOS": 2,
+        "LATITUDE": -0.27863817534163016,
+        "LONGITUDE": -78.5457340754265
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.5457340754265,
+          -0.27863817534163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "GRAN PARQUE CENTRAL",
+        "CIDADE": "MONTEVIDÉU",
+        "ESTADO": "DEPARTAMENTO MONTEVIDÉU",
+        "PAÍS": "URUGUAI",
+        "CAPACIDADE": "37000",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 2,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -34.884261789014836,
+        "LONGITUDE": -56.15824998707433
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.15824998707433,
+          -34.884261789014836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "GTECH COMMUNITY STADIUM",
+        "CIDADE": "LONDRES",
+        "ESTADO": "BRENTFORD",
+        "PAÍS": "INGLATERRA",
+        "CAPACIDADE": "17250",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 1,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": 51.49091800344337,
+        "LONGITUDE": -0.28880181349239775
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.288801813492398,
+          51.49091800344337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "JOSÉ AMALFITANI iEL FORTÍN DE LINIERS)",
+        "CIDADE": "BUENOS AIRES",
+        "ESTADO": "BUENOS AIRES",
+        "PAÍS": "ARGENTINA",
+        "CAPACIDADE": "49540",
+        "TOTAL_JOGOS": 2,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 11,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -34.635154380242916,
+        "LONGITUDE": -58.51991662386432
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.51991662386432,
+          -34.635154380242916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "LA ARBOLEDA",
+        "CIDADE": "ASSUNÇÃO",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "8000",
+        "TOTAL_JOGOS": 3,
+        "VITÓRIAS": 3,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 10,
+        "GOLS_SOFRIDOS": 2,
+        "LATITUDE": -25.257324985267747,
+        "LONGITUDE": -57.57451669872214
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.57451669872214,
+          -25.257324985267747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "LUIS ALFONSO GIAGNI",
+        "CIDADE": "VILLA ELISA",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "11000",
+        "TOTAL_JOGOS": 1,
+        "VITÓRIAS": 1,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 3,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": -25.36720022210868,
+        "LONGITUDE": -57.58427930241521
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.58427930241521,
+          -25.36720022210868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "METROPOLITANO DE TECHO",
+        "CIDADE": "BOGOTÁ",
+        "ESTADO": "DISTRITO CAPITAL",
+        "PAÍS": "COLÔMBIA",
+        "CAPACIDADE": "10000",
+        "TOTAL_JOGOS": 2,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 7,
+        "GOLS_SOFRIDOS": 0,
+        "LATITUDE": 4.623716907161779,
+        "LONGITUDE": -74.13634719943133
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.13634719943133,
+          4.623716907161779
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "NUEVO FRANCISCO URBANO",
+        "CIDADE": "MORÓN",
+        "ESTADO": "BUENOS AIRES",
+        "PAÍS": "ARGENTINA",
+        "CAPACIDADE": "32000",
+        "TOTAL_JOGOS": 6,
+        "VITÓRIAS": 5,
+        "EMPATES": 1,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 88.9,
+        "GOLS_MARCADOS": 43,
+        "GOLS_SOFRIDOS": 1,
+        "LATITUDE": -34.66168741793206,
+        "LONGITUDE": -58.63084344659128
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.63084344659128,
+          -34.66168741793206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "OLÍMPICO ATAHUALPA",
+        "CIDADE": "QUITO",
+        "ESTADO": "PICHINCHA",
+        "PAÍS": "EQUADOR",
+        "CAPACIDADE": "35258",
+        "TOTAL_JOGOS": 6,
+        "VITÓRIAS": 5,
+        "EMPATES": 1,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 88.9,
+        "GOLS_MARCADOS": 16,
+        "GOLS_SOFRIDOS": 4,
+        "LATITUDE": -0.17726933113467663,
+        "LONGITUDE": -78.47619463125041
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.47619463125041,
+          -0.177269331134677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "OLÍMPICO PASCUAL GUERRERO (EL PASCUAL)",
+        "CIDADE": "CALI",
+        "ESTADO": "VALLE DEL CAUCA",
+        "PAÍS": "COLÔMBIA",
+        "CAPACIDADE": "42200",
+        "TOTAL_JOGOS": 4,
+        "VITÓRIAS": 3,
+        "EMPATES": 1,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 83.3,
+        "GOLS_MARCADOS": 11,
+        "GOLS_SOFRIDOS": 1,
+        "LATITUDE": 3.4301899432979908,
+        "LONGITUDE": -76.54056153125042
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.54056153125042,
+          3.430189943297991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "OSVALDO DOMÍNGUEZ DIBB (ANTIGO MANUEL FERREIRA)",
+        "CIDADE": "ASSUNÇÃO",
+        "ESTADO": "DEPARTAMENTO CENTRAL",
+        "PAÍS": "PARAGUAI",
+        "CAPACIDADE": "25820",
+        "TOTAL_JOGOS": 2,
+        "VITÓRIAS": 2,
+        "EMPATES": 0,
+        "DERROTAS": 0,
+        "APROVEITAMENTO_PCT": 100.0,
+        "GOLS_MARCADOS": 11,
+        "GOLS_SOFRIDOS": 1,
+        "LATITUDE": -25.29146924080898,
+        "LONGITUDE": -57.60780712386432
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.60780712386432,
+          -25.29146924080898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ESTÁDIO": "RODRIGO PAZ DELGADO (CASA BLANCA)",
+        "CIDADE": "QUITO",
+        "ESTADO": "PICHINCHA",
+        "PAÍS": "EQUADOR",
+        "CAPACIDADE": "41575",
+        "TOTAL_JOGOS": 3,
+        "VITÓRIAS": 0,
+        "EMPATES": 2,
+        "DERROTAS": 1,
+        "APROVEITAMENTO_PCT": 22.2,
+        "GOLS_MARCADOS": 1,
+        "GOLS_SOFRIDOS": 2,
+        "LATITUDE": -0.10741937280164725,
+        "LONGITUDE": -78.48858918707433
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.48858918707433,
+          -0.107419372801647
+        ]
+      }
+    }
+  ]
+}

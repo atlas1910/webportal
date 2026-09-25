@@ -22,15 +22,17 @@
     const savedTheme = localStorage.getItem('atlas1910_theme') || "dark";
     applyTheme(savedTheme, false);
 
-    // 2. Criar mapa Leaflet otimizado com preferCanvas e sincronização total de zoom
+    // 2. Criar mapa Leaflet otimizado — desabilitando animações que causam descompasso
     map = L.map('map', {
       zoomControl: true,
       attributionControl: true,
       preferCanvas: true,
-      zoomAnimation: true,
-      markerZoomAnimation: true,
-      fadeAnimation: true,
-      wheelPxPerZoomLevel: 120,
+      zoomAnimation: false,      // Desabilita animação de zoom para sincronização perfeita
+      markerZoomAnimation: false, // Evita descompasso entre tiles e camadas
+      fadeAnimation: false,
+      zoomSnap: 1,
+      zoomDelta: 1,
+      wheelPxPerZoomLevel: 100,
       wheelDebounceTime: 40
     }).setView([-23.5505, -46.6333], 9);
 
@@ -404,15 +406,15 @@
     }
 
     // Atualiza logo das Brabas de acordo com o modo visual:
-    // Modo 🏴 (Dark): ATLAS BRABAS 2.png (linhas brancas / contraste no fundo escuro)
-    // Modo 🏳️ (Light): ATLAS BRABAS.png (linhas roxas escuras / contraste no fundo claro)
+    // Layout preto (Modo 🏴): segunda imagem (brabas-dark.png)
+    // Layout branco (Modo 🏳️): primeira imagem (brabas-light.png)
     const brabasImg = document.getElementById('brabas-icon-img');
     if (brabasImg) {
-      brabasImg.src = theme === "dark" ? "assets/ATLAS BRABAS 2.png" : "assets/ATLAS BRABAS.png";
+      brabasImg.src = theme === "dark" ? "assets/brabas-dark.png" : "assets/brabas-light.png";
     }
     const floatingBrabasImg = document.getElementById('floating-brabas-img');
     if (floatingBrabasImg) {
-      floatingBrabasImg.src = theme === "dark" ? "assets/ATLAS BRABAS 2.png" : "assets/ATLAS BRABAS.png";
+      floatingBrabasImg.src = theme === "dark" ? "assets/brabas-dark.png" : "assets/brabas-light.png";
     }
 
     // Atualiza ícones com suporte a variantes claro/escuro (ex: campos mandante)

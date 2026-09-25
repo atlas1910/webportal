@@ -771,8 +771,7 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
 .custom-image-marker {
   cursor: pointer;
   filter: none !important;
-  transition: none !important;
-  will-change: auto;
+  will-change: transform;
 }
 .custom-image-marker:hover {
   transform: scale(1.22);
@@ -1083,19 +1082,34 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
 
 /* --------------------------------------------------------------------------
    SINCRONIZAÇÃO E ACELERAÇÃO DE HARDWARE (LEAFLET PANES & ZOOM)
+   Garante sincronização perfeita entre tiles e camadas GeoJSON durante zoom
    -------------------------------------------------------------------------- */
 .leaflet-pane,
 .leaflet-tile-pane,
 .leaflet-marker-pane,
-.leaflet-overlay-pane {
+.leaflet-overlay-pane,
+.leaflet-shadow-pane,
+.leaflet-popup-pane {
+  will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 .leaflet-tile-container {
   will-change: transform;
+  transform-origin: 0 0;
 }
 .leaflet-tile {
   image-rendering: auto;
+  will-change: transform;
+}
+/* Evita que o zoom-anim cause descompasso visual */
+.leaflet-zoom-anim .leaflet-zoom-animated {
+  will-change: transform;
+}
+/* Canvas renderer — garante sincronização perfeita */
+.leaflet-canvas-pane canvas {
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* --------------------------------------------------------------------------
@@ -1250,9 +1264,12 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
 .copy-status {
   display: none;
   font-size: 10px;
-  color: #10b981;
+  color: #38bdf8;
   font-weight: 600;
   margin-top: 4px;
+}
+[data-theme="light"] .copy-status {
+  color: #0284c7;
 }
 
 /* --------------------------------------------------------------------------
@@ -1386,7 +1403,8 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   font-weight: 700;
   color: var(--text);
 }
-.metric.win .m-val { color: #10b981; }
+.metric.win .m-val { color: #38bdf8; }
+[data-theme="light"] .metric.win .m-val { color: #0284c7; }
 .metric.draw .m-val { color: #f59e0b; }
 .metric.loss .m-val { color: #ef4444; }
 
@@ -1412,7 +1430,8 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   border-left: 3px solid var(--border);
   font-size: 11px;
 }
-.brabas-match-item.win { border-left-color: #10b981; }
+.brabas-match-item.win { border-left-color: #38bdf8; }
+[data-theme="light"] .brabas-match-item.win { border-left-color: #0284c7; }
 .brabas-match-item.draw { border-left-color: #f59e0b; }
 .brabas-match-item.loss { border-left-color: #ef4444; }
 
@@ -1447,7 +1466,8 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   font-weight: 700;
   font-size: 11px;
 }
-.score-badge.win { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+.score-badge.win { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+[data-theme="light"] .score-badge.win { background: rgba(2, 132, 199, 0.15); color: #0284c7; }
 .score-badge.draw { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
 .score-badge.loss { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
 

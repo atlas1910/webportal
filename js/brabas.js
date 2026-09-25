@@ -19,21 +19,36 @@
   let activeMando = "todos";
 
   /* ==========================================================================
+     UTILITÁRIO DE NORMALIZAÇÃO DE NOMES DE ESTÁDIO
+     Garante 100% de correspondência entre jogos internacionais e estádios
+     ========================================================================== */
+  function normalizeStadiumName(str) {
+    if (!str) return '';
+    return String(str)
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-zA-Z0-9]/g, '')
+      .toUpperCase();
+  }
+
+  /* ==========================================================================
      1. INICIALIZAÇÃO
      ========================================================================== */
   async function init() {
     const savedTheme = localStorage.getItem('atlas1910_theme') || "dark";
     applyTheme(savedTheme, false);
 
-    // Mapa otimizado com sincronização total de zoom com os basemaps
+    // Mapa otimizado — desabilitando animações que causam descompasso entre tiles e camadas
     map = L.map('map', {
       zoomControl: true,
       attributionControl: true,
       preferCanvas: true,
-      zoomAnimation: true,
-      markerZoomAnimation: true,
-      fadeAnimation: true,
-      wheelPxPerZoomLevel: 120,
+      zoomAnimation: false,      // Desabilita animação de zoom para sincronização perfeita
+      markerZoomAnimation: false, // Evita descompasso entre tiles e camadas
+      fadeAnimation: false,
+      zoomSnap: 1,
+      zoomDelta: 1,
+      wheelPxPerZoomLevel: 100,
       wheelDebounceTime: 40
     }).setView([-23.5505, -46.6333], 8);
 
@@ -129,11 +144,46 @@
     return L.geoJSON(geojson, {
       pointToLayer: function(feature, latlng) {
         const p = feature.properties || {};
+
+        // Se a camada possui ícone customizado com suporte a variante dark/light
+        if (layerConfig.iconeDark && layerConfig.iconeLight) {
+          const iconUrl = currentTheme === 'light' ? layerConfig.iconeLight : layerConfig.iconeDark;
+          const size = layerConfig.tamanhoIcone || [20, 20];
+          return L.marker(latlng, {
+            icon: L.icon({
+              iconUrl: iconUrl,
+              iconSize: size,
+              iconAnchor: [size[0] / 2, size[1] / 2],
+              popupAnchor: [0, -size[1] / 2],
+              className: 'custom-image-marker'
+            }),
+            opacity: opacity
+          });
+        }
+
+        // Se a camada possui ícone customizado simples (sem variante de tema)
+        if (layerConfig.icone) {
+          const size = layerConfig.tamanhoIcone || [20, 20];
+          return L.marker(latlng, {
+            icon: L.icon({
+              iconUrl: layerConfig.icone,
+              iconSize: size,
+              iconAnchor: [size[0] / 2, size[1] / 2],
+              popupAnchor: [0, -size[1] / 2],
+              className: 'custom-image-marker'
+            }),
+            opacity: opacity
+          });
+        }
+
         const estNome = (p['ESTÁDIO'] || p['EST\ufffdDIO'] || '').trim().toUpperCase();
         
-        // Quantidade de jogos para cálculo de raio dinâmico
+        // Se for a camada de estatísticas dinâmicas, calcula raio proporcional
+        const isEstatisticasLayer = layerConfig.id === "brabas_todos_com_estatisticas";
         const totalJogos = Number(p.TOTAL_JOGOS || p['TOTAL_JOGOS'] || 1);
-        const radius = Math.min(Math.max(6 + Math.log2(totalJogos + 1) * 2.4, 6.5), 18);
+        const radius = isEstatisticasLayer 
+          ? Math.min(Math.max(6 + Math.log2(totalJogos + 1) * 2.4, 6.5), 18)
+          : 7.5;
 
         // Destaque para palcos históricos
         const isPrincipal = estNome.includes("PARQUE SÃO JORGE") || estNome.includes("FAZENDINHA") || estNome.includes("NEO QUÍMICA");
@@ -152,12 +202,13 @@
         layer.on('click', function(e) {
           L.DomEvent.stopPropagation(e);
           const p = feature.properties || {};
-          const estNome = (p['ESTÁDIO'] || p['EST\ufffdDIO'] || '').trim().toUpperCase();
+          const estNome = (p['ESTÁDIO'] || p['EST\ufffdDIO'] || '').trim();
+          const normTarget = normalizeStadiumName(estNome);
           
-          // Buscar todos os jogos deste estádio
+          // Buscar todos os jogos deste estádio com correspondência normalizada
           const jogosDoEstadio = rawJogos.filter(j => {
-            const jEst = (j['ESTÁDIO'] || '').trim().toUpperCase();
-            return jEst === estNome;
+            const jEst = (j['ESTÁDIO'] || j['EST\ufffdDIO'] || '').trim();
+            return normalizeStadiumName(jEst) === normTarget;
           });
 
           showEstadioDetails(p, jogosDoEstadio);
@@ -277,7 +328,9 @@
 
         layerObj.config.opacidade = val;
         layerObj.leafletLayer.eachLayer(marker => {
-          if (typeof marker.setStyle === 'function') {
+          if (typeof marker.setOpacity === 'function') {
+            marker.setOpacity(val);
+          } else if (typeof marker.setStyle === 'function') {
             marker.setStyle({
               opacity: 0.95 * val,
               fillOpacity: 0.85 * val
@@ -305,16 +358,34 @@
      5. FILTROS INTERATIVOS & SINCRONIZAÇÃO
      ========================================================================== */
   function applyFiltersToActiveLayers() {
-    // Filtrar os jogos de acordo com os filtros selecionados
+    // Filtrar jogos de acordo com os filtros selecionados
     const filteredJogos = rawJogos.filter(j => {
-      if (activeEra === "ate_2016" && j.ERA !== "Até 2016") return false;
-      if (activeEra === "depois_2016" && j.ERA !== "Depois da reativação") return false;
-
-      if (activeCompeticao !== "todas") {
-        const comp = (j["COMPETIÇÃO"] || "").toUpperCase();
-        if (!comp.includes(activeCompeticao.toUpperCase())) return false;
+      // 1. Filtro Período (Antes de 2016 vs Depois da Reativação)
+      if (activeEra === "ate_2016") {
+        const eraStr = (j.ERA || "").toLowerCase();
+        const ano = parseFloat(j["ANO JOGO"]) || 0;
+        if (!eraStr.includes("2016") && ano > 2016) return false;
+        if (eraStr.includes("depois")) return false;
+      }
+      if (activeEra === "depois_2016") {
+        const eraStr = (j.ERA || "").toLowerCase();
+        const ano = parseFloat(j["ANO JOGO"]) || 0;
+        if (!eraStr.includes("depois") && ano < 2016) return false;
       }
 
+      // 2. Filtro Competição
+      if (activeCompeticao !== "todas") {
+        const comp = (j["COMPETIÇÃO"] || j["COMPETI\ufffd\ufffdO"] || "").toUpperCase();
+        if (activeCompeticao === "INTERNACIONAL") {
+          const pais = (j["PAÍS"] || j["PA\ufffdS"] || "").trim().toUpperCase();
+          const isIntlComp = comp.includes("LIBERTADORES") || comp.includes("FIFA") || comp.includes("TEAL") || comp.includes("ROSARIO");
+          if (!isIntlComp && pais === "BRASIL") return false;
+        } else if (!comp.includes(activeCompeticao.toUpperCase())) {
+          return false;
+        }
+      }
+
+      // 3. Filtro Mando
       if (activeMando !== "todos") {
         const isMandante = j["MANDANTE / VISITANTE (SCCP)"] === "Sim" || j["TIME MANDANTE"] === "CORINTHIANS";
         const isNeutro = j["MANDANTE / VISITANTE (SCCP)"] === "Neutro";
@@ -326,42 +397,37 @@
       return true;
     });
 
-    const activeStadiumNames = new Set(filteredJogos.map(j => (j["ESTÁDIO"] || "").trim().toUpperCase()));
+    const activeStadiumNorms = new Set(filteredJogos.map(j => normalizeStadiumName(j["ESTÁDIO"] || j["EST\ufffdDIO"])));
 
-    let totalVisible = 0;
     Object.values(loadedLayers).forEach(layerObj => {
       if (!map.hasLayer(layerObj.leafletLayer)) return;
 
       layerObj.leafletLayer.eachLayer(marker => {
         const f = marker.feature;
         if (!f || !f.properties) return;
-        const estNome = (f.properties['ESTÁDIO'] || f.properties['EST\ufffdDIO'] || '').trim().toUpperCase();
+        const estNome = f.properties['ESTÁDIO'] || f.properties['EST\ufffdDIO'] || '';
+        const norm = normalizeStadiumName(estNome);
 
-        const match = activeStadiumNames.has(estNome);
+        const match = activeStadiumNorms.has(norm);
         const op = layerObj.config.opacidade !== undefined ? layerObj.config.opacidade : 1;
 
-        if (match) {
-          totalVisible++;
-          if (typeof marker.setStyle === 'function') {
-            marker.setStyle({
-              opacity: 0.95 * op,
-              fillOpacity: 0.85 * op
-            });
-          }
-        } else {
-          if (typeof marker.setStyle === 'function') {
-            marker.setStyle({
-              opacity: 0.15 * op,
-              fillOpacity: 0.05 * op
-            });
-          }
+        if (typeof marker.setOpacity === 'function') {
+          marker.setOpacity(match ? op : 0.12 * op);
+        } else if (typeof marker.setStyle === 'function') {
+          marker.setStyle(match ? {
+            opacity: 0.95 * op,
+            fillOpacity: 0.85 * op
+          } : {
+            opacity: 0.15 * op,
+            fillOpacity: 0.05 * op
+          });
         }
       });
     });
 
     const countBadge = document.getElementById('filtered-stadium-count');
     if (countBadge) {
-      countBadge.textContent = `${activeStadiumNames.size} estádios (${filteredJogos.length} jogos)`;
+      countBadge.textContent = `${activeStadiumNorms.size} estádios (${filteredJogos.length} jogos)`;
     }
   }
 
@@ -426,7 +492,7 @@
       const autorasText = j["AUTORAS"] ? `<div class="jogo-autoras">⚽ <em>${escapeHtml(j["AUTORAS"])}</em></div>` : '';
       const publicoText = (j["PÚBLICO TOTAL"] && j["PÚBLICO TOTAL"] !== "ND" && j["PÚBLICO TOTAL"] !== "N/A") ? 
         `<span class="jogo-tag">👥 Público: ${j["PÚBLICO TOTAL"]}</span>` : '';
-      const compText = j["COMPETIÇÃO"] ? `<span class="jogo-tag comp">${escapeHtml(j["COMPETIÇÃO"])}</span>` : '';
+      const compText = (j["COMPETIÇÃO"] || j["COMPETI\ufffd\ufffdO"]) ? `<span class="jogo-tag comp">${escapeHtml(j["COMPETIÇÃO"] || j["COMPETI\ufffd\ufffdO"])}</span>` : '';
 
       return `
         <div class="brabas-match-item ${resClass}">
@@ -446,7 +512,7 @@
     }).join('');
 
     if (total === 0) {
-      jogosHtml = '<div class="attr-hint">Nenhum registro de partida individual carregado para este estádio.</div>';
+      jogosHtml = '<div class="attr-hint">Nenhum registro de partida individual filtrado para este estádio no momento.</div>';
     }
 
     attrBody.innerHTML = `
@@ -491,29 +557,51 @@
       }
     }
 
-    // Alternância do ícone com os PNGs roxos da pasta oficial:
-    // Modo 🏴 (Dark Roxo): ATLAS BRABAS 2.png (linhas brancas / contraste com fundo escuro)
-    // Modo 🏳️ (Light Roxo): ATLAS BRABAS.png (linhas roxas escuras / contraste com fundo claro)
+    // Alternância do ícone com os PNGs roxos da pasta oficial
     const siteLogo = document.getElementById('site-logo');
     if (siteLogo) {
       siteLogo.src = theme === "dark" ? "assets/ATLAS BRABAS 2.png" : "assets/ATLAS BRABAS.png";
     }
 
+    // Alternância do botão de navegação com as imagens enviadas:
+    // Layout preto (Modo 🏴): segunda imagem (brabas-dark.png)
+    // Layout branco (Modo 🏳️): primeira imagem (brabas-light.png)
     const brabasLogo = document.getElementById('brabas-icon-img');
     if (brabasLogo) {
-      brabasLogo.src = theme === "dark" ? "assets/ATLAS BRABAS 2.png" : "assets/ATLAS BRABAS.png";
+      brabasLogo.src = theme === "dark" ? "assets/brabas-dark.png" : "assets/brabas-light.png";
     }
 
-    // Atualiza cores dos marcadores no mapa
+    // Atualiza cores dos marcadores de círculo no mapa
+    // E também atualiza ícones temáticos (dark/light) de camadas com escudo
     Object.values(loadedLayers).forEach(layerObj => {
+      const cfg = layerObj.config;
       if (layerObj.leafletLayer) {
-        layerObj.leafletLayer.eachLayer(marker => {
-          if (typeof marker.setStyle === 'function') {
-            marker.setStyle({
-              color: theme === 'light' ? '#4c1d95' : '#ffffff'
-            });
-          }
-        });
+        // Atualiza ícones com variante dark/light (ex: escudo Corinthians)
+        if (cfg.iconeDark && cfg.iconeLight) {
+          const iconUrl = theme === 'light' ? cfg.iconeLight : cfg.iconeDark;
+          const size = cfg.tamanhoIcone || [20, 20];
+          const newIcon = L.icon({
+            iconUrl: iconUrl,
+            iconSize: size,
+            iconAnchor: [size[0] / 2, size[1] / 2],
+            popupAnchor: [0, -size[1] / 2],
+            className: 'custom-image-marker'
+          });
+          layerObj.leafletLayer.eachLayer(marker => {
+            if (marker && typeof marker.setIcon === 'function') {
+              marker.setIcon(newIcon);
+            }
+          });
+        } else {
+          // Atualiza borda de marcadores circulares
+          layerObj.leafletLayer.eachLayer(marker => {
+            if (typeof marker.setStyle === 'function') {
+              marker.setStyle({
+                color: theme === 'light' ? '#4c1d95' : '#ffffff'
+              });
+            }
+          });
+        }
       }
     });
 
@@ -526,7 +614,7 @@
      9. EVENTOS DA INTERFACE
      ========================================================================== */
   function setupEvents() {
-    // Filtro Era
+    // Filtro Período
     const eraSelect = document.getElementById('filter-era');
     if (eraSelect) {
       eraSelect.onchange = (e) => {
