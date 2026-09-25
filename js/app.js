@@ -668,14 +668,27 @@
       }
     });
 
-    // Aparece só depois de 1 minuto (60.000 ms) que a pessoa estiver no site e aparece só uma vez
+    // Aparece após 1 minuto (60.000 ms) do acesso à página, mesmo com o usuário totalmente parado, apenas uma vez
     if (!localStorage.getItem(COLABORE_SHOWN_KEY)) {
-      setTimeout(() => {
-        if (!localStorage.getItem(COLABORE_SHOWN_KEY)) {
+      const pageOpenedAt = Date.now();
+      const triggerOnce = () => {
+        if (localStorage.getItem(COLABORE_SHOWN_KEY)) return;
+        const elapsed = Date.now() - pageOpenedAt;
+        if (elapsed >= 60000) {
           openColaborePopup();
           localStorage.setItem(COLABORE_SHOWN_KEY, 'true');
         }
-      }, 60000);
+      };
+
+      // Timer principal de 1 minuto
+      setTimeout(triggerOnce, 60000);
+
+      // Verificação adicional para garantir execução mesmo com aba em segundo plano ou tela parada
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          triggerOnce();
+        }
+      });
     }
   }
 

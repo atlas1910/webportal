@@ -1,6 +1,6 @@
 /* ==========================================================================
    ATLAS1910 — DESIGN SYSTEM DO ACERVO CORINTHIANO
-   Tipografia Oficial: Montserrat (Exclusiva) & JetBrains Mono (Dados)
+   Tipografia Oficial: Inter (Helvetica / Neue Haas Grotesk) & JetBrains Mono (Dados)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -172,8 +172,8 @@ body.brabas-theme[data-theme="light"] {
    TIPOGRAFIA & DIMENSÕES
    -------------------------------------------------------------------------- */
 :root {
-  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 'Neue Haas Grotesk', 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 'Neue Haas Grotesk', 'Segoe UI', Roboto, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --sidebar-width: 480px; /* Largura ampliada para computador */
 }
@@ -783,35 +783,14 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
    -------------------------------------------------------------------------- */
 
 /* --------------------------------------------------------------------------
-   BARRA DE AÇÕES FLUTUANTES VERTICAL (Inspeção Espacial + Colabore com o Projeto)
-   Só fica visível quando a aba "Camadas" (sidebar) estiver recolhida!
+   ABAS FLUTUANTES (Alinhadas horizontalmente, uma em cada canto inferior)
+   No desktop: sempre visíveis!
    -------------------------------------------------------------------------- */
-.floating-actions-bar {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  z-index: 920;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(10px);
-  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Visível apenas quando #sidebar estiver recolhida (.collapsed) no desktop */
-#sidebar.collapsed ~ #map-container .floating-actions-bar,
-.sidebar-collapsed #map-container .floating-actions-bar {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-/* Botões flutuantes empilhados na vertical */
 .btn-attr-toggle,
 .btn-colabore-toggle {
+  position: absolute;
+  bottom: 20px;
+  z-index: 920;
   background: var(--attr-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -823,13 +802,23 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   font-weight: 700;
   color: var(--text);
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   display: inline-flex;
   align-items: center;
   gap: 6px;
   transition: all 0.2s ease;
   user-select: none;
   white-space: nowrap;
+}
+
+/* Canto Inferior Esquerdo */
+.btn-colabore-toggle {
+  left: 20px;
+}
+
+/* Canto Inferior Direito */
+.btn-attr-toggle {
+  right: 20px;
 }
 
 .btn-attr-toggle:hover,
@@ -1081,16 +1070,26 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
     border-radius: 16px;
   }
 
-  /* Barra de ações flutuantes no mobile: posicionada acima do botão central ☰ Camadas */
-  .floating-actions-bar {
-    bottom: 70px;
-    left: 12px;
-    gap: 6px;
+  /* Mobile: Abas alinhadas horizontalmente nos cantos inferiores, visíveis SOMENTE quando Camadas estiver recolhida (.mobile-hidden) */
+  .btn-attr-toggle,
+  .btn-colabore-toggle {
+    display: none;
+    bottom: 68px;
+    padding: 6px 12px;
+    font-size: 10.5px;
   }
-  #sidebar.mobile-hidden ~ #map-container .floating-actions-bar {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
+  .btn-colabore-toggle {
+    left: 12px;
+  }
+  .btn-attr-toggle {
+    right: 12px;
+  }
+
+  #sidebar.mobile-hidden ~ #map-container .btn-colabore-toggle {
+    display: inline-flex;
+  }
+  #sidebar.mobile-hidden ~ #map-container .btn-attr-toggle {
+    display: inline-flex;
   }
 
   .attr-panel {
