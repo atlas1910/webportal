@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Esquina da Fundação (Lampião de Gás)",
+        "ano": "1910",
+        "data_exata": "01/09/1910",
+        "bairro": "Bom Retiro",
+        "cidade": "São Paulo",
+        "descricao": "Local exato onde os operários fundaram o Sport Club Corinthians Paulista sob a luz de um lampião a gás, na esquina das ruas José Paulino e Cônego Martins."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.6385, -23.5312]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Campo do Lenheiro",
+        "ano": "1910 a 1912",
+        "data_exata": "Setembro de 1910",
+        "bairro": "Bom Retiro",
+        "cidade": "São Paulo",
+        "descricao": "Primeiro campo do Corinthians, na antiga Rua dos Imigrantes. Um terreno de terra batida alugado onde a várzea paulistana viu nascer o Time do Povo."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.6355, -23.5285]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Primeira Sede (Colégio Stafford)",
+        "ano": "1912",
+        "data_exata": "1912",
+        "bairro": "Bom Retiro",
+        "cidade": "São Paulo",
+        "descricao": "Espaço alugado onde eram realizadas as primeiras assembleias gerais e reuniões da diretoria operária do clube."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.6398, -23.5320]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Praça Ramos de Azevedo (Invasão de 1976)",
+        "ano": "1976",
+        "data_exata": "Dezembro de 1976",
+        "bairro": "República / Centro",
+        "cidade": "São Paulo",
+        "descricao": "Ponto de concentração histórica de ônibus e carros da Fiel para a histórica Invasão Corinthiana ao Maracanã contra o Fluminense."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.6389, -23.5458]
+      }
+    }
+  ]
+}

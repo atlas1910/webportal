@@ -533,6 +533,17 @@ details.theme-card[open] summary::after {
   background-color: var(--map-bg) !important;
 }
 
+/* Marcadores Personalizados com Imagem (SVG, PNG, WebP) */
+.custom-image-marker {
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+.custom-image-marker:hover {
+  transform: scale(1.22);
+  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.7));
+}
+
 /* Painel de Atributos Flutuante */
 .attr-panel {
   position: absolute;

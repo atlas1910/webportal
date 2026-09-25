@@ -127,6 +127,23 @@
 
     return L.geoJSON(geojson, {
       pointToLayer: function(feature, latlng) {
+        // 1. Suporte a Simbologia com Imagem Personalizada (PNG, SVG, WebP)
+        // Pode ser definida na camada (layerConfig.icone) ou em uma coluna de atributo do QGIS (ex: feature.properties.icone)
+        const iconPath = (feature.properties && (feature.properties.icone || feature.properties.icon || feature.properties.imagem_marcador)) || layerConfig.icone;
+        if (iconPath) {
+          const size = layerConfig.tamanhoIcone || [30, 30];
+          return L.marker(latlng, {
+            icon: L.icon({
+              iconUrl: iconPath,
+              iconSize: size,
+              iconAnchor: [size[0] / 2, size[1] / 2],
+              popupAnchor: [0, -size[1] / 2],
+              className: 'custom-image-marker'
+            }),
+            opacity: opacity
+          });
+        }
+
         if (shape === 'diamante') {
           return L.marker(latlng, {
             icon: L.divIcon({

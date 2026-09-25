@@ -1,0 +1,95 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Sede Central — Camisa 12",
+        "fundacao": "1971",
+        "cidade": "São Paulo",
+        "bairro": "Belenzinho",
+        "membros_aprox": 1500,
+        "descricao": "Sede social e administrativa da Fiel Torcida Jovem Camisa 12."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.5925, -23.5385]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Subsede Baixada Santista",
+        "fundacao": "1988",
+        "cidade": "Santos",
+        "bairro": "Centro",
+        "membros_aprox": 320,
+        "descricao": "Subsede litorânea de grande tradição em caravanas."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.3336, -23.9608]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Subsede Região Metropolitana de Campinas",
+        "fundacao": "1994",
+        "cidade": "Campinas",
+        "bairro": "Vila Industrial",
+        "membros_aprox": 280,
+        "descricao": "Ponto de concentração de torcedores do interior paulista."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-47.0626, -22.9099]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Subsede Vale do Paraíba",
+        "fundacao": "2001",
+        "cidade": "São José dos Campos",
+        "bairro": "Santana",
+        "membros_aprox": 210,
+        "descricao": "Articulação de torcedores da região da Dutra."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-45.8869, -23.1791]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Subsede Sorocaba & Região",
+        "fundacao": "2005",
+        "cidade": "Sorocaba",
+        "bairro": "Além Ponte",
+        "membros_aprox": 190,
+        "descricao": "Ponto de encontro e caravanas para a Neo Química Arena."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-47.4525, -23.5015]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Subsede Ribeirão Preto",
+        "fundacao": "2008",
+        "cidade": "Ribeirão Preto",
+        "bairro": "Campos Elíseos",
+        "membros_aprox": 160,
+        "descricao": "Núcleo corinthiano do nordeste paulista."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-47.8103, -21.1775]
+      }
+    }
+  ]
+}

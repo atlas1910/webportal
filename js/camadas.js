@@ -3,97 +3,93 @@
  * ATLAS1910 — CATÁLOGO DE TEMÁTICAS E CAMADAS
  * ==========================================================================
  * 
- * COMO ADICIONAR UMA NOVA CAMADA EXPORTADA DO QGIS:
- * 1. Exporte a camada no QGIS como "GeoJSON" (com SRC em EPSG:4326 - WGS 84).
- * 2. Salve o arquivo na pasta 'data/' (ex: 'data/torcidas/minha_camada.geojson').
- * 3. Copie um dos blocos abaixo e cole no tema desejado.
+ * CATEGORIAS OFICIAIS:
+ * 1. Torcida
+ * 2. Estádios
+ * 3. História
+ * 
+ * COMO USAR IMAGENS / ÍCONES PERSONALIZADOS (PNG, SVG, WebP):
+ * - Opção 1 (Na camada toda): Adicione a propriedade:
+ *     icone: "assets/icones/meu_icone.png",
+ *     tamanhoIcone: [30, 30] // largura e altura em pixels
+ * 
+ * - Opção 2 (Um ícone diferente por ponto): No QGIS, crie uma coluna chamada
+ *     'icone' na tabela de atributos e preencha com o caminho da imagem!
  */
 
 const CATALOGO_TEMAS = [
+  /* ========================================================================
+     1. TORCIDA
+     ======================================================================== */
   {
-    id: "torcidas",
-    nome: "Torcidas Organizadas & Movimentos",
+    id: "torcida",
+    nome: "Torcida",
     cor: "#ffffff",
     camadas: [
       {
         id: "camisa12_subsedes",
         nome: "Camisa 12 — Sedes e Subsedes",
-        arquivo: "data/torcidas/camisa12_subsedes.geojson",
+        arquivo: "data/torcida/camisa12_subsedes.geojson",
         tipo: "ponto",
         forma: "circulo", // 'circulo', 'diamante', 'anel'
+        // Para usar imagem personalizada, basta descomentar as 2 linhas abaixo:
+        // icone: "assets/icones/bandeira.svg",
+        // tamanhoIcone: [28, 28],
         cor: "#ffffff",
         ativa: true,
         opacidade: 1.0
       }
-      /* EXEMPLO PARA ADICIONAR PRÓXIMA CAMADA:
-      ,
-      {
-        id: "gavioes_subsedes",
-        nome: "Gaviões da Fiel — Subsedes",
-        arquivo: "data/torcidas/gavioes_subsedes.geojson",
-        tipo: "ponto",
-        forma: "circulo",
-        cor: "#e4e4e7",
-        ativa: true,
-        opacidade: 1.0
-      }
-      */
+      /* COLE SUAS PRÓXIMAS CAMADAS DE TORCIDA AQUI (ex: Gaviões, Pavilhão 9, etc.) */
     ]
   },
 
+  /* ========================================================================
+     2. ESTÁDIOS
+     ======================================================================== */
   {
     id: "estadios",
-    nome: "Estádios & Patrimônio Histórico",
+    nome: "Estádios",
     cor: "#c8aa6e", // Dourado
     camadas: [
       {
-        id: "estadios_corinthians",
-        nome: "Arenas & Sedes Históricas",
+        id: "estadios_arenas",
+        nome: "Estádios & Arenas Históricas",
         arquivo: "data/estadios/estadios_paulistas.geojson",
         tipo: "ponto",
         forma: "diamante",
+        // Para usar imagem personalizada de estádio, basta descomentar:
+        // icone: "assets/icones/estadio.svg",
+        // tamanhoIcone: [30, 30],
         cor: "#c8aa6e",
         ativa: true,
         opacidade: 1.0
       }
+      /* COLE SUAS PRÓXIMAS CAMADAS DE ESTÁDIOS AQUI */
     ]
   },
 
+  /* ========================================================================
+     3. HISTÓRIA
+     ======================================================================== */
   {
-    id: "mobilidade",
-    nome: "Mobilidade Urbana & Malha Ferroviária",
-    cor: "#9ca3af",
+    id: "historia",
+    nome: "História",
+    cor: "#d4d4d8", // Platina
     camadas: [
       {
-        id: "linhas_metro",
-        nome: "Linhas de Acesso aos Estádios (Metrô/CPTM)",
-        arquivo: "data/ferrovia/linhas_metro_sp.geojson",
-        tipo: "linha",
-        cor: "#9ca3af",
-        ativa: true,
-        opacidade: 0.85
-      }
-    ]
-  }
-
-  /* EXEMPLO PARA CRIAR UM NOVO TEMA:
-  ,
-  {
-    id: "memorabilia",
-    nome: "Marcos Históricos na Cidade",
-    cor: "#f59e0b",
-    camadas: [
-      {
-        id: "pontos_fundacao",
-        nome: "Bairro do Bom Retiro 1910",
-        arquivo: "data/historia/fundacao.geojson",
+        id: "marcos_historicos_1910",
+        nome: "Marcos da Fundação & Memória (1910)",
+        arquivo: "data/historia/marcos_historicos.geojson",
         tipo: "ponto",
         forma: "anel",
-        cor: "#f59e0b",
+        // Para usar o pin oficial do 1910, basta descomentar:
+        // icone: "assets/icones/pin_corinthians.svg",
+        // tamanhoIcone: [28, 28],
+        cor: "#d4d4d8",
         ativa: true,
         opacidade: 1.0
       }
+      /* COLE SUAS PRÓXIMAS CAMADAS DE HISTÓRIA AQUI */
     ]
   }
-  */
 ];
