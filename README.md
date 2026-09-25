@@ -1,4 +1,4 @@
-# ATLAS1910 — Acervo Cartográfico do Corinthians
+# ATLAS1910 - Acervo Cartográfico do Corinthians
 
 Geoportal analítico e histórico desenvolvido com **Leaflet.js**, mapas base gratuitos de alta disponibilidade, tipografia oficial **Montserrat** e arquitetura temática responsiva para desktop e mobile.
 
