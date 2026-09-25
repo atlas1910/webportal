@@ -1,4 +1,4 @@
-# ATLAS1910 — Geoportal Analítico e Espacial
+# ATLAS1910 - Geoportal sobre o Corinthians
 
 Geoportal temático e analítico moderno desenvolvido com **Leaflet.js**, suporte à chave de autenticação **CARTO**, mapas base de alta resolução e mecanismo avançado de **Upload e Categorização de Arquivos Espaciais** diretamente no navegador.
 
