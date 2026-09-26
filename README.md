@@ -1,6 +1,6 @@
-# ATLAS1910 - Acervo Cartográfico do Corinthians
+# ATLAS1910 — Acervo Cartográfico do Corinthians
 
-Geoportal analítico e histórico desenvolvido com **Leaflet.js**, mapas base gratuitos de alta disponibilidade, tipografia oficial **Montserrat** e arquitetura temática responsiva para desktop e mobile.
+Geoportal analítico e histórico desenvolvido com **Leaflet.js**, mapas base gratuitos de alta disponibilidade, tipografia oficial **Inter** (Neo-Grotesque / Helvetica) e arquitetura temática responsiva para desktop e mobile.
 
 ---
 
@@ -11,6 +11,11 @@ Para evitar que o navegador restrinja o carregamento de arquivos GeoJSON locais 
 1. Dê um duplo clique no arquivo `run_portal.bat`
 2. O servidor iniciará em `http://localhost:8080` e abrirá automaticamente no seu navegador padrão.
 
+*Ou via terminal:*
+```bash
+cd C:\Users\Felipe\.gemini\antigravity\scratch\atlas1910_geoportal
+python -m http.server 8080
+```
 
 ### Opção 2: Abrir Diretamente
 Abra o arquivo `index.html` em qualquer navegador web moderno (Google Chrome, Edge, Firefox, Brave, Safari).
@@ -39,7 +44,7 @@ A seleção de mapa base agora fica em formato de barra em pílula flutuante no 
 - **100% Gratuitos e Estáveis**: Todas as camadas dependentes de chaves de API externas (como CARTO) foram removidas para garantir disponibilidade contínua sem erros de validação.
 
 ### 4. Identidade Visual e Tipografia Exclusiva
-- **Tipografia Montserrat**: Definida como fonte visual única em toda a plataforma, garantindo peso editorial clássico, clareza cartográfica e elegância.
+- **Tipografia Inter**: Definida como fonte visual única em toda a plataforma (Neo-Grotesque no estilo Helvetica/Neue Haas Grotesk), garantindo clareza cartográfica e elegância editorial.
 - **JetBrains Mono**: Utilizada exclusivamente para valores numéricos, porcentagens e contadores de feições.
 - **Alternância de Tema**: Suporte instantâneo entre Modo 🏴 (Bandeira Preta) e Modo 🏳️ (Bandeira Branca).
 
@@ -55,7 +60,7 @@ atlas1910_geoportal/
 ├── vercel.json           # Configuração de deploy contínuo na Vercel
 ├── assets/               # Imagens, brasões e logotipos (dark/light)
 ├── css/
-│   └── style.css         # Design system com Montserrat e responsividade avançada
+│   └── style.css         # Design system com Inter e responsividade avançada
 ├── js/
 │   ├── app.js            # Inicialização do mapa, eventos, inspeção espacial e sidebar
 │   ├── basemaps.js       # Gerenciador dos 4 mapas base e barra horizontal flutuante

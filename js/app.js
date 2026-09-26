@@ -2,7 +2,7 @@
  * ==========================================================================
  * ATLAS1910 — Acervo Cartográfico do Corinthians
  * Núcleo da Aplicação (Leaflet, Camadas do QGIS, Proteção de Dados e Temas)
- * Tipografia Oficial: Montserrat
+ * Tipografia Oficial: Inter (Neo-Grotesque / Helvetica)
  * ==========================================================================
  */
 
