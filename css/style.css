@@ -1,6 +1,6 @@
 /* ==========================================================================
    ATLAS1910 — DESIGN SYSTEM DO ACERVO CORINTHIANO
-   Tipografia Oficial: Inter (Helvetica / Neue Haas Grotesk) & JetBrains Mono (Dados)
+   Tipografia Oficial: Special Gothic Expanded One (Títulos/Abas) & Voltaire (Textos)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -172,8 +172,8 @@ body.brabas-theme[data-theme="light"] {
    TIPOGRAFIA & DIMENSÕES
    -------------------------------------------------------------------------- */
 :root {
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 'Neue Haas Grotesk', 'Segoe UI', Roboto, Arial, sans-serif;
-  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 'Neue Haas Grotesk', 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-body: 'Voltaire', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-display: 'Special Gothic Expanded One', 'Voltaire', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --sidebar-width: 480px; /* Largura ampliada para computador */
 }
@@ -504,11 +504,10 @@ html, body {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em;
   color: var(--text-dim);
-  text-transform: uppercase;
 }
 
 .badge-count {
@@ -1192,11 +1191,10 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   justify-content: space-between;
 }
 .colabore-tag {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 1px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.5px;
   color: var(--accent);
-  text-transform: uppercase;
   font-weight: 700;
 }
 .colabore-title {
@@ -1382,7 +1380,6 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
   font-weight: 700;
   color: var(--accent);
   margin: 6px 0 8px 0;
-  text-transform: uppercase;
 }
 .brabas-matches-container {
   display: flex;
@@ -1452,15 +1449,14 @@ details.theme-card[open] summary::after { transform: rotate(180deg); }
 .filter-label {
   display: block;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 10.5px;
   color: var(--text-muted);
   margin-bottom: 4px;
-  text-transform: uppercase;
 }
 .filter-select {
   width: 100%;
   padding: 7px 10px;
-  background: var(--surface);
+  background: var(--panel-2);
   border: 1px solid var(--border);
   border-radius: 6px;
   color: var(--text);

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>ATLAS1910 — Acervo Cartográfico do Corinthians</title>
+  <title>ATLAS1910 - Acervo Cartográfico do Corinthians</title>
   <!-- Metadados e URL Oficial -->
   <link rel="canonical" href="https://atlas1910.vercel.app/">
   <meta name="description" content="Acervo Cartográfico do Sport Club Corinthians Paulista. Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.">
@@ -11,18 +11,46 @@
   <meta property="og:description" content="Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.">
   <meta property="og:url" content="https://atlas1910.vercel.app/">
   <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ATLAS1910">
+  <meta name="keywords" content="Corinthians, mapa, cartografia, estádios, torcidas, história do Corinthians, ATLAS1910, São Paulo, geoportal">
+  <meta name="theme-color" content="#09090b">
+  <meta name="geo.region" content="BR-SP">
+  <meta name="geo.placename" content="São Paulo">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="ATLAS1910">
+  <meta property="og:image" content="https://atlas1910.vercel.app/assets/ATLAS%201910.png">
+  <meta property="og:image:alt" content="ATLAS1910 - Acervo Cartográfico do Corinthians">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ATLAS1910 - Acervo Cartográfico do Corinthians">
+  <meta name="twitter:description" content="Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.">
+  <meta name="twitter:image" content="https://atlas1910.vercel.app/assets/ATLAS%201910.png">
+  <link rel="apple-touch-icon" href="assets/PRETO-TRANSPARENTE.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ATLAS1910 - Acervo Cartográfico do Corinthians",
+    "url": "https://atlas1910.vercel.app/",
+    "description": "Acervo Cartográfico do Sport Club Corinthians Paulista. Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.",
+    "inLanguage": "pt-BR",
+    "about": { "@type": "SportsTeam", "name": "Sport Club Corinthians Paulista", "sport": "Soccer" }
+  }
+  </script>
   <link rel="icon" type="image/png" href="assets/PRETO-TRANSPARENTE.png">
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   
-  <!-- Tipografia Oficial: Inter (Neo-Grotesque / Helvetica) & JetBrains Mono -->
+  <!-- Tipografia Oficial: Special Gothic Expanded One (Títulos e Abas) & Voltaire (Textos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&family=Voltaire&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/style.css">
-  <script> window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); }; </script> <script defer src="/_vercel/insights/script.js"></script> 
+  
+
+  <script> window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); }; </script> <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body data-theme="dark">
   <div id="app">
@@ -65,7 +93,7 @@
           <a href="as-brabas.html" id="btn-section-nav" class="btn-section-nav brabas-mode" title="Ir para a seção exclusiva do Futebol Feminino">
             <img id="brabas-icon-img" class="brabas-nav-img" src="assets/brabas-dark.png" alt="As Brabas">
             <span class="nav-text-group">
-              <span class="nav-title">AS BRABAS</span>
+              <span class="nav-title">As Brabas</span>
               <span class="nav-subtitle">Futebol Feminino Histórico &rarr;</span>
             </span>
           </a>
@@ -76,7 +104,7 @@
       <div class="sidebar-collapse-container">
         <button id="btn-sidebar-collapse" class="btn-prominent-collapse" title="Ocultar painel do acervo para expandir o mapa">
           <span class="collapse-icon">◀</span>
-          <span class="collapse-text">OCULTAR PAINEL DO ACERVO</span>
+          <span class="collapse-text">Ocultar Painel do Acervo</span>
         </button>
       </div>
 
@@ -85,7 +113,7 @@
         <!-- Seção: Camadas e Temáticas -->
         <section class="section">
           <div class="section-header">
-            <span class="section-title">TEMÁTICAS & CAMADAS</span>
+            <span class="section-title">Temáticas & Camadas</span>
             <span class="badge-count" id="active-layer-count">0 ativas</span>
           </div>
           <div id="theme-list" class="theme-list">
@@ -96,7 +124,7 @@
         <!-- Seção: Estatísticas do Acervo -->
         <section class="section">
           <div class="section-header">
-            <span class="section-title">ESTATÍSTICAS DO ACERVO</span>
+            <span class="section-title">Estatísticas do Acervo</span>
           </div>
           <div class="stats-grid" id="stats-grid">
             <!-- Estatísticas geradas dinamicamente -->
@@ -121,7 +149,7 @@
       <!-- Botão para expandir a sidebar quando recolhida (desktop) com Contraste Invertido -->
       <button id="btn-sidebar-expand" class="btn-sidebar-expand" title="Mostrar painel de camadas">
         <span class="expand-icon">▶</span>
-        <span class="expand-label">MOSTRAR PAINEL DO ACERVO</span>
+        <span class="expand-label">Mostrar Painel do Acervo</span>
       </button>
 
       <!-- ═══ MAPAS BASE FLUTUANTES (Canto Superior Direito — Horizontal) ═══ -->
@@ -131,7 +159,7 @@
 
       <!-- ═══ BOTÃO FLUTUANTE "COLABORE COM O PROJETO" (Canto Inferior Esquerdo) ═══ -->
       <button id="btn-colabore-toggle" class="btn-floating-action btn-colabore-toggle" title="Apoie o projeto ATLAS1910">
-        🤝 Colabore com o projeto
+         Colabore com o projeto
       </button>
 
       <!-- ═══ BOTÃO FLUTUANTE "INSPEÇÃO ESPACIAL" (Canto Inferior Direito — Sem Emoji) ═══ -->
@@ -143,7 +171,7 @@
       <div id="attr-panel" class="attr-panel" style="display: none;">
         <div class="attr-header">
           <div class="attr-title-box">
-            <span class="attr-tag">INSPEÇÃO ESPACIAL</span>
+            <span class="attr-tag">Inspeção Espacial</span>
             <h3 id="attr-layer-name">Ficha de Atributos</h3>
           </div>
           <div class="attr-header-actions">
@@ -165,7 +193,7 @@
       <div id="colabore-panel" class="colabore-panel" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="colabore-dialog-title">
         <div class="colabore-header">
           <div class="colabore-title-box">
-            <span class="colabore-tag">APOIE O ATLAS</span>
+            <span class="colabore-tag">Apoie o Atlas</span>
             <h3 id="colabore-dialog-title" class="colabore-title">Colabore com o Projeto</h3>
           </div>
           <button id="colabore-close-btn" class="icon-btn sm" title="Fechar janela" aria-label="Fechar janela">&times;</button>

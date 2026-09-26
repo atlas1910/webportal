@@ -11,18 +11,45 @@
   <meta property="og:description" content="A história espacial das Brabas: títulos da Libertadores, Brasileirão, Paulistão e todos os estádios percorridos.">
   <meta property="og:url" content="https://atlas1910.vercel.app/as-brabas.html">
   <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ATLAS1910">
+  <meta name="keywords" content="Corinthians feminino, As Brabas, futebol feminino, mapa, estádios, Libertadores feminina, Brasileirão feminino, ATLAS1910">
+  <meta name="theme-color" content="#0b0514">
+  <meta name="geo.region" content="BR-SP">
+  <meta name="geo.placename" content="São Paulo">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="ATLAS1910">
+  <meta property="og:image" content="https://atlas1910.vercel.app/assets/ATLAS%20BRABAS.png">
+  <meta property="og:image:alt" content="ATLAS1910 - As Brabas, Futebol Feminino do Corinthians">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ATLAS1910 - As Brabas (Corinthians Feminino)">
+  <meta name="twitter:description" content="A história espacial das Brabas: títulos da Libertadores, Brasileirão, Paulistão e todos os estádios percorridos.">
+  <meta name="twitter:image" content="https://atlas1910.vercel.app/assets/ATLAS%20BRABAS.png">
+  <link rel="apple-touch-icon" href="assets/ATLAS BRABAS 2.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ATLAS1910 - As Brabas (Futebol Feminino do Corinthians)",
+    "url": "https://atlas1910.vercel.app/as-brabas.html",
+    "description": "Acervo Histórico e Cartográfico do Futebol Feminino do Sport Club Corinthians Paulista - As Brabas.",
+    "inLanguage": "pt-BR",
+    "isPartOf": { "@type": "WebSite", "name": "ATLAS1910", "url": "https://atlas1910.vercel.app/" },
+    "about": { "@type": "SportsTeam", "name": "Corinthians Futebol Feminino (As Brabas)", "sport": "Soccer" }
+  }
+  </script>
   <link rel="icon" type="image/png" href="assets/PRETO-TRANSPARENTE.png">
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   
-  <!-- Tipografia Oficial: Inter (Neo-Grotesque / Helvetica) & JetBrains Mono -->
+  <!-- Tipografia Oficial: Special Gothic Expanded One (Títulos e Abas) & Voltaire (Textos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&family=Voltaire&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/style.css">
-  <script> window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); }; </script> <script defer src="/_vercel/insights/script.js"></script> 
+  <script> window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); }; </script> <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body data-section="brabas" data-theme="dark">
   <div id="app">
@@ -59,7 +86,7 @@
           <a href="index.html" id="btn-section-nav" class="btn-section-nav home-mode" title="Voltar para a página principal">
             <img id="brabas-icon-img" class="brabas-nav-img" src="assets/brabas-dark.png" alt="As Brabas">
             <span class="nav-text-group">
-              <span class="nav-title">VOLTAR PARA A HOME</span>
+              <span class="nav-title">Voltar para a Home</span>
               <span class="nav-subtitle">&larr; Acervo Geral ATLAS1910</span>
             </span>
           </a>
@@ -74,7 +101,7 @@
       <div class="sidebar-collapse-container">
         <button id="btn-sidebar-collapse" class="btn-prominent-collapse" title="Ocultar painel para expandir o mapa">
           <span class="collapse-icon">◀</span>
-          <span class="collapse-text">OCULTAR PAINEL DAS BRABAS</span>
+          <span class="collapse-text">Ocultar Painel das Brabas</span>
         </button>
       </div>
 
@@ -83,7 +110,7 @@
         <!-- Seção: Camadas e Temáticas das Brabas (Uniformidade com a Homepage) -->
         <section class="section">
           <div class="section-header">
-            <span class="section-title">TEMÁTICAS & CAMADAS</span>
+            <span class="section-title">Temáticas & Camadas</span>
             <span class="badge-count" id="active-layer-count">1 ativa</span>
           </div>
           <div id="theme-list" class="theme-list">
@@ -94,7 +121,7 @@
         <!-- Seção: Filtros Interativos das Brabas -->
         <section class="section">
           <div class="section-header">
-            <span class="section-title">FILTROS ESPACIAIS & TEMPORAIS</span>
+            <span class="section-title">Filtros Espaciais e Temporais</span>
             <span class="badge-count" id="filtered-stadium-count">Carregando...</span>
           </div>
           <div class="theme-card" style="padding: 12px; margin-bottom: 12px;">
@@ -135,7 +162,7 @@
         <!-- Seção: Estatísticas Históricas das Brabas -->
         <section class="section">
           <div class="section-header">
-            <span class="section-title">DINASTIA DAS BRABAS</span>
+            <span class="section-title">Dinastia das Brabas</span>
           </div>
           <div class="stats-grid" id="brabas-stats-grid">
             <!-- Estatísticas injetadas dinamicamente via brabas.js -->
@@ -144,7 +171,7 @@
 
         <!-- Rodapé -->
         <footer class="app-footer">
-          <div><strong>ATLAS1910 — AS BRABAS</strong> · Base oficial <a href="https://x.com/daniel_keppler" target="_blank" rel="noopener noreferrer" class="footer-link">Daniel Keppler</a></div>
+          <div><strong>ATLAS1910 - As Brabas</strong> · Base oficial <a href="https://x.com/daniel_keppler" target="_blank" rel="noopener noreferrer" class="footer-link">Daniel Keppler</a></div>
           <div class="footer-sub">Compilado em GeoPackage WGS84 para WebGIS e QGIS</div>
         </footer>
       </div>
@@ -160,7 +187,7 @@
       <!-- Botão para expandir a sidebar quando recolhida (desktop) -->
       <button id="btn-sidebar-expand" class="btn-sidebar-expand" title="Mostrar painel das Brabas">
         <span class="expand-icon">▶</span>
-        <span class="expand-label">MOSTRAR PAINEL DAS BRABAS</span>
+        <span class="expand-label">Mostrar Painel das Brabas</span>
       </button>
 
       <!-- ═══ MAPAS BASE FLUTUANTES (Canto Superior Direito) ═══ -->
@@ -170,7 +197,7 @@
 
       <!-- ═══ BOTÃO FLUTUANTE "COLABORE COM O PROJETO" (Canto Inferior Esquerdo) ═══ -->
       <button id="btn-colabore-toggle" class="btn-floating-action btn-colabore-toggle" title="Apoie o projeto ATLAS1910">
-        🤝 Colabore com o projeto
+         Colabore com o projeto
       </button>
 
       <!-- ═══ BOTÃO FLUTUANTE "INSPEÇÃO ESPACIAL" (Canto Inferior Direito — Sem Emoji) ═══ -->
@@ -182,7 +209,7 @@
       <div id="attr-panel" class="attr-panel" style="display: none;">
         <div class="attr-header">
           <div class="attr-title-box">
-            <span class="attr-tag">FICHA DO ESTÁDIO</span>
+            <span class="attr-tag">Ficha do Estádio</span>
             <h3 id="attr-layer-name">Selecione um Estádio</h3>
           </div>
           <div class="attr-header-actions">
@@ -201,7 +228,7 @@
       <div id="colabore-panel" class="colabore-panel" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="colabore-dialog-title">
         <div class="colabore-header">
           <div class="colabore-title-box">
-            <span class="colabore-tag">APOIE O ATLAS</span>
+            <span class="colabore-tag">Apoie o Atlas</span>
             <h3 id="colabore-dialog-title" class="colabore-title">Colabore com o Projeto</h3>
           </div>
           <button id="colabore-close-btn" class="icon-btn sm" title="Fechar janela" aria-label="Fechar janela">&times;</button>

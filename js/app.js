@@ -668,20 +668,20 @@
       }
     });
 
-    // Aparece após 1 minuto (60.000 ms) do acesso à página, mesmo com o usuário totalmente parado, apenas uma vez
+    // Aparece após 30 segundos do acesso à página, mesmo com o usuário totalmente parado, apenas uma vez
     if (!localStorage.getItem(COLABORE_SHOWN_KEY)) {
       const pageOpenedAt = Date.now();
       const triggerOnce = () => {
         if (localStorage.getItem(COLABORE_SHOWN_KEY)) return;
         const elapsed = Date.now() - pageOpenedAt;
-        if (elapsed >= 60000) {
+        if (elapsed >= 30000) {
           openColaborePopup();
           localStorage.setItem(COLABORE_SHOWN_KEY, 'true');
         }
       };
 
-      // Timer principal de 1 minuto
-      setTimeout(triggerOnce, 60000);
+      // Timer principal de 30 segundos
+      setTimeout(triggerOnce, 30000);
 
       // Verificação adicional para garantir execução mesmo com aba em segundo plano ou tela parada
       document.addEventListener('visibilitychange', () => {
