@@ -1,0 +1,16 @@
+.next/
+node_modules/
+out/
+coverage/
+.vercel/
+.env*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+archive/
+MIGRAR NEXT JS/
+next-env.d.ts.tmp
+*.log

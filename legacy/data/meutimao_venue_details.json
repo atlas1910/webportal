@@ -1,0 +1,1037 @@
+{
+  "adolfokonder": {
+    "original_name": "Adolfo Konder",
+    "stadium_name": "Adolfo Konder",
+    "stadium_url": "https://www.meutimao.com.br/estadio/adolfo_konder/",
+    "city": "Florianópolis",
+    "state": "SC",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/6153/amistosos-1943/amistoso/avai-3-x-4-corinthians"
+  },
+  "barao": {
+    "original_name": "Barão",
+    "stadium_name": "Barão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/barao/",
+    "city": "Piracicaba",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/513/paulista-2015/xv_de_piracicaba-2-x-2-corinthians"
+  },
+  "ankaraarena": {
+    "original_name": "Ankara Arena",
+    "stadium_name": "Ankara Arena",
+    "stadium_url": "https://www.meutimao.com.br/estadio/ankara_arena/",
+    "city": "Ancara",
+    "state": null,
+    "country": "Turquia",
+    "match_url": "https://www.meutimao.com.br/jogo/4195/amistosos-1972/amistoso/besiktas-2-x-5-corinthians"
+  },
+  "antoniojordaomercadante": {
+    "original_name": "Antônio Jordão Mercadante",
+    "stadium_name": "Antônio Jordão Mercadante",
+    "stadium_url": "https://www.meutimao.com.br/estadio/antonio_jordao_mercadante/",
+    "city": "Jacareí",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/6798/amistosos-1924/amistoso/elvira_de_jacarei-2-x-4-corinthians"
+  },
+  "arenabotafogo": {
+    "original_name": "Arena Botafogo",
+    "stadium_name": "Arena Botafogo",
+    "stadium_url": "https://www.meutimao.com.br/estadio/arena_botafogo/",
+    "city": "Ilha do Governador",
+    "state": "RJ",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/1797/brasileirao-2005/flamengo-1-x-3-corinthians"
+  },
+  "avenidaconselheironebias": {
+    "original_name": "Avenida Conselheiro Nébias",
+    "stadium_name": "Avenida Conselheiro Nébias",
+    "stadium_url": "https://www.meutimao.com.br/estadio/avenida_conselheiro_nebias/",
+    "city": "Santos",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/6586/paulista-1931/atletico_santista-1-x-1-corinthians"
+  },
+  "barbosao": {
+    "original_name": "Barbosão",
+    "stadium_name": "Barbosão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/barbosao?genero=feminino",
+    "city": "Chã Grande",
+    "state": "PE",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5157/brasileirao-feminino-2017/vitoria-pe-0-x-3-corinthians"
+  },
+  "beneditomeirelles": {
+    "original_name": "Benedito Meirelles",
+    "stadium_name": "Benedito Meirelles",
+    "stadium_url": "https://www.meutimao.com.br/estadio/benedito_meirelles/",
+    "city": "Guaratinguetá",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/3882/amistosos-1976/amistoso/esportiva_guaratingueta-1-x-2-corinthians"
+  },
+  "benitoagnelocastellano": {
+    "original_name": "Benito Agnelo Castellano",
+    "stadium_name": "Benito Agnelo Castellano",
+    "stadium_url": "https://www.meutimao.com.br/estadio/benito_agnelo_castellano?genero=feminino",
+    "city": "Rio Claro",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/9009/paulista-feminino-2026/red_bull_bragantino-0-x-6-corinthians"
+  },
+  "bosquedasaude": {
+    "original_name": "Bosque da Saúde",
+    "stadium_name": "Bosque da Saúde",
+    "stadium_url": "https://www.meutimao.com.br/estadio/bosque_da_saude/",
+    "city": "São Paulo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7997/jogo-varzeano-1912/amistoso/eden_americano-x-corinthians"
+  },
+  "brunojose": {
+    "original_name": "Bruno José",
+    "stadium_name": "Bruno José",
+    "stadium_url": "https://www.meutimao.com.br/estadio/bruno_jose?genero=feminino",
+    "city": "Santo André",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8574/paulista-feminino-2025/santos-0-x-3-corinthians"
+  },
+  "campodaruasaojorge": {
+    "original_name": "Campo da Rua São Jorge",
+    "stadium_name": "Campo da Rua São Jorge",
+    "stadium_url": "https://www.meutimao.com.br/estadio/campo_da_rua_sao_jorge/",
+    "city": "São Paulo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/6446/paulista-1937/luzitano-0-x-5-corinthians"
+  },
+  "campodoflamengo": {
+    "original_name": "Campo do Flamengo",
+    "stadium_name": "Campo do Flamengo",
+    "stadium_url": "https://www.meutimao.com.br/estadio/campo_do_flamengo?genero=feminino",
+    "city": "Foz do Iguaçu",
+    "state": "PR",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/1268/brasileiro-feminino-2019/foz-athletico-0-x-1-corinthians"
+  },
+  "campogeneralmotors": {
+    "original_name": "Campo General Motors",
+    "stadium_name": "Campo General Motors",
+    "stadium_url": "https://www.meutimao.com.br/estadio/campo_general_motors/",
+    "city": "São Caetano do Sul",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/4888/amistosos-1964/amistoso/general_motors-0-x-6-corinthians"
+  },
+  "campogremiorecreativodosempregadosdapaulista": {
+    "original_name": "Campo Grêmio Recreativo dos Empregados da Paulista",
+    "stadium_name": "Campo Grêmio Recreativo dos Empregados da Paulista",
+    "stadium_url": "https://www.meutimao.com.br/estadio/campo_gremio_recreativo_dos_empregados_da_paulista/",
+    "city": "Rio Claro",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/6821/amistosos-1923/amistoso/rio_claro-1-x-6-corinthians"
+  },
+  "camposmaia": {
+    "original_name": "Campos Maia",
+    "stadium_name": "Campos Maia",
+    "stadium_url": "https://www.meutimao.com.br/estadio/campos_maia/",
+    "city": "Mirassol",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8882/brasileirao-2026/mirassol-2-x-1-corinthians"
+  },
+  "castelododragao": {
+    "original_name": "Castelo do Dragão",
+    "stadium_name": "Castelo do Dragão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/castelo_do_dragao/",
+    "city": "Goiânia",
+    "state": "GO",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8050/brasileirao-2024/atletico-go-2-x-2-corinthians"
+  },
+  "castorcifuentes": {
+    "original_name": "Castor Cifuentes",
+    "stadium_name": "Castor Cifuentes",
+    "stadium_url": "https://www.meutimao.com.br/estadio/castor_cifuentes?genero=feminino",
+    "city": "Nova Lima",
+    "state": "MG",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8684/copa-do-brasil-feminina-2025/cruzeiro-1-x-1-corinthians"
+  },
+  "cdcmariafelizarda": {
+    "original_name": "CDC Maria Felizarda",
+    "stadium_name": "CDC Maria Felizarda",
+    "stadium_url": "https://www.meutimao.com.br/estadio/cdc_maria_felizarda?genero=feminino",
+    "city": "São Paulo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/922/paulista-feminino-2018/ad_centro_olimpico-2-x-6-corinthians"
+  },
+  "cefan": {
+    "original_name": "CEFAN",
+    "stadium_name": "CEFAN",
+    "stadium_url": "https://www.meutimao.com.br/estadio/cefan?genero=feminino",
+    "city": "Rio de Janeiro",
+    "state": "RJ",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/4695/copa-do-brasil-2016/quartas_de_final/corinthians-1-x-0-flamengo"
+  },
+  "chicovieira": {
+    "original_name": "Chico Vieira",
+    "stadium_name": "Chico Vieira",
+    "stadium_url": "https://www.meutimao.com.br/estadio/chico_vieira/",
+    "city": "Itapira",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/2283/amistosos-1998/amistoso/selecao_de_itapira-1-x-7-corinthians"
+  },
+  "cpkc": {
+    "original_name": "CPKC",
+    "stadium_name": "CPKC",
+    "stadium_url": "https://www.meutimao.com.br/estadio/cpkc?genero=feminino",
+    "city": "Kansas City",
+    "state": null,
+    "country": "Estados Unidos da América",
+    "match_url": "https://www.meutimao.com.br/jogo/9002/teal-rising-cup-2026/america-0-x-8-corinthians"
+  },
+  "ctdaportuguesa": {
+    "original_name": "CT da Portuguesa",
+    "stadium_name": "CT da Portuguesa",
+    "stadium_url": "https://www.meutimao.com.br/estadio/ct_da_portuguesa?genero=feminino",
+    "city": "São Paulo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5327/paulista-feminino-2017/portuguesa-1-x-3-corinthians"
+  },
+  "ctvilaporto": {
+    "original_name": "CT Vila Porto",
+    "stadium_name": "CT Vila Porto",
+    "stadium_url": "https://www.meutimao.com.br/estadio/ct_vila_porto?genero=feminino",
+    "city": "Barueri",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5320/paulista-feminino-2017/corinthians-3-x-0-portuguesa"
+  },
+  "deportivocali": {
+    "original_name": "Deportivo Cali",
+    "stadium_name": "Deportivo Cali",
+    "stadium_url": "https://www.meutimao.com.br/estadio/deportivo_cali/",
+    "city": "Palmira",
+    "state": null,
+    "country": "Colômbia",
+    "match_url": "https://www.meutimao.com.br/jogo/7342/libertadores-2022/deportivo_cali-0-x-0-corinthians"
+  },
+  "deportivomoron": {
+    "original_name": "Deportivo Morón",
+    "stadium_name": "Deportivo Morón",
+    "stadium_url": "https://www.meutimao.com.br/estadio/deportivo_moron?genero=feminino",
+    "city": "Buenos Aires",
+    "state": null,
+    "country": "Argentina",
+    "match_url": "https://www.meutimao.com.br/jogo/8780/libertadores-feminina-2025/quartas_de_final/corinthians-4-x-0-boca_juniors"
+  },
+  "desconhecido": {
+    "original_name": "Desconhecido",
+    "stadium_name": null,
+    "stadium_url": "https://www.meutimao.com.br/estadio/desconhecido/",
+    "city": null,
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7052/jogo-varzeano-1910/amistoso/corinthians-1-x-0-santanna-sp"
+  },
+  "doblevisera": {
+    "original_name": "Doble Visera",
+    "stadium_name": "Doble Visera",
+    "stadium_url": "https://www.meutimao.com.br/estadio/doble_visera/",
+    "city": "Buenos Aires",
+    "state": null,
+    "country": "Argentina",
+    "match_url": "https://www.meutimao.com.br/jogo/815/libertadores-2018/independiente-0-x-1-corinthians"
+  },
+  "elbastiondeleste": {
+    "original_name": "El Bastión del Este",
+    "stadium_name": "El Bastión del Este",
+    "stadium_url": "https://www.meutimao.com.br/estadio/el_bastion_del_este/",
+    "city": "Ciudad del Este",
+    "state": null,
+    "country": "Paraguai",
+    "match_url": "https://www.meutimao.com.br/jogo/302/libertadores-2012/nacional-par-1-x-3-corinthians"
+  },
+  "elejido": {
+    "original_name": "El Ejido",
+    "stadium_name": "El Ejido",
+    "stadium_url": "https://www.meutimao.com.br/estadio/el_ejido/",
+    "city": "Cuenca",
+    "state": null,
+    "country": "Equador",
+    "match_url": "https://www.meutimao.com.br/jogo/3792/libertadores-1977/deportivo_cuenca-2-x-1-corinthians"
+  },
+  "elpalacio": {
+    "original_name": "El Palacio",
+    "stadium_name": "El Palacio",
+    "stadium_url": "https://www.meutimao.com.br/estadio/el_palacio/",
+    "city": "Buenos Aires",
+    "state": null,
+    "country": "Argentina",
+    "match_url": "https://www.meutimao.com.br/jogo/8534/sul-americana-2025/huracan-1-x-0-corinthians"
+  },
+  "estadioantoniogarcia": {
+    "original_name": "Estádio Antônio Garcia",
+    "stadium_name": "Estádio Antônio Garcia",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_antonio_garcia/",
+    "city": "Bauru",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5234/paulista-1959/noroeste-6-x-3-corinthians"
+  },
+  "estadiocarfem": {
+    "original_name": "Estádio Carfem",
+    "stadium_name": "Estádio Carfem",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_carfem?genero=feminino",
+    "city": "Ypané",
+    "state": null,
+    "country": "Paraguai",
+    "match_url": "https://www.meutimao.com.br/jogo/8353/libertadores-feminina-2024/quartas_de_final/corinthians-2-x-0-olimpia"
+  },
+  "estadiodagavea": {
+    "original_name": "Estádio da Gávea",
+    "stadium_name": "Estádio da Gávea",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_da_gavea?genero=feminino",
+    "city": "Rio de Janeiro",
+    "state": "RJ",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7313/brasileiro-feminino-2022/flamengo-1-x-2-corinthians"
+  },
+  "estadiodaruaparaiba": {
+    "original_name": "Estádio da Rua Paraíba",
+    "stadium_name": "Estádio da Rua Paraíba",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_da_rua_paraiba/",
+    "city": "São Caetano do Sul",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5580/amistosos-1954/amistoso/sao_bento_de_sao_caetano-2-x-1-corinthians"
+  },
+  "estadiodaserrinha": {
+    "original_name": "Estádio da Serrinha",
+    "stadium_name": "Estádio da Serrinha",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_da_serrinha/",
+    "city": "Goiânia",
+    "state": "GO",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7624/brasileirao-2023/goias-3-x-1-corinthians"
+  },
+  "estadiodaslaranjeiras": {
+    "original_name": "Estádio das Laranjeiras",
+    "stadium_name": "Estádio das Laranjeiras",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_das_laranjeiras/",
+    "city": "Rio de Janeiro",
+    "state": "RJ",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/6141/amistosos-1944/amistoso/combinado_fla-flu-2-x-2-corinthians"
+  },
+  "estadiodehalmstad": {
+    "original_name": "Estádio de Halmstad",
+    "stadium_name": "Estádio de Halmstad",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_de_halmstad/",
+    "city": "Halmstad",
+    "state": null,
+    "country": "Suécia",
+    "match_url": "https://www.meutimao.com.br/jogo/5707/amistosos-1952/amistoso/selecao_de_halmstadshamlia-1-x-10-corinthians"
+  },
+  "estadiodetecho": {
+    "original_name": "Estádio de Techo",
+    "stadium_name": "Estádio de Techo",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_de_techo?genero=feminino",
+    "city": "Bogotá",
+    "state": null,
+    "country": "Colômbia",
+    "match_url": "https://www.meutimao.com.br/jogo/7908/libertadores-feminina-2023/corinthians-6-x-0-always_ready"
+  },
+  "estadiodiegoarmandomaradona": {
+    "original_name": "Estádio Diego Armando Maradona",
+    "stadium_name": "Estádio Diego Armando Maradona",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_diego_armando_maradona/",
+    "city": "Buenos Aires",
+    "state": null,
+    "country": "Argentina",
+    "match_url": "https://www.meutimao.com.br/jogo/8120/sul-americana-2024/argentinos_juniors-1-x-0-corinthians"
+  },
+  "estadioeugeniofranceschini": {
+    "original_name": "Estádio Eugênio Franceschini",
+    "stadium_name": "Estádio Eugênio Franceschini",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_eugenio_franceschini?genero=feminino",
+    "city": "Valinhos",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/4716/paulista-2016/guarani-2-x-3-corinthians"
+  },
+  "estadiohidalgo": {
+    "original_name": "Estádio Hidalgo",
+    "stadium_name": "Estádio Hidalgo",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_hidalgo/",
+    "city": "Pachuca",
+    "state": null,
+    "country": "México",
+    "match_url": "https://www.meutimao.com.br/jogo/3564/trofeu-feira-de-hidalgo-1981/america-0-x-2-corinthians"
+  },
+  "estadioinonudebesiktas": {
+    "original_name": "Estádio İnönü de Besiktas",
+    "stadium_name": "Estádio İnönü de Besiktas",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_nnu_de_besiktas/",
+    "city": "Istambul",
+    "state": null,
+    "country": "Turquia",
+    "match_url": "https://www.meutimao.com.br/jogo/5696/amistosos-1952/amistoso/galatasaray-2-x-4-corinthians"
+  },
+  "estadiomanoelferreira": {
+    "original_name": "Estádio Manoel Ferreira",
+    "stadium_name": "Estádio Manoel Ferreira",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_manoel_ferreira?genero=feminino",
+    "city": "Bálsamo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/9013/paulista-feminino-2026/mirassol-1-x-4-corinthians"
+  },
+  "estadiomarcelobielsa": {
+    "original_name": "Estádio Marcelo Bielsa",
+    "stadium_name": "Estádio Marcelo Bielsa",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_marcelo_bielsa/",
+    "city": "Rosario",
+    "state": null,
+    "country": "Argentina",
+    "match_url": "https://www.meutimao.com.br/jogo/7826/sul-americana-2023/newells_old_boys-0-x-0-corinthians"
+  },
+  "estadiomithatpasa": {
+    "original_name": "Estádio Mithatpasa",
+    "stadium_name": "Estádio Mithatpasa",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_mithatpasa/",
+    "city": "Istambul",
+    "state": null,
+    "country": "Turquia",
+    "match_url": "https://www.meutimao.com.br/jogo/4194/amistosos-1972/amistoso/besiktas-0-x-3-corinthians"
+  },
+  "estadiomodelo": {
+    "original_name": "Estadio Modelo",
+    "stadium_name": "Estadio Modelo",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_modelo/",
+    "city": "Guayaquil",
+    "state": null,
+    "country": "Equador",
+    "match_url": "https://www.meutimao.com.br/jogo/4637/amistosos-1966/amistoso/barcelona_de_guayaquil-1-x-5-corinthians"
+  },
+  "estadiomohammedv": {
+    "original_name": "Estádio Mohammed V",
+    "stadium_name": "Estádio Mohammed V",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_mohammed_v/",
+    "city": "Casablanca",
+    "state": null,
+    "country": "Marrocos",
+    "match_url": "https://www.meutimao.com.br/jogo/4373/amistosos-1970/amistoso/selecao_marroquina-1-x-0-corinthians"
+  },
+  "estadiomonumental": {
+    "original_name": "Estádio Monumental",
+    "stadium_name": "Estádio Monumental",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_monumental/",
+    "city": "Santiago",
+    "state": null,
+    "country": "Chile",
+    "match_url": "https://www.meutimao.com.br/jogo/935/libertadores-2018/colo-colo-1-x-0-corinthians"
+  },
+  "estadiomonumentalu": {
+    "original_name": "Estadio Monumental U",
+    "stadium_name": "Estadio Monumental U",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_monumental_u/",
+    "city": "Lima",
+    "state": null,
+    "country": "Peru",
+    "match_url": "https://www.meutimao.com.br/jogo/7818/sul-americana-2023/universitario_de_deportes-1-x-2-corinthians"
+  },
+  "estadiomunicipalcandidodebarros": {
+    "original_name": "Estádio Municipal Cândido de Barros",
+    "stadium_name": "Estádio Municipal Cândido de Barros",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_municipal_candido_de_barros/",
+    "city": "Araraquara",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5450/amistosos-1956/amistoso/ada-araraquara-0-x-4-corinthians"
+  },
+  "estadiomunicipaldeipaussu": {
+    "original_name": "Estádio Municipal de Ipaussu",
+    "stadium_name": "Estádio Municipal de Ipaussu",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_municipal_de_ipaussu/",
+    "city": "Ipaussu",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5346/amistosos-1957/amistoso/ipaucuense-0-x-7-corinthians"
+  },
+  "estadionacionaldatailandia": {
+    "original_name": "Estádio Nacional da Tailândia",
+    "stadium_name": "Estádio Nacional da Tailândia",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_nacional_da_tailandia/",
+    "city": "Bangkok",
+    "state": null,
+    "country": "Tailândia",
+    "match_url": "https://www.meutimao.com.br/jogo/3269/amistosos-1984/amistoso/selecao_tailandesa-0-x-4-corinthians"
+  },
+  "estadioolimpicoatahualpa": {
+    "original_name": "Estádio Olímpico Atahualpa",
+    "stadium_name": "Estádio Olímpico Atahualpa",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_olimpico_atahualpa?genero=feminino",
+    "city": "Quito",
+    "state": null,
+    "country": "Equador",
+    "match_url": "https://www.meutimao.com.br/jogo/1404/libertadores-feminina-2019/final/corinthians-2-x-0-ferroviaria"
+  },
+  "estadioolimpicodehelsinque": {
+    "original_name": "Estádio Olímpico de Helsinque",
+    "stadium_name": "Estádio Olímpico de Helsinque",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_olimpico_de_helsinque/",
+    "city": "Helsinque",
+    "state": null,
+    "country": "Finlândia",
+    "match_url": "https://www.meutimao.com.br/jogo/5704/amistosos-1952/amistoso/selecao_finlandesa_de_futebol-1-x-5-corinthians"
+  },
+  "estadioolimpicoderoma": {
+    "original_name": "Estádio Olímpico de Roma",
+    "stadium_name": "Estádio Olímpico de Roma",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_olimpico_de_roma/",
+    "city": "Roma",
+    "state": null,
+    "country": "Itália",
+    "match_url": "https://www.meutimao.com.br/jogo/4199/amistosos-1972/amistoso/roma-0-x-1-corinthians"
+  },
+  "estadiopapajoao": {
+    "original_name": "Estádio Papa João",
+    "stadium_name": "Estádio Papa João",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_papa_joao/",
+    "city": "Mogi Mirim",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/295/paulista-2012/mogi_mirim-1-x-1-corinthians"
+  },
+  "estadiopassodareia": {
+    "original_name": "Estádio Passo d'Areia",
+    "stadium_name": "Estádio Passo d'Areia",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_passo_dareia?genero=feminino",
+    "city": "Porto Alegre",
+    "state": "RS",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8910/brasileiro-feminino-2026/gremio-0-x-2-corinthians"
+  },
+  "estadiopozoripalda": {
+    "original_name": "Estádio Pozo Ripalda",
+    "stadium_name": "Estádio Pozo Ripalda",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_pozo_ripalda?genero=feminino",
+    "city": "Quito",
+    "state": null,
+    "country": "Equador",
+    "match_url": "https://www.meutimao.com.br/jogo/7522/libertadores-feminina-2022/corinthians-4-x-0-olimpia"
+  },
+  "estadioraasunda": {
+    "original_name": "Estádio Raasunda",
+    "stadium_name": "Estádio Raasunda",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_raasunda/",
+    "city": "Solna",
+    "state": null,
+    "country": "Suécia",
+    "match_url": "https://www.meutimao.com.br/jogo/5698/amistosos-1952/amistoso/djurgrdens_idrottsfrening-2-x-3-corinthians"
+  },
+  "estadiosoaresdeazevedo": {
+    "original_name": "Estádio Soares de Azevedo",
+    "stadium_name": "Estádio Soares de Azevedo",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_soares_de_azevedo?genero=feminino",
+    "city": "Muriaé",
+    "state": "MG",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7785/brasileiro-feminino-2023/quartas_de_final/cruzeiro-1-x-2-corinthians"
+  },
+  "estadiouniversitario": {
+    "original_name": "Estadio Universitario",
+    "stadium_name": "Estadio Universitario",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_universitario/",
+    "city": "Nuevo León",
+    "state": null,
+    "country": "México",
+    "match_url": "https://www.meutimao.com.br/jogo/1684/libertadores-2006/tigres-2-x-0-corinthians"
+  },
+  "eucaliptos": {
+    "original_name": "Eucaliptos",
+    "stadium_name": "Eucaliptos",
+    "stadium_url": "https://www.meutimao.com.br/estadio/eucaliptos/",
+    "city": "Porto Alegre",
+    "state": "RS",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/4882/amistosos-1964/amistoso/internacional-1-x-0-corinthians"
+  },
+  "ferreirao": {
+    "original_name": "Ferreirão",
+    "stadium_name": "Ferreirão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/ferreirao/",
+    "city": "Matão",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/2031/paulista-2001/matonense-3-x-2-corinthians"
+  },
+  "fonteluminosa": {
+    "original_name": "Fonte Luminosa",
+    "stadium_name": "Fonte Luminosa",
+    "stadium_url": "https://www.meutimao.com.br/estadio/fonte_luminosa?genero=feminino",
+    "city": "Araraquara",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/9070/copa-do-brasil-feminina-2026/ferroviaria-1-x-0-corinthians"
+  },
+  "gigantedabaixada": {
+    "original_name": "Gigante da Baixada",
+    "stadium_name": "Gigante da Baixada",
+    "stadium_url": "https://www.meutimao.com.br/estadio/gigante_da_baixada/",
+    "city": "Umuarama",
+    "state": "PR",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/4168/amistosos-1973/amistoso/corinthians-1-x-1-umuarama"
+  },
+  "gigantedemadeira": {
+    "original_name": "Gigante de Madeira",
+    "stadium_name": "Gigante de Madeira",
+    "stadium_url": "https://www.meutimao.com.br/estadio/gigante_de_madeira/",
+    "city": "Lins",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5520/paulista-1955/linense-0-x-1-corinthians"
+  },
+  "grunwalderstadion": {
+    "original_name": "Grünwalder Stadion",
+    "stadium_name": "Grünwalder Stadion",
+    "stadium_url": "https://www.meutimao.com.br/estadio/grunwalder_stadion/",
+    "city": "Munique",
+    "state": null,
+    "country": "Alemanha",
+    "match_url": "https://www.meutimao.com.br/jogo/5194/amistosos-1959/amistoso/bayern_de_munique-2-x-3-corinthians"
+  },
+  "herminiao": {
+    "original_name": "Herminião",
+    "stadium_name": "Herminião",
+    "stadium_url": "https://www.meutimao.com.br/estadio/herminiao/",
+    "city": "Araras",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/2275/paulista-1998/uniao_sao_joao-1-x-1-corinthians"
+  },
+  "humbertoreale": {
+    "original_name": "Humberto Reale",
+    "stadium_name": "Humberto Reale",
+    "stadium_url": "https://www.meutimao.com.br/estadio/humberto_reale/",
+    "city": "Sorocaba",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/3788/paulista-1977/sao_bento-0-x-0-corinthians"
+  },
+  "indefinido": {
+    "original_name": "Indefinido",
+    "stadium_name": null,
+    "stadium_url": "https://www.meutimao.com.br/estadio/indefinido?genero=feminino",
+    "city": null,
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/1441/brasileiro-feminino-2020/internacional-0-x-4-corinthians"
+  },
+  "joelfachini": {
+    "original_name": "Joel Fachini",
+    "stadium_name": "Joel Fachini",
+    "stadium_url": "https://www.meutimao.com.br/estadio/joel_fachini/",
+    "city": "Araras",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8007/amistosos-1956/amistoso/comercial_de_araras-0-x-2-corinthians"
+  },
+  "joseliberatti": {
+    "original_name": "José Liberatti",
+    "stadium_name": "José Liberatti",
+    "stadium_url": "https://www.meutimao.com.br/estadio/jose_liberatti?genero=feminino",
+    "city": "Osasco",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8586/paulista-feminino-2025/corinthians-3-x-0-realidade_jovem"
+  },
+  "lanchafilho": {
+    "original_name": "Lancha Filho",
+    "stadium_name": "Lancha Filho",
+    "stadium_url": "https://www.meutimao.com.br/estadio/lancha_filho?genero=feminino",
+    "city": "Franca",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/4711/paulista-2016/francana-0-x-2-corinthians"
+  },
+  "leda": {
+    "original_name": "LEDA",
+    "stadium_name": "LEDA",
+    "stadium_url": "https://www.meutimao.com.br/estadio/leda/",
+    "city": "Dourados",
+    "state": "MS",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/3312/amistosos-1984/amistoso/dourados-0-x-3-corinthians",
+    "locality_correction_source": "https://www.ibge.gov.br/cidades-e-estados/ms/dourados.html"
+  },
+  "lencho": {
+    "original_name": "Lencho",
+    "stadium_name": "Lencho",
+    "stadium_url": "https://www.meutimao.com.br/estadio/lencho?genero=feminino",
+    "city": "Buenos Aires",
+    "state": null,
+    "country": "Argentina",
+    "match_url": "https://www.meutimao.com.br/jogo/8787/libertadores-feminina-2025/final/corinthians-0-x-0-deportivo_cali"
+  },
+  "lusobrasileiro": {
+    "original_name": "Luso Brasileiro",
+    "stadium_name": "Luso Brasileiro",
+    "stadium_url": "https://www.meutimao.com.br/estadio/luso_brasileiro?genero=feminino",
+    "city": "Rio de Janeiro",
+    "state": "RJ",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8915/brasileiro-feminino-2026/flamengo-0-x-1-corinthians"
+  },
+  "marceloportugal": {
+    "original_name": "Marcelo Portugal",
+    "stadium_name": "Marcelo Portugal",
+    "stadium_url": "https://www.meutimao.com.br/estadio/marcelo_portugal?genero=feminino",
+    "city": "Cotia",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8492/brasileiro-feminino-2025/sao_paulo-1-x-1-corinthians"
+  },
+  "metropolitanodelara": {
+    "original_name": "Metropolitano de Lara",
+    "stadium_name": "Metropolitano de Lara",
+    "stadium_url": "https://www.meutimao.com.br/estadio/metropolitano_de_lara/",
+    "city": "Cabudare",
+    "state": null,
+    "country": "Venezuela",
+    "match_url": "https://www.meutimao.com.br/jogo/1243/sul-americana-2019/deportivo_lara-0-x-2-corinthians"
+  },
+  "montanhadovinhedos": {
+    "original_name": "Montanha do Vinhedos",
+    "stadium_name": "Montanha do Vinhedos",
+    "stadium_url": "https://www.meutimao.com.br/estadio/montanha_do_vinhedos?genero=feminino",
+    "city": "Bento Gonçalves",
+    "state": "RS",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8908/brasileiro-feminino-2026/juventude-0-x-1-corinthians"
+  },
+  "monumentaldeguayaquil": {
+    "original_name": "Monumental de Guayaquil",
+    "stadium_name": "Monumental de Guayaquil",
+    "stadium_url": "https://www.meutimao.com.br/estadio/monumental_de_guayaquil/",
+    "city": "Guayaquil",
+    "state": null,
+    "country": "Equador",
+    "match_url": "https://www.meutimao.com.br/jogo/8484/libertadores-2025/barcelona_de_guayaquil-3-x-0-corinthians"
+  },
+  "municipaldebragancapaulista": {
+    "original_name": "Municipal de Bragança Paulista",
+    "stadium_name": "Municipal de Bragança Paulista",
+    "stadium_url": "https://www.meutimao.com.br/estadio/municipal_de_braganca_paulista/",
+    "city": "Bragança Paulista",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8862/brasileirao-2026/red_bull_bragantino-0-x-2-corinthians"
+  },
+  "nabiabi": {
+    "original_name": "Nabi Abi",
+    "stadium_name": "Nabi Abi",
+    "stadium_url": "https://www.meutimao.com.br/estadio/nabi_abi/",
+    "city": "Bragança Paulista",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8391/paulista-2025/red_bull_bragantino-1-x-2-corinthians"
+  },
+  "nacional": {
+    "original_name": "Nacional",
+    "stadium_name": "Nacional",
+    "stadium_url": "https://www.meutimao.com.br/estadio/nacional/",
+    "city": "Lima",
+    "state": null,
+    "country": "Peru",
+    "match_url": "https://www.meutimao.com.br/jogo/5668/sul-americana-2021/sport_huancayo-0-x-3-corinthians"
+  },
+  "niltonsantos": {
+    "original_name": "Nilton Santos",
+    "stadium_name": "Nilton Santos",
+    "stadium_url": "https://www.meutimao.com.br/estadio/nilton_santos/",
+    "city": "Rio de Janeiro",
+    "state": "RJ",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8885/brasileirao-2026/botafogo-3-x-1-corinthians"
+  },
+  "ninhodoazulao": {
+    "original_name": "Ninho do Azulão",
+    "stadium_name": "Ninho do Azulão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/ninho_do_azulao/",
+    "city": "Monte Azul Paulista",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/74/paulista-2010/monte_azul-1-x-1-corinthians"
+  },
+  "ninhodocorvo": {
+    "original_name": "Ninho do Corvo",
+    "stadium_name": "Ninho do Corvo",
+    "stadium_url": "https://www.meutimao.com.br/estadio/ninho_do_corvo?genero=feminino",
+    "city": "Guarulhos",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/1152/paulista-feminino-2019/corinthians-3-x-0-portuguesa"
+  },
+  "olimpicouniversitario": {
+    "original_name": "Olímpico Universitário",
+    "stadium_name": "Olímpico Universitário",
+    "stadium_url": "https://www.meutimao.com.br/estadio/olimpico_universitario/",
+    "city": "Cidade do México",
+    "state": null,
+    "country": "México",
+    "match_url": "https://www.meutimao.com.br/jogo/1811/sul-americana-2005/quartas_de_final/pumas-3-x-0-corinthians"
+  },
+  "ospioneiros": {
+    "original_name": "Os Pioneiros",
+    "stadium_name": "Os Pioneiros",
+    "stadium_url": "https://www.meutimao.com.br/estadio/os_pioneiros/",
+    "city": "Pato Branco",
+    "state": "PR",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/3878/amistosos-1976/amistoso/pato_branco-0-x-3-corinthians"
+  },
+  "palestraitalia": {
+    "original_name": "Palestra Itália",
+    "stadium_name": "Palestra Itália",
+    "stadium_url": "https://www.meutimao.com.br/estadio/palestra_italia/",
+    "city": "São Paulo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/3016/paulista-1988/corinthians-2-x-1-sao_jose"
+  },
+  "pavilhao": {
+    "original_name": "Pavilhão",
+    "stadium_name": "Pavilhão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/pavilhao?genero=feminino",
+    "city": "Eldorado do Sul",
+    "state": "RS",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8027/brasileiro-feminino-2024/gremio-0-x-3-corinthians"
+  },
+  "pv": {
+    "original_name": "PV",
+    "stadium_name": "PV",
+    "stadium_url": "https://www.meutimao.com.br/estadio/pv/",
+    "city": "Fortaleza",
+    "state": "CE",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/268/brasileirao-2011/ceara-0-x-1-corinthians"
+  },
+  "robertao": {
+    "original_name": "Robertão",
+    "stadium_name": "Robertão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/robertao/",
+    "city": "Piracicaba",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/4890/paulista-1964/xv_de_piracicaba-2-x-2-corinthians"
+  },
+  "ronaldao": {
+    "original_name": "Ronaldão",
+    "stadium_name": "Ronaldão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/ronaldao/",
+    "city": "Poços de Caldas",
+    "state": "MG",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/671/copa-do-brasil-2017/caldense-0-x-1-corinthians"
+  },
+  "salgueirao": {
+    "original_name": "Salgueirão",
+    "stadium_name": "Salgueirão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/salgueirao/",
+    "city": "Salgueiro",
+    "state": "PE",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5069/copa-do-brasil-2021/salgueiro-0-x-3-corinthians"
+  },
+  "stadiumnovisad": {
+    "original_name": "Stadium Novi Sad",
+    "stadium_name": "Stadium Novi Sad",
+    "stadium_url": "https://www.meutimao.com.br/estadio/stadium_novi_sad/",
+    "city": "Novi Sad",
+    "state": null,
+    "country": "Sérvia",
+    "match_url": "https://www.meutimao.com.br/jogo/4374/amistosos-1970/amistoso/fk_vojvodina-1-x-1-corinthians"
+  },
+  "teliaparken": {
+    "original_name": "Telia Parken",
+    "stadium_name": "Telia Parken",
+    "stadium_url": "https://www.meutimao.com.br/estadio/telia_parken/",
+    "city": "Copenhague",
+    "state": null,
+    "country": "Dinamarca",
+    "match_url": "https://www.meutimao.com.br/jogo/5699/amistosos-1952/amistoso/staevenetcombinado_copenhague-1-x-1-corinthians"
+  },
+  "tenentao": {
+    "original_name": "Tenentão",
+    "stadium_name": "Tenentão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/tenentao/",
+    "city": "Penápolis",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/445/paulista-2014/penapolense-0-x-0-corinthians"
+  },
+  "tocadoleao": {
+    "original_name": "Toca do Leão",
+    "stadium_name": "Toca do Leão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/toca_do_leao/",
+    "city": "Santa Bárbara D'Oeste",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/1756/paulista-2005/uniao_barbarense-1-x-3-corinthians"
+  },
+  "trapichao": {
+    "original_name": "Trapichão",
+    "stadium_name": "Trapichão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/trapichao/",
+    "city": "Maceió",
+    "state": "AL",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/1131/brasileirao-2019/csa-2-x-1-corinthians"
+  },
+  "ufc": {
+    "original_name": "UFC",
+    "stadium_name": "UFC",
+    "stadium_url": "https://www.meutimao.com.br/estadio/ufc/",
+    "city": "Orlando",
+    "state": null,
+    "country": "Estados Unidos da América",
+    "match_url": "https://www.meutimao.com.br/jogo/797/florida-cup-2018/corinthians-2-x-4-rangers"
+  },
+  "uno": {
+    "original_name": "UNO",
+    "stadium_name": "UNO",
+    "stadium_url": "https://www.meutimao.com.br/estadio/uno/",
+    "city": "La Plata",
+    "state": null,
+    "country": "Argentina",
+    "match_url": "https://www.meutimao.com.br/jogo/9112/libertadores-2026/quartas_de_final/estudiantes-1-x-1-corinthians"
+  },
+  "velezsarsfield": {
+    "original_name": "Vélez Sarsfield",
+    "stadium_name": "Vélez Sarsfield",
+    "stadium_url": "https://www.meutimao.com.br/estadio/velez_sarsfield?genero=feminino",
+    "city": "Buenos Aires",
+    "state": null,
+    "country": "Argentina",
+    "match_url": "https://www.meutimao.com.br/jogo/5080/libertadores-feminina-2020/quartas_de_final/corinthians-7-x-0-santiago_morning"
+  },
+  "vicentelopez": {
+    "original_name": "Vicente López",
+    "stadium_name": "Vicente López",
+    "stadium_url": "https://www.meutimao.com.br/estadio/vicente_lopez/",
+    "city": "Vicente López",
+    "state": null,
+    "country": "Argentina",
+    "match_url": "https://www.meutimao.com.br/jogo/8968/libertadores-2026/platense-0-x-2-corinthians"
+  },
+  "vivaldao": {
+    "original_name": "Vivaldão",
+    "stadium_name": "Vivaldão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/vivaldao/",
+    "city": "Manaus",
+    "state": "AM",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/2452/amistosos-1996/amistoso/flamengo-2-x-2-corinthians"
+  },
+  "walterribeiro": {
+    "original_name": "Walter Ribeiro",
+    "stadium_name": "Walter Ribeiro",
+    "stadium_url": "https://www.meutimao.com.br/estadio/walter_ribeiro/",
+    "city": "Sorocaba",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/1077/paulista-2019/sao_bento-1-x-1-corinthians"
+  },
+  "match:1441": {
+    "original_name": "https://www.meutimao.com.br/jogo/1441/brasileiro-feminino-2020/internacional-0-x-4-corinthians",
+    "stadium_name": null,
+    "stadium_url": "https://www.meutimao.com.br/estadio/indefinido?genero=feminino",
+    "city": null,
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/1441/brasileiro-feminino-2020/internacional-0-x-4-corinthians",
+    "last_checked": "2026-09-28T05:24:31.356597+00:00"
+  },
+  "match:5315": {
+    "original_name": "https://www.meutimao.com.br/jogo/5315/paulista-feminino-2017/ad_centro_olimpico-0-x-4-corinthians",
+    "stadium_name": null,
+    "stadium_url": "https://www.meutimao.com.br/estadio/indefinido?genero=feminino",
+    "city": null,
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5315/paulista-feminino-2017/ad_centro_olimpico-0-x-4-corinthians",
+    "last_checked": "2026-09-28T05:24:32.750822+00:00"
+  },
+  "match:6145": {
+    "original_name": "https://www.meutimao.com.br/jogo/6145/amistosos-1944/amistoso/luiz_de_queiroz-4-x-8-corinthians",
+    "stadium_name": null,
+    "stadium_url": "https://www.meutimao.com.br/estadio/indefinido/",
+    "city": null,
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/6145/amistosos-1944/amistoso/luiz_de_queiroz-4-x-8-corinthians",
+    "last_checked": "2026-09-28T05:24:33.545961+00:00"
+  },
+  "match:6147": {
+    "original_name": "https://www.meutimao.com.br/jogo/6147/amistosos-1944/amistoso/brasil_de_garca-0-x-10-corinthians",
+    "stadium_name": null,
+    "stadium_url": "https://www.meutimao.com.br/estadio/indefinido/",
+    "city": null,
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/6147/amistosos-1944/amistoso/brasil_de_garca-0-x-10-corinthians",
+    "last_checked": "2026-09-28T05:24:34.337100+00:00"
+  },
+  "match:7052": {
+    "original_name": "https://www.meutimao.com.br/jogo/7052/jogo-varzeano-1910/amistoso/corinthians-1-x-0-santanna-sp",
+    "stadium_name": null,
+    "stadium_url": "https://www.meutimao.com.br/estadio/desconhecido/",
+    "city": null,
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7052/jogo-varzeano-1910/amistoso/corinthians-1-x-0-santanna-sp",
+    "last_checked": "2026-09-28T05:24:35.113196+00:00"
+  },
+  "match:7053": {
+    "original_name": "https://www.meutimao.com.br/jogo/7053/jogo-varzeano-1910/amistoso/corinthians-2-x-1-carlos_gomes-sp",
+    "stadium_name": null,
+    "stadium_url": "https://www.meutimao.com.br/estadio/desconhecido/",
+    "city": null,
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7053/jogo-varzeano-1910/amistoso/corinthians-2-x-1-carlos_gomes-sp",
+    "last_checked": "2026-09-28T05:24:35.877768+00:00"
+  },
+  "match:7059": {
+    "original_name": "https://www.meutimao.com.br/jogo/7059/jogo-varzeano-1910/amistoso/corinthians-3-x-1-uniao_lapa",
+    "stadium_name": null,
+    "stadium_url": "https://www.meutimao.com.br/estadio/desconhecido/",
+    "city": null,
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7059/jogo-varzeano-1910/amistoso/corinthians-3-x-1-uniao_lapa",
+    "last_checked": "2026-09-28T05:24:36.674540+00:00"
+  },
+  "match:7575": {
+    "original_name": "https://www.meutimao.com.br/jogo/7575/copa-paulista-2022/ec_sao_bernardo-0-x-4-corinthians",
+    "stadium_name": null,
+    "stadium_url": "https://www.meutimao.com.br/estadio/indefinido?genero=feminino",
+    "city": null,
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7575/copa-paulista-2022/ec_sao_bernardo-0-x-4-corinthians",
+    "last_checked": "2026-09-28T05:24:38.139229+00:00"
+  }
+}

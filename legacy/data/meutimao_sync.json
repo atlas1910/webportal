@@ -1,0 +1,95 @@
+{
+  "fonte": "Meu Timão",
+  "atualizado_em_utc": "2026-09-28T05:25:53.090844+00:00",
+  "masculino": {
+    "temporadas": [
+      1910,
+      2026
+    ],
+    "partidas": 6346,
+    "estádios_com_coordenadas": 510,
+    "estádios_sem_coordenadas": [],
+    "estádios_sem_coordenadas_total": 0,
+    "partidas_sem_estadio_identificado": [
+      {
+        "meutimao_id": "7059",
+        "data": "1911-11-29",
+        "url_fonte": "https://www.meutimao.com.br/jogo/7059/jogo-varzeano-1910/amistoso/corinthians-3-x-1-uniao_lapa"
+      },
+      {
+        "meutimao_id": "7053",
+        "data": "1911-01-02",
+        "url_fonte": "https://www.meutimao.com.br/jogo/7053/jogo-varzeano-1910/amistoso/corinthians-2-x-1-carlos_gomes-sp"
+      },
+      {
+        "meutimao_id": "7052",
+        "data": "1911-01-01",
+        "url_fonte": "https://www.meutimao.com.br/jogo/7052/jogo-varzeano-1910/amistoso/corinthians-1-x-0-santanna-sp"
+      },
+      {
+        "meutimao_id": "6147",
+        "data": "1944-12-10",
+        "url_fonte": "https://www.meutimao.com.br/jogo/6147/amistosos-1944/amistoso/brasil_de_garca-0-x-10-corinthians"
+      },
+      {
+        "meutimao_id": "6145",
+        "data": "1944-10-22",
+        "url_fonte": "https://www.meutimao.com.br/jogo/6145/amistosos-1944/amistoso/luiz_de_queiroz-4-x-8-corinthians"
+      }
+    ],
+    "partidas_sem_estadio_identificado_total": 5
+  },
+  "feminino": {
+    "fontes": {
+      "Daniel Keppler": [
+        1997,
+        2015
+      ],
+      "Meu Timão": [
+        2016,
+        2026
+      ]
+    },
+    "partidas_daniel_keppler": 94,
+    "temporadas_meutimao": [
+      2016,
+      2026
+    ],
+    "partidas_meutimao": 473,
+    "partidas_total_com_acervo_local": 567,
+    "partidas_total_unificadas": 567,
+    "estádios_com_coordenadas": 179,
+    "estádios_sem_coordenadas": [],
+    "estádios_sem_coordenadas_total": 0,
+    "partidas_sem_estadio_identificado": [
+      {
+        "meutimao_id": "5315",
+        "data": "2017-04-09",
+        "url_fonte": "https://www.meutimao.com.br/jogo/5315/paulista-feminino-2017/ad_centro_olimpico-0-x-4-corinthians"
+      },
+      {
+        "meutimao_id": "1441",
+        "data": "2020-09-10",
+        "url_fonte": "https://www.meutimao.com.br/jogo/1441/brasileiro-feminino-2020/internacional-0-x-4-corinthians"
+      },
+      {
+        "meutimao_id": "7575",
+        "data": "2022-11-30",
+        "url_fonte": "https://www.meutimao.com.br/jogo/7575/copa-paulista-2022/ec_sao_bernardo-0-x-4-corinthians"
+      }
+    ],
+    "partidas_sem_estadio_identificado_total": 3
+  },
+  "geocodificacao": {
+    "cache": "data/estadio_geocoding_cache.json",
+    "detalhes_partidas_cache": "data/meutimao_venue_details.json",
+    "estádios_geocodificados": 104,
+    "fontes": [
+      "Meu Timão",
+      "OpenStreetMap Nominatim",
+      "Wikipedia",
+      "Wikidata"
+    ],
+    "atribuição_osm": "© OpenStreetMap contributors, ODbL 1.0"
+  }
+}

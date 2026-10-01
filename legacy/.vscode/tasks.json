@@ -1,0 +1,36 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Atualizar acervo Meu Timão",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"scripts/sync_meutimao.py"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Atualizar geometrias do acervo",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"scripts/sync_meutimao.py",
+				"--geocode-only"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Atualizar capacidades dos estádios",
+			"type": "shell",
+			"command": "python",
+			"args": [
+				"scripts/update_stadium_capacities.py"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

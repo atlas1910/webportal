@@ -1,0 +1,24 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Praça Ramos de Azevedo (Invasão de 1976)",
+        "evento": "Concentração da Invasão Corinthiana",
+        "ano": "1976",
+        "data_exata": "Dezembro de 1976",
+        "bairro": "República / Centro Histórico",
+        "cidade": "São Paulo",
+        "descricao": "Ponto de concentração histórica de ônibus e carros da Fiel Torcida rumo ao Maracanã para a semifinal do Campeonato Brasileiro de 1976 contra o Fluminense."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.6389,
+          -23.5458
+        ]
+      }
+    }
+  ]
+}

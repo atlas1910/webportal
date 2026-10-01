@@ -1,0 +1,43 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Esquina da Fundação (Lampião de Gás)",
+        "evento": "Fundação do Corinthians",
+        "ano": "1910",
+        "data_exata": "01/09/1910",
+        "bairro": "Bom Retiro",
+        "cidade": "São Paulo",
+        "descricao": "Local exato onde os operários fundaram o Sport Club Corinthians Paulista sob a luz de um lampião a gás, na esquina das ruas José Paulino e Cônego Martins."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.6385,
+          -23.5312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Primeira Sede (Colégio Stafford)",
+        "evento": "Primeira Sede Operária",
+        "ano": "1912",
+        "data_exata": "1912",
+        "bairro": "Bom Retiro",
+        "cidade": "São Paulo",
+        "descricao": "Espaço alugado onde eram realizadas as primeiras assembleias gerais e reuniões da diretoria operária do clube."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.6398,
+          -23.532
+        ]
+      }
+    }
+  ]
+}

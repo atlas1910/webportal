@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "stadiums": [
+    {
+      "current_name": "Anacleto Campanella",
+      "previous_name": "Estádio Municipal Lauro Gomes de Almeida",
+      "aliases": ["Lauro Gomes", "Estádio Lauro Gomes", "Estádio Municipal Lauro Gomes de Almeida"],
+      "sources": [
+        "https://biblioteca.ibge.gov.br/biblioteca-catalogo.html?id=448774&view=detalhes",
+        "https://pt.wikipedia.org/wiki/Est%C3%A1dio_Anacleto_Campanella"
+      ]
+    },
+    {
+      "current_name": "Nubank Parque",
+      "previous_name": "Allianz Parque",
+      "aliases": ["Palestra Itália", "Estádio Palestra Itália", "Parque Antártica", "Parque Antarctica", "Arena Palestra Itália", "Allianz Parque"],
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Nubank_Parque",
+        "https://www1.folha.uol.com.br/esporte/2026/05/estadio-do-palmeiras-e-rebatizado-como-nubank-parque.shtml"
+      ]
+    },
+    {
+      "current_name": "Neo Química Arena",
+      "previous_name": "Arena Corinthians",
+      "aliases": ["Arena Corinthians", "Arena de São Paulo", "Arena Itaquera", "Itaquerão"],
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Neo_Qu%C3%ADmica_Arena",
+        "https://ge.globo.com/futebol/times/corinthians/noticia/corinthians-vende-naming-rights-arena-hypera-pharma-neo-quimica-oficial-anuncio.ghtml"
+      ]
+    },
+    {
+      "current_name": "Mercado Livre Arena Pacaembu",
+      "previous_name": "Estádio Municipal Paulo Machado de Carvalho",
+      "aliases": ["Estádio Municipal do Pacaembu", "Estádio do Pacaembu", "Pacaembu", "Paulo Machado de Carvalho"],
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Est%C3%A1dio_Municipal_Paulo_Machado_de_Carvalho",
+        "https://www.pacaembuoficial.com.br/"
+      ]
+    },
+    {
+      "current_name": "MorumBIS",
+      "previous_name": "Estádio do Morumbi",
+      "aliases": ["Morumbi", "Estádio Cícero Pompeu de Toledo", "Cícero Pompeu de Toledo"],
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Est%C3%A1dio_do_Morumbi",
+        "https://www.saopaulofc.net/estrutura/morumbis/"
+      ]
+    },
+    {
+      "current_name": "Estádio Nabi Abi Chedid",
+      "previous_name": "Estádio Marcelo Stéfani",
+      "aliases": ["Marcelo Stéfani", "Marcelo Stefani", "Nabizão"],
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Est%C3%A1dio_Nabi_Abi_Chedid",
+        "https://www.redbullbragantino.com.br/estadio/informacoes-gerais"
+      ]
+    },
+    {
+      "current_name": "Estádio Paulo Constantino",
+      "previous_name": "Estádio Eduardo José Farah",
+      "aliases": ["Eduardo José Farah", "Prudentão"],
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Est%C3%A1dio_Paulo_Constantino",
+        "http://www.presidenteprudente.sp.gov.br/site/noticias.xhtml?cod=22828"
+      ]
+    },
+    {
+      "current_name": "Estádio Olímpico Nilton Santos",
+      "previous_name": "Estádio Olímpico João Havelange",
+      "aliases": ["João Havelange", "Engenhão", "Estádio Nilton Santos", "Stadium Rio"],
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Est%C3%A1dio_Ol%C3%ADmpico_Nilton_Santos",
+        "https://www.botafogo.com.br/nilton-santos-informacoes-tecnicas"
+      ]
+    },
+    {
+      "current_name": "Estádio Nacional Mané Garrincha",
+      "previous_name": "Arena BRB Mané Garrincha",
+      "aliases": ["Estádio Nacional de Brasília Mané Garrincha", "Estádio Mané Garrincha", "Estádio Governador Hélio Prates da Silveira", "Mané Garrincha"],
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Est%C3%A1dio_Nacional_de_Bras%C3%ADlia_Man%C3%A9_Garrincha",
+        "https://g1.globo.com/df/distrito-federal/noticia/2026/04/22/brb-e-estadio-mane-garrincha-encerram-acordo-de-naming-rights-da-arena.ghtml"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <base href="/">
+  <title>ATLAS1910 - Acervo Cartográfico do Corinthians</title>
+  <!-- Metadados e URL Oficial -->
+  <link rel="canonical" href="https://atlas1910.vercel.app/sccp-principal/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#09090b">
+  <meta name="keywords" content="Corinthians, cartografia, estádios, história do futebol, mapas, ATLAS1910">
+  <meta name="description" content="Acervo Cartográfico do Sport Club Corinthians Paulista. Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.">
+  <meta property="og:title" content="ATLAS1910 - Acervo Cartográfico do Corinthians">
+  <meta property="og:description" content="Mapeamento histórico de estádios, sedes, subsedes de torcidas e mobilidade urbana em São Paulo.">
+  <meta property="og:url" content="https://atlas1910.vercel.app/sccp-principal/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://atlas1910.vercel.app/assets/PRETO-TRANSPARENTE.png">
+  <meta property="og:image:alt" content="Identidade visual do ATLAS1910, acervo cartográfico do Corinthians">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ATLAS1910 - Acervo Cartográfico do Corinthians">
+  <meta name="twitter:description" content="Explore mapas históricos de estádios, partidas e a presença do Corinthians pelo mundo.">
+  <meta name="twitter:image" content="https://atlas1910.vercel.app/assets/PRETO-TRANSPARENTE.png">
+  <meta name="twitter:image:alt" content="Identidade visual do ATLAS1910">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "ATLAS1910 - Mapa principal do Corinthians",
+      "url": "https://atlas1910.vercel.app/sccp-principal/",
+      "description": "Acervo cartográfico e histórico do Sport Club Corinthians Paulista.",
+      "inLanguage": "pt-BR"
+    }
+  </script>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  
+  <!-- Host Grotesk para a interface; Geist e Special Gothic ficam reservadas à marca -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Host+Grotesk:wght@300;400;500;700;800&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css?v=20260930-bottom-controls-right-v1">
+</head>
+<body data-theme="dark">
+  <a class="skip-link" href="#map-container">Pular para o mapa interativo</a>
+  <div id="app">
+
+    <!-- ═══ BARRA LATERAL DO ACERVO ═══ -->
+    <aside id="sidebar" class="mobile-hidden">
+
+      <!-- Alça de arrastar para visual mobile -->
+      <div class="drawer-handle-bar">
+        <div class="drawer-handle"></div>
+      </div>
+
+      <header class="app-header">
+        <div class="logo-row">
+          <div class="brand">
+            <!-- Logotipo adaptado ao tema (dark / light) -->
+            <img id="site-logo" class="site-logo" src="assets/PRETO-TRANSPARENTE.png" alt="ATLAS1910">
+            <div class="brand-text">
+              <h1 class="portal-title">ATLAS1910</h1>
+              <p class="portal-sub">Acervo Cartográfico do Corinthians</p>
+            </div>
+          </div>
+          <div class="header-tools">
+            <!-- Botão para fechar o painel gaveta no mobile -->
+            <button id="btn-mobile-close" class="icon-btn btn-close-mobile" title="Fechar painel">
+              X
+            </button>
+          </div>
+        </div>
+        <p class="portal-intro">
+          Explore a cartografia sob a perspectiva corinthiana: estádios, campos históricos e a memória do Time do Povo desde 1910.
+        </p>
+
+        <!-- Botão Seção Especial As Brabas -->
+        <div class="section-switch-container">
+          <a href="as-brabas.html" id="btn-section-nav" class="btn-section-nav brabas-mode" title="Ir para a seção exclusiva do Futebol Feminino">
+            <img id="brabas-icon-img" class="brabas-nav-img" src="assets/brabas-dark.png" alt="As Brabas">
+            <span class="nav-text-group">
+              <span class="nav-title">AS BRABAS</span>
+              <span class="nav-subtitle">Futebol Feminino Histórico &rarr;</span>
+            </span>
+          </a>
+        </div>
+      </header>
+
+      <!-- BARRA DE DESTAQUE: OCULTAR PAINEL (Contraste Invertido) -->
+      <div class="sidebar-collapse-container">
+        <button id="btn-sidebar-collapse" class="btn-prominent-collapse" title="Ocultar painel do acervo para expandir o mapa">
+          <span class="collapse-icon">◀</span>
+          <span class="collapse-text">OCULTAR PAINEL DO ACERVO</span>
+        </button>
+      </div>
+
+      <!-- Conteúdo rolável da barra lateral -->
+      <div class="sidebar-scrollable">
+        <!-- Seção: Camadas e Temáticas -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">GRUPOS E CAMADAS</span>
+            <span class="badge-count" id="active-layer-count">1 ativa</span>
+          </div>
+          <div id="theme-list" class="theme-list">
+            <!-- Temas e camadas injetados via js/camadas.js -->
+          </div>
+        </section>
+
+        <!-- Seções complementares começam recolhidas para manter o foco nas camadas. -->
+        <section class="sidebar-extra-section">
+          <button id="btn-numbers-open" class="sidebar-extra-action numbers-trigger" type="button" aria-haspopup="dialog" aria-controls="numbers-dialog" title="Abrir Números">
+            <span>Números</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+          </button>
+          <dialog id="numbers-dialog" class="numbers-dialog" aria-labelledby="numbers-dialog-title">
+            <div class="numbers-dialog-header">
+              <h2 id="numbers-dialog-title">Números</h2>
+              <form method="dialog">
+                <button class="atlas-stat-preview-close" type="submit" aria-label="Fechar Números">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+                </button>
+              </form>
+            </div>
+            <div class="stats-grid" id="stats-grid">
+              <!-- Estatísticas geradas dinamicamente via js/app.js -->
+            </div>
+          </dialog>
+        </section>
+        <section class="sidebar-extra-section">
+          <button id="btn-colabore-toggle" class="sidebar-extra-action" type="button" title="Abrir opções de colaboração">
+            <span>Colabore</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+          </button>
+        </section>
+
+        <!-- Rodapé -->
+        <footer class="app-footer">
+          <div><strong>ATLAS1910</strong> · Todos os direitos reservados</div>
+          <div class="footer-sub">Mapeamento temático e espacial elaborado no QGIS</div>
+        </footer>
+      </div>
+    </aside>
+
+    <!-- Fundo escurecido para fechamento no mobile ao tocar fora -->
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+    <!-- ═══ ÁREA PRINCIPAL DO MAPA ═══ -->
+    <main id="map-container">
+      <div id="map" role="application" aria-label="Mapa interativo do acervo cartográfico do Corinthians"></div>
+      <div class="map-bottom-left-controls">
+        <aside id="jenks-legend" class="jenks-legend" aria-label="Legenda do mapa" aria-live="polite">
+          <button id="btn-map-legend-toggle" class="map-filter-header map-panel-toggle map-legend-header" type="button" aria-expanded="true" aria-controls="jenks-legend-content" title="Recolher legenda">
+            <strong>Legenda</strong>
+            <svg class="hierarchy-disclosure-icon filter-disclosure-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"></path></svg>
+          </button>
+          <div id="jenks-legend-content" class="map-legend-content">
+            <p class="jenks-legend-empty">Ative uma camada estatística para ver a legenda.</p>
+          </div>
+        </aside>
+        <section id="map-filter-panel" class="map-filter-panel map-auto-collapse" aria-label="Filtros">
+          <button id="btn-map-filter-toggle" class="map-filter-header map-panel-toggle map-action-button" type="button" aria-expanded="true" aria-controls="map-filter-fields" title="Recolher filtros">
+            <strong>Filtros</strong>
+            <span class="badge-count" id="filtered-stadium-count">Carregando...</span>
+            <svg class="hierarchy-disclosure-icon filter-disclosure-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"></path></svg>
+          </button>
+          <div id="map-filter-fields" class="map-filter-fields">
+            <div class="filter-group">
+              <label class="filter-label" for="filter-comp">Competição:</label>
+              <select id="filter-comp" class="filter-select">
+                <option value="todas">Todas as Competições</option>
+                <option value="AMISTOSO">Amistoso</option>
+                <option value="BRASILEIRO">Campeonato Brasileiro</option>
+                <option value="PAULISTA">Campeonato Paulista</option>
+                <option value="COPA DO BRASIL">Copa do Brasil</option>
+                <option value="LIBERTADORES">Copa Libertadores</option>
+                <option value="SUL-AMERICANA">Copa Sul-Americana</option>
+                <option value="MUNDIAL">Mundial de Clubes FIFA</option>
+                <option value="RIO-SAO PAULO">Torneio Rio-São Paulo</option>
+                <option value="INTERNACIONAL">Torneios Internacionais</option>
+              </select>
+            </div>
+          </div>
+        </section>
+        <div id="map-scale-slot" class="map-scale-slot" aria-label="Escala do mapa"></div>
+      </div>
+
+      <!-- Botão para expandir a sidebar quando recolhida (desktop) com Contraste Invertido -->
+      <button id="btn-sidebar-expand" class="btn-sidebar-expand" title="Mostrar painel de camadas">
+        <span class="expand-icon">▶</span>
+        <span class="expand-label">MOSTRAR PAINEL DO ACERVO</span>
+      </button>
+
+      <!-- ═══ MAPAS BASE FLUTUANTES (Canto Superior Direito - Horizontal) ═══ -->
+      <div class="map-top-controls">
+        <nav id="basemap-bar" class="basemap-floating-bar" role="toolbar" aria-label="Alternar Mapa de Fundo">
+          <!-- Botões dos Basemaps gerados via js/basemaps.js -->
+        </nav>
+        <div class="map-navigation-row">
+          <div class="map-zoom-control" role="group" aria-label="Controles de zoom do mapa">
+            <div class="map-zoom-buttons">
+              <button id="btn-map-zoom-in" type="button" aria-label="Aproximar o mapa" title="Aproximar">+</button>
+            </div>
+            <label class="map-zoom-range">
+              <span id="map-zoom-max" class="map-zoom-limit">máx.</span>
+              <input id="map-zoom-slider" type="range" min="0" max="19" step="0.0625" value="9" aria-label="Nível de zoom">
+              <span id="map-zoom-min" class="map-zoom-limit">mín.</span>
+            </label>
+            <div class="map-zoom-buttons">
+              <button id="btn-map-zoom-out" type="button" aria-label="Afastar o mapa" title="Afastar">−</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-left-controls">
+        <button id="btn-equal-earth" class="projection-toggle" type="button" aria-pressed="false" title="Reprojetar o mapa para WGS 84 / Equal Earth (EPSG:8857)">
+          <span class="projection-toggle-label">Equal Earth</span>
+          <span class="projection-toggle-badge">NOVO!</span>
+        </button>
+        <button id="map-theme-toggle" class="map-theme-toggle" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema claro e escuro">
+          <span class="map-theme-toggle-half map-theme-toggle-foreground" aria-hidden="true"></span>
+          <span class="map-theme-toggle-half map-theme-toggle-background" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <noscript><p class="map-noscript">Este mapa interativo requer JavaScript. A navegação pelo acervo e pelas camadas está disponível com JavaScript ativado.</p></noscript>
+
+      <div class="map-layer-controls">
+        <button id="btn-layer-panel" class="btn-floating-action btn-layer-panel map-action-button" type="button" title="Camadas" aria-label="Camadas">
+          <svg class="layer-panel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="m12 3 9 5-9 5-9-5 9-5Z"></path>
+            <path d="m3 12 9 5 9-5"></path>
+            <path d="m3 16 9 5 9-5"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Painel informativo do estádio -->
+      <div id="attr-panel" class="attr-panel" style="display: none;">
+        <div class="attr-header">
+          <div class="attr-title-box">
+            <span class="attr-tag">INFORMAÇÕES DO ACERVO</span>
+            <h3 id="attr-layer-name">Informações da feição</h3>
+          </div>
+          <div class="attr-header-actions">
+            <button id="attr-close-btn" class="icon-btn sm" title="Fechar ficha" aria-label="Fechar ficha">&times;</button>
+          </div>
+        </div>
+        <div class="attr-search-box">
+          <input type="text" id="attr-search-input" placeholder="Filtrar dados e partidas..." />
+        </div>
+        <div class="attr-content" id="attr-body">
+          <div class="attr-hint">Clique em uma feição do mapa para ler as informações ou estatísticas disponíveis.</div>
+        </div>
+      </div>
+
+      <!-- Backdrop escurecido do Pop-up "Colabore com o Projeto" -->
+      <div id="colabore-backdrop" class="colabore-backdrop" style="display: none;"></div>
+
+      <!-- Pop-up Modal "Colabore com o Projeto" -->
+      <div id="colabore-panel" class="colabore-panel" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="colabore-dialog-title">
+        <div class="colabore-header">
+          <div class="colabore-title-box">
+            <span class="colabore-tag">APOIE O ATLAS</span>
+            <h3 id="colabore-dialog-title" class="colabore-title">Colabore com o Projeto</h3>
+          </div>
+          <button id="colabore-close-btn" class="icon-btn sm" title="Fechar janela" aria-label="Fechar janela">&times;</button>
+        </div>
+        <div class="colabore-body">
+          <p class="colabore-desc">
+            Apoie o ATLAS1910 pelo LivePix. Obrigado por colaborar!
+          </p>
+          <p class="colabore-link">Link: <a href="https://livepix.gg/atlas1910" target="_blank" rel="noopener noreferrer">livepix.gg/atlas1910</a></p>
+          <div class="colabore-qr-box">
+            <img src="assets/qr-colabore.png" alt="QR Code LivePix" class="colabore-qr-img" />
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.12.1/proj4.min.js"></script>
+
+  <!-- Módulos da Aplicação -->
+  <script src="js/basemaps.js?v=20260929-map-legend-disclosure-v1"></script>
+  <script src="js/camadas.js?v=20260930-next-migration-v1"></script>
+  <script src="js/app.js?v=20260930-crest-2012-v1"></script>
+</body>
+</html>
