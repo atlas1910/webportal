@@ -1,0 +1,83 @@
+name: Notify IndexNow
+
+on:
+  deployment_status:
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: indexnow-production
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      HOST: atlas1910.vercel.app
+      KEY: 3a7d675b80184d96f398faba3537eabf
+    steps:
+      - name: Verify key and collect canonical URLs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          key_content="$(curl --fail --silent --show-error "https://${HOST}/${KEY}.txt")"
+          if [[ "$key_content" != "$KEY" ]]; then
+            echo "The IndexNow key file is missing or does not match the configured key." >&2
+            exit 1
+          fi
+
+          urls_file="$(mktemp)"
+          response_file="$(mktemp)"
+          trap 'rm -f "$urls_file" "$response_file"' EXIT
+
+          curl --fail --silent --show-error "https://${HOST}/sitemap.xml" \
+            | grep -oE '<loc>[^<]+' \
+            | sed 's/<loc>//' \
+            | sort -u > "$urls_file"
+
+          if [[ ! -s "$urls_file" ]]; then
+            echo "No URLs were found in the production sitemap." >&2
+            exit 1
+          fi
+
+          while IFS= read -r url; do
+            case "$url" in
+              "https://${HOST}/"*) ;;
+              *)
+                echo "Refusing to submit a URL outside https://${HOST}: $url" >&2
+                exit 1
+                ;;
+            esac
+          done < "$urls_file"
+
+          payload="$(jq -n \
+            --arg host "$HOST" \
+            --arg key "$KEY" \
+            --rawfile raw_urls "$urls_file" \
+            '{host: $host, key: $key, urlList: ($raw_urls | split("\n") | map(select(length > 0)))}')"
+
+          status="$(curl --silent --show-error \
+            --output "$response_file" \
+            --write-out '%{http_code}' \
+            --request POST "https://www.bing.com/indexnow" \
+            --header 'Content-Type: application/json; charset=utf-8' \
+            --data-binary "$payload")"
+          url_count="$(wc -l < "$urls_file" | tr -d ' ')"
+
+          case "$status" in
+            200|202)
+              echo "IndexNow accepted $url_count sitemap URLs (HTTP $status)."
+              ;;
+            *)
+              echo "IndexNow request failed with HTTP $status." >&2
+              cat "$response_file" >&2
+              exit 1
+              ;;
+          esac

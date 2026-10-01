@@ -37,6 +37,10 @@ npm.cmd start
 
 Para conferir os arquivos Next.js antes do build, rode `npm.cmd run lint`.
 
+## IndexNow
+
+`public/3a7d675b80184d96f398faba3537eabf.txt` deve conter a mesma chave configurada em `.github/workflows/indexnow.yml`. A Action envia as URLs canônicas do sitemap ao Bing após um deploy Vercel com sucesso no ambiente `Production`; também pode ser executada manualmente em **Actions > Notify IndexNow**. O arquivo da chave é público por exigência do protocolo e não deve ser tratado como segredo. IndexNow acelera a descoberta em buscadores participantes, mas não garante indexação nem substitui o sitemap/Search Console do Google.
+
 ## Fundo e prévias de mapa
 
 `scripts/sync-public-data.mjs` copia para `public/data` apenas os cinco conjuntos atualizados pelo sincronizador legado. `scripts/generate-map-previews.mjs` gera SVGs locais a partir de estádios, rotas, núcleos da Fiel, Libertadores feminina e fronteiras. `scripts/generate-country-boundaries.mjs` prepara limites compactos para cada mapa; as fontes-mestre ficam em `scripts/data/basemap`, fora da pasta pública. `predev` e `prebuild` executam essas etapas; as animações respeitam `prefers-reduced-motion`.
