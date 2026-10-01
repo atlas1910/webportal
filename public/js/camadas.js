@@ -496,20 +496,6 @@ const CATALOGO_TEMAS_BRABAS = [
         classificacao: "jenks"
       },
       {
-        id: "brabas_paises_visitados_feminino",
-        shareId: "36d4c656fee1",
-        nome: "Países que o Corinthians jogou",
-        grupo: "Corinthians",
-        categoria: "fronteiras",
-        arquivo: "data/basemap/paises_limites_brabas.geojson?v=20260930-country-bounds-v1",
-        attribution: "&copy; <a href='https://whosonfirst.org/'>Who's On First</a>",
-        fronteiraPais: true,
-        cor: "#a855f7",
-        ativa: false,
-        opacidade: 1,
-        permitirCamadasSimultaneas: true
-      },
-      {
         id: "brabas_outros_historia",
         shareId: "4d1882104353",
         nome: "História",
@@ -568,6 +554,21 @@ const CATALOGO_TEMAS_BRABAS = [
         permitirCamadasSimultaneas: true,
         jenksRadii: [6, 8, 10, 12, 14],
         classificacao: "jenks"
+      },
+      {
+        id: "brabas_paises_visitados_feminino",
+        shareId: "36d4c656fee1",
+        nome: "Países que as Brabas já jogaram",
+        grupo: "Países que as Brabas já jogaram",
+        grupoRecolhido: true,
+        categoria: "fronteiras",
+        arquivo: "data/basemap/paises_limites_brabas.geojson?v=20260930-country-bounds-v1",
+        attribution: "&copy; <a href='https://whosonfirst.org/'>Who's On First</a>",
+        fronteiraPais: true,
+        cor: "#a855f7",
+        ativa: true,
+        opacidade: 1,
+        permitirCamadasSimultaneas: true
       }
     ]
   },
