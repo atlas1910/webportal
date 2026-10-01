@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
       {
         source: "/index.html",
         destination: "/sccp-principal/",
-        permanent: false
+        permanent: true
       },
       {
         source: "/camadas/:shareId",
@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
       {
         source: "/as-brabas",
         destination: "/as-brabas.html",
-        permanent: false
+        permanent: true
       },
       {
         source: "/as-brabas/camadas/:shareId",

@@ -51,6 +51,7 @@ export const metadata: Metadata = {
     images: ["/opengraph-image/"]
   },
   robots: { index: true, follow: true, "max-image-preview": "large" },
+  verification: { google: "oSYfTQ0djI2NnaF3FBZlKP6FfPmYBijoKoUEi-QSpSE" },
   icons: { icon: "/assets/favicon.png" }
 };
 
