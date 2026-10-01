@@ -1033,5 +1033,466 @@
     "country": "Brasil",
     "match_url": "https://www.meutimao.com.br/jogo/7575/copa-paulista-2022/ec_sao_bernardo-0-x-4-corinthians",
     "last_checked": "2026-09-28T05:24:38.139229+00:00"
+  },
+  "1odemaio": {
+    "original_name": "1º de Maio",
+    "stadium_name": "1º de Maio",
+    "stadium_url": "https://www.meutimao.com.br/estadio/1_de_maio/",
+    "city": "São Bernardo do Campo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8811/paulista-2026/sao_bernardo_fc-0-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:23.791715+00:00"
+  },
+  "abadiao": {
+    "original_name": "Abadião",
+    "stadium_name": "Abadião",
+    "stadium_url": "https://www.meutimao.com.br/estadio/abadiao?genero=feminino",
+    "city": "Ceilândia",
+    "state": "DF",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7310/brasileiro-feminino-2022/cresspom-0-x-3-corinthians",
+    "last_checked": "2026-10-01T07:31:24.389130+00:00"
+  },
+  "abreuzao": {
+    "original_name": "Abreuzão",
+    "stadium_name": "Abreuzão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/abreuzao?genero=feminino",
+    "city": "Marília",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8191/paulista-feminino-2024/marilia-0-x-5-corinthians",
+    "last_checked": "2026-10-01T07:31:25.079486+00:00"
+  },
+  "acrisiopaescruz": {
+    "original_name": "Acrísio Paes Cruz",
+    "stadium_name": "Acrísio Paes Cruz",
+    "stadium_url": "https://www.meutimao.com.br/estadio/acrisio_paes_cruz/",
+    "city": "Botucatu",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/4883/amistosos-1964/amistoso/ferroviaria_de_botucatu-0-x-4-corinthians",
+    "last_checked": "2026-10-01T07:31:25.753607+00:00"
+  },
+  "arenadogremio": {
+    "original_name": "Arena do Grêmio",
+    "stadium_name": "Arena do Grêmio",
+    "stadium_url": "https://www.meutimao.com.br/estadio/arena_do_gremio/",
+    "city": "Porto Alegre",
+    "state": "RS",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8888/brasileirao-2026/gremio-1-x-3-corinthians",
+    "last_checked": "2026-10-01T07:31:26.463899+00:00"
+  },
+  "arenapernambuco": {
+    "original_name": "Arena Pernambuco",
+    "stadium_name": "Arena Pernambuco",
+    "stadium_url": "https://www.meutimao.com.br/estadio/arena_pernambuco/",
+    "city": "São Lourenço da Mata",
+    "state": "PE",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5926/brasileirao-2021/sport-1-x-0-corinthians",
+    "last_checked": "2026-10-01T07:31:27.164987+00:00"
+  },
+  "arsenalstadium": {
+    "original_name": "Arsenal Stadium",
+    "stadium_name": "Arsenal Stadium",
+    "stadium_url": "https://www.meutimao.com.br/estadio/arsenal_stadium/",
+    "city": "Londres",
+    "state": null,
+    "country": "Inglaterra",
+    "match_url": "https://www.meutimao.com.br/jogo/4836/amistosos-1965/amistoso/arsenal-2-x-0-corinthians",
+    "last_checked": "2026-10-01T07:31:27.809910+00:00"
+  },
+  "baetao": {
+    "original_name": "Baetão",
+    "stadium_name": "Baetão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/baetao?genero=feminino",
+    "city": "São Bernardo do Campo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/4701/brasileirao-2016/ad_centro_olimpico-0-x-0-corinthians",
+    "last_checked": "2026-10-01T07:31:28.493435+00:00"
+  },
+  "bezerrao": {
+    "original_name": "Bezerrão",
+    "stadium_name": "Bezerrão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/bezerrao?genero=feminino",
+    "city": "Gama",
+    "state": "DF",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8487/brasileiro-feminino-2025/real_brasilia-2-x-8-corinthians",
+    "last_checked": "2026-10-01T07:31:29.186047+00:00"
+  },
+  "caninde": {
+    "original_name": "Canindé",
+    "stadium_name": "Canindé",
+    "stadium_url": "https://www.meutimao.com.br/estadio/caninde?genero=feminino",
+    "city": "São Paulo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/9115/brasileiro-feminino-2026/quartas_de_final/corinthians-3-x-1-cruzeiro",
+    "last_checked": "2026-10-01T07:31:29.871766+00:00"
+  },
+  "casablanca": {
+    "original_name": "Casa Blanca",
+    "stadium_name": "Casa Blanca",
+    "stadium_url": "https://www.meutimao.com.br/estadio/casa_blanca?genero=feminino",
+    "city": "Quito",
+    "state": null,
+    "country": "Equador",
+    "match_url": "https://www.meutimao.com.br/jogo/7552/libertadores-feminina-2022/boca_juniors-2-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:30.531997+00:00"
+  },
+  "castelao": {
+    "original_name": "Castelão",
+    "stadium_name": "Castelão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/castelao/",
+    "city": "Fortaleza",
+    "state": "CE",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8462/brasileirao-2025/fortaleza-2-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:31.264720+00:00"
+  },
+  "centenario": {
+    "original_name": "Centenário",
+    "stadium_name": "Centenário",
+    "stadium_url": "https://www.meutimao.com.br/estadio/centenario/",
+    "city": "Montevidéu",
+    "state": null,
+    "country": "Uruguai",
+    "match_url": "https://www.meutimao.com.br/jogo/8533/sul-americana-2025/racing-uru-0-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:31.995960+00:00"
+  },
+  "conmebol": {
+    "original_name": "Conmebol",
+    "stadium_name": "Conmebol",
+    "stadium_url": "https://www.meutimao.com.br/estadio/conmebol?genero=feminino",
+    "city": "Assunção",
+    "state": null,
+    "country": "Paraguai",
+    "match_url": "https://www.meutimao.com.br/jogo/8354/libertadores-feminina-2024/corinthians-1-x-0-boca_juniors",
+    "last_checked": "2026-10-01T07:31:32.695879+00:00"
+  },
+  "ctdecotia": {
+    "original_name": "CT de Cotia",
+    "stadium_name": "CT de Cotia",
+    "stadium_url": "https://www.meutimao.com.br/estadio/ct_de_cotia?genero=feminino",
+    "city": "Cotia",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/1437/brasileiro-feminino-2020/sao_paulo-2-x-0-corinthians",
+    "last_checked": "2026-10-01T07:31:33.355536+00:00"
+  },
+  "ctreipele": {
+    "original_name": "CT Rei Pelé",
+    "stadium_name": "CT Rei Pelé",
+    "stadium_url": "https://www.meutimao.com.br/estadio/ct_rei_pele?genero=feminino",
+    "city": "Santos",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5317/paulista-feminino-2017/santos-1-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:34.019496+00:00"
+  },
+  "defele": {
+    "original_name": "Defelê",
+    "stadium_name": "Defelê",
+    "stadium_url": "https://www.meutimao.com.br/estadio/defele?genero=feminino",
+    "city": "Brasília",
+    "state": "DF",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7611/brasileiro-feminino-2023/real_brasilia-0-x-0-corinthians",
+    "last_checked": "2026-10-01T07:31:34.711047+00:00"
+  },
+  "defensores": {
+    "original_name": "Defensores",
+    "stadium_name": "Defensores",
+    "stadium_url": "https://www.meutimao.com.br/estadio/defensores?genero=feminino",
+    "city": "Assunção",
+    "state": null,
+    "country": "Paraguai",
+    "match_url": "https://www.meutimao.com.br/jogo/8355/libertadores-feminina-2024/final/corinthians-2-x-0-independiente_santa_fe",
+    "last_checked": "2026-10-01T07:31:35.420802+00:00"
+  },
+  "derbysaocarlense": {
+    "original_name": "Derby Sãocarlense",
+    "stadium_name": "Derby Sãocarlense",
+    "stadium_url": "https://www.meutimao.com.br/estadio/derby_saocarlense/",
+    "city": "São Carlos",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/6771/amistosos-1925/amistoso/palestra_italia_de_sao_carlos-2-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:36.066692+00:00"
+  },
+  "estadiojoseamalfitani": {
+    "original_name": "Estádio José Amalfitani",
+    "stadium_name": "Estádio José Amalfitani",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_jose_amalfitani?genero=feminino",
+    "city": "Buenos Aires",
+    "state": null,
+    "country": "Argentina",
+    "match_url": "https://www.meutimao.com.br/jogo/5171/libertadores-feminina-2020/final/corinthians-4-x-0-universidad_de_chile",
+    "last_checked": "2026-10-01T07:31:36.773187+00:00"
+  },
+  "estadioolimpicograndetorino": {
+    "original_name": "Estádio Olímpico Grande Torino",
+    "stadium_name": "Estádio Olímpico Grande Torino",
+    "stadium_url": "https://www.meutimao.com.br/estadio/estadio_olimpico_grande_torino/",
+    "city": "Turim",
+    "state": null,
+    "country": "Itália",
+    "match_url": "https://www.meutimao.com.br/jogo/4644/copa-cidade-de-turim-1966/amistoso/espanol-1-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:37.441579+00:00"
+  },
+  "fazendinha": {
+    "original_name": "Fazendinha",
+    "stadium_name": "Fazendinha",
+    "stadium_url": "https://www.meutimao.com.br/estadio/fazendinha?genero=feminino",
+    "city": "São Paulo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/9014/paulista-feminino-2026/corinthians-6-x-2-taubate",
+    "last_checked": "2026-10-01T07:31:38.156744+00:00"
+  },
+  "fontenova": {
+    "original_name": "Fonte Nova",
+    "stadium_name": "Fonte Nova",
+    "stadium_url": "https://www.meutimao.com.br/estadio/fonte_nova?genero=feminino",
+    "city": "Salvador",
+    "state": "BA",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/9139/brasileiro-feminino-2026/bahia-0-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:38.845498+00:00"
+  },
+  "hipodromocampineiro": {
+    "original_name": "Hipódromo Campineiro",
+    "stadium_name": "Hipódromo Campineiro",
+    "stadium_url": "https://www.meutimao.com.br/estadio/hipodromo_campineiro/",
+    "city": "Campinas",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/6722/amistosos-1927/amistoso/ponte_preta-0-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:39.569424+00:00"
+  },
+  "independencia": {
+    "original_name": "Independência",
+    "stadium_name": "Independência",
+    "stadium_url": "https://www.meutimao.com.br/estadio/independencia?genero=feminino",
+    "city": "Belo Horizonte",
+    "state": "MG",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/9114/brasileiro-feminino-2026/quartas_de_final/cruzeiro-0-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:40.225735+00:00",
+    "locality_correction_source": "https://www.meutimao.com.br/estadio/independencia/"
+  },
+  "ipatingao": {
+    "original_name": "Ipatingão",
+    "stadium_name": "Ipatingão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/ipatingao/",
+    "city": "Ipatinga",
+    "state": "MG",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/2067/copa-mercosul-2001/cruzeiro-0-x-2-corinthians",
+    "last_checked": "2026-10-01T07:31:40.929428+00:00"
+  },
+  "jaimecintra": {
+    "original_name": "Jaime Cintra",
+    "stadium_name": "Jaime Cintra",
+    "stadium_url": "https://www.meutimao.com.br/estadio/jaime_cintra?genero=feminino",
+    "city": "Jundiaí",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8298/brasileiro-feminino-2024/palmeiras-1-x-3-corinthians",
+    "last_checked": "2026-10-01T07:31:41.640278+00:00"
+  },
+  "joaquinzao": {
+    "original_name": "Joaquinzão",
+    "stadium_name": "Joaquinzão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/joaquinzao?genero=feminino",
+    "city": "Taubaté",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8582/paulista-feminino-2025/taubate-0-x-3-corinthians",
+    "last_checked": "2026-10-01T07:31:42.321093+00:00"
+  },
+  "majestoso": {
+    "original_name": "Majestoso",
+    "stadium_name": "Majestoso",
+    "stadium_url": "https://www.meutimao.com.br/estadio/majestoso/",
+    "city": "Criciúma",
+    "state": "SC",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8078/brasileirao-2024/criciuma-2-x-4-corinthians",
+    "last_checked": "2026-10-01T07:31:43.034953+00:00"
+  },
+  "manegarrincha": {
+    "original_name": "Mané Garrincha",
+    "stadium_name": "Mané Garrincha",
+    "stadium_url": "https://www.meutimao.com.br/estadio/mane_garrincha/",
+    "city": "Brasília",
+    "state": "DF",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8896/supercopa-2026/final/corinthians-2-x-0-flamengo",
+    "last_checked": "2026-10-01T07:31:43.795564+00:00"
+  },
+  "maracana": {
+    "original_name": "Maracanã",
+    "stadium_name": "Maracanã",
+    "stadium_url": "https://www.meutimao.com.br/estadio/maracana/",
+    "city": "Rio de Janeiro",
+    "state": "RJ",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8874/brasileirao-2026/flamengo-2-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:44.472814+00:00"
+  },
+  "municipaldetuzla": {
+    "original_name": "Municipal de Tuzla",
+    "stadium_name": "Municipal de Tuzla",
+    "stadium_url": "https://www.meutimao.com.br/estadio/municipal_de_tuzla/",
+    "city": "Tuzla",
+    "state": null,
+    "country": "Sérvia",
+    "match_url": "https://www.meutimao.com.br/jogo/4197/amistosos-1972/amistoso/sloboda-2-x-2-corinthians",
+    "last_checked": "2026-10-01T07:31:45.142417+00:00"
+  },
+  "nogueirao": {
+    "original_name": "Nogueirão",
+    "stadium_name": "Nogueirão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/nogueirao?genero=feminino",
+    "city": "Mogi das Cruzes",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7610/brasileiro-feminino-2023/corinthians-1-x-0-athletico-pr",
+    "last_checked": "2026-10-01T07:31:45.833740+00:00"
+  },
+  "nubankparque": {
+    "original_name": "Nubank Parque",
+    "stadium_name": "Nubank Parque",
+    "stadium_url": "https://www.meutimao.com.br/estadio/nubank_parque?genero=feminino",
+    "city": "São Paulo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/9062/copa-do-brasil-feminina-2026/palmeiras-0-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:46.556580+00:00"
+  },
+  "olimpico": {
+    "original_name": "Olímpico",
+    "stadium_name": "Olímpico",
+    "stadium_url": "https://www.meutimao.com.br/estadio/olimpico/",
+    "city": "Porto Alegre",
+    "state": "RS",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/309/brasileirao-2012/gremio-2-x-0-corinthians",
+    "last_checked": "2026-10-01T07:31:47.255433+00:00"
+  },
+  "pacaembu": {
+    "original_name": "Pacaembu",
+    "stadium_name": "Pacaembu",
+    "stadium_url": "https://www.meutimao.com.br/estadio/pacaembu?genero=feminino",
+    "city": "São Paulo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8708/brasileiro-feminino-2025/sao_paulo-0-x-2-corinthians",
+    "last_checked": "2026-10-01T07:31:47.939571+00:00"
+  },
+  "pituacu": {
+    "original_name": "Pituaçu",
+    "stadium_name": "Pituaçu",
+    "stadium_url": "https://www.meutimao.com.br/estadio/pituacu?genero=feminino",
+    "city": "Salvador",
+    "state": "BA",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7732/brasileiro-feminino-2023/bahia-1-x-5-corinthians",
+    "last_checked": "2026-10-01T07:31:48.617800+00:00"
+  },
+  "pradao": {
+    "original_name": "Pradão",
+    "stadium_name": "Pradão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/pradao?genero=feminino",
+    "city": "Limeira",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/4719/paulista-2016/independente_de_limeira-0-x-13-corinthians",
+    "last_checked": "2026-10-01T07:31:49.299187+00:00"
+  },
+  "riopretao": {
+    "original_name": "Rio Pretão",
+    "stadium_name": "Rio Pretão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/rio_pretao?genero=feminino",
+    "city": "São José do Rio Preto",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/1013/brasileiro-feminino-2018/final/rio_preto-0-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:50.019234+00:00"
+  },
+  "ruajavari": {
+    "original_name": "Rua Javari",
+    "stadium_name": "Rua Javari",
+    "stadium_url": "https://www.meutimao.com.br/estadio/rua_javari?genero=feminino",
+    "city": "São Paulo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/4245/paulista-feminino-2020/juventus-0-x-3-corinthians",
+    "last_checked": "2026-10-01T07:31:50.689919+00:00"
+  },
+  "santacruz": {
+    "original_name": "Santa Cruz",
+    "stadium_name": "Santa Cruz",
+    "stadium_url": "https://www.meutimao.com.br/estadio/santa_cruz/",
+    "city": "Ribeirão Preto",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8255/sul-americana-2024/red_bull_bragantino-1-x-2-corinthians",
+    "last_checked": "2026-10-01T07:31:51.430769+00:00"
+  },
+  "valeriao": {
+    "original_name": "Valérião",
+    "stadium_name": "Valérião",
+    "stadium_url": "https://www.meutimao.com.br/estadio/valeriao?genero=feminino",
+    "city": "Ariquemes",
+    "state": "RO",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7607/brasileiro-feminino-2023/real_ariquemes-0-x-6-corinthians",
+    "last_checked": "2026-10-01T07:31:52.217408+00:00"
+  },
+  "vieirao": {
+    "original_name": "Vieirão",
+    "stadium_name": "Vieirão",
+    "stadium_url": "https://www.meutimao.com.br/estadio/vieirao?genero=feminino",
+    "city": "Gravataí",
+    "state": "RS",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/7315/brasileiro-feminino-2022/gremio-2-x-2-corinthians",
+    "last_checked": "2026-10-01T07:31:52.893326+00:00"
+  },
+  "vilabelmiro": {
+    "original_name": "Vila Belmiro",
+    "stadium_name": "Vila Belmiro",
+    "stadium_url": "https://www.meutimao.com.br/estadio/vila_belmiro/",
+    "city": "Santos",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/8868/brasileirao-2026/santos-1-x-1-corinthians",
+    "last_checked": "2026-10-01T07:31:53.623554+00:00"
+  },
+  "vilaluizleite": {
+    "original_name": "Vila Luíz Leite",
+    "stadium_name": "Vila Luíz Leite",
+    "stadium_url": "https://www.meutimao.com.br/estadio/vila_luiz_leite/",
+    "city": "Amparo",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/6930/amistosos-1919/amistoso/amparo_athletico_club-0-x-3-corinthians",
+    "last_checked": "2026-10-01T07:31:54.265388+00:00"
+  },
+  "vilarezende": {
+    "original_name": "Vila Rezende",
+    "stadium_name": "Vila Rezende",
+    "stadium_url": "https://www.meutimao.com.br/estadio/vila_rezende/",
+    "city": "Piracicaba",
+    "state": "SP",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/5989/amistosos-1947/amistoso/atletico_piracicabano-2-x-4-corinthians",
+    "last_checked": "2026-10-01T07:31:55.012240+00:00"
   }
 }
