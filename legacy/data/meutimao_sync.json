@@ -1,15 +1,38 @@
 {
   "fonte": "Meu Timão",
-  "atualizado_em_utc": "2026-09-28T05:25:53.090844+00:00",
+  "atualizado_em_utc": "2026-10-01T07:38:35.906065+00:00",
   "masculino": {
     "temporadas": [
       1910,
       2026
     ],
     "partidas": 6346,
-    "estádios_com_coordenadas": 510,
-    "estádios_sem_coordenadas": [],
-    "estádios_sem_coordenadas_total": 0,
+    "estádios_com_coordenadas": 516,
+    "estádios_sem_coordenadas": [
+      "1º de Maio",
+      "Abreuzão",
+      "Arena Botafogo",
+      "Arsenal Stadium",
+      "Baetão",
+      "Bruno José",
+      "Campos Maia",
+      "El Bastión del Este",
+      "Estadio Modelo",
+      "Estádio Nacional da Tailândia",
+      "Estádio Raasunda",
+      "Fazendinha",
+      "Fonte Nova",
+      "Ipatingão",
+      "La Rosaleda",
+      "Municipal de Tuzla",
+      "Nacional",
+      "Nogueirão",
+      "Pituaçu",
+      "Pradão",
+      "Rua Javari",
+      "Santa Cruz"
+    ],
+    "estádios_sem_coordenadas_total": 22,
     "partidas_sem_estadio_identificado": [
       {
         "meutimao_id": "7059",
@@ -58,9 +81,30 @@
     "partidas_meutimao": 473,
     "partidas_total_com_acervo_local": 567,
     "partidas_total_unificadas": 567,
-    "estádios_com_coordenadas": 179,
-    "estádios_sem_coordenadas": [],
-    "estádios_sem_coordenadas_total": 0,
+    "estádios_com_coordenadas": 205,
+    "estádios_sem_coordenadas": [
+      "1º de Maio",
+      "Abadião",
+      "Abreuzão",
+      "Baetão",
+      "Bezerrão",
+      "Bruno José",
+      "CT de Cotia",
+      "Campos Maia",
+      "Defelê",
+      "Defensores",
+      "Fazendinha",
+      "Fonte Nova",
+      "La Arboleda",
+      "Mané Garrincha",
+      "Nogueirão",
+      "Pituaçu",
+      "Pradão",
+      "Rua Javari",
+      "Valérião",
+      "Vieirão"
+    ],
+    "estádios_sem_coordenadas_total": 20,
     "partidas_sem_estadio_identificado": [
       {
         "meutimao_id": "5315",
@@ -83,7 +127,7 @@
   "geocodificacao": {
     "cache": "data/estadio_geocoding_cache.json",
     "detalhes_partidas_cache": "data/meutimao_venue_details.json",
-    "estádios_geocodificados": 104,
+    "estádios_geocodificados": 150,
     "fontes": [
       "Meu Timão",
       "OpenStreetMap Nominatim",
