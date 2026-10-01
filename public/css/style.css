@@ -999,6 +999,27 @@ input.layer-switch:disabled {
   flex-shrink: 0;
   transition: border-color 0.25s;
 }
+.atlas-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 8px;
+}
+.atlas-social-link {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 9px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-dim);
+  font-size: 10px;
+  text-decoration: none;
+}
+.atlas-social-link img { display: block; width: 15px; height: 15px; }
+.atlas-social-link:hover { border-color: var(--text-dim); color: var(--text); }
+.atlas-social-link:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 .footer-sub {
   font-size: 10px;
   margin-top: 4px;

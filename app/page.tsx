@@ -69,7 +69,16 @@ export default function Home() {
     url: siteUrl,
     description:
       "Acervo cartográfico para explorar a história espacial do Sport Club Corinthians Paulista.",
-    inLanguage: "pt-BR"
+    inLanguage: "pt-BR",
+    publisher: {
+      "@type": "Organization",
+      name: "ATLAS1910",
+      url: siteUrl,
+      sameAs: [
+        "https://www.instagram.com/atlas_1910/",
+        "https://x.com/Atlas_1910"
+      ]
+    }
   };
 
   return (
