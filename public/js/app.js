@@ -39,11 +39,11 @@
       console.warn("Subgrupo compartilhado solicitado não encontrado no catálogo:", requestedSubgroupId);
     }
     if (sharedLayer && sharedLayer.section === 'brabas') {
-      window.location.replace(`/as-brabas.html?camada=${encodeURIComponent(requestedShareId)}`);
+      window.location.replace(`/as-brabas/?camada=${encodeURIComponent(requestedShareId)}`);
       return;
     }
     if (sharedSubgroup && sharedSubgroup.section === 'brabas') {
-      window.location.replace(`/as-brabas.html?subgrupo=${encodeURIComponent(requestedSubgroupId)}`);
+      window.location.replace(`/as-brabas/?subgrupo=${encodeURIComponent(requestedSubgroupId)}`);
       return;
     }
 

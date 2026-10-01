@@ -16,16 +16,26 @@ const nextConfig: NextConfig = {
         permanent: false
       },
       {
-        source: "/as-brabas",
-        destination: "/as-brabas.html",
+        source: "/as-brabas.html",
+        destination: "/as-brabas/",
         permanent: true
       },
       {
         source: "/as-brabas/camadas/:shareId",
-        destination: "/as-brabas.html?camada=:shareId",
+        destination: "/as-brabas/?camada=:shareId",
         permanent: false
       }
     ];
+  },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: "/as-brabas/",
+          destination: "/as-brabas.html"
+        }
+      ]
+    };
   },
   async headers() {
     return [

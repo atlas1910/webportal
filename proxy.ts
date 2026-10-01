@@ -21,7 +21,7 @@ export function proxy(request: NextRequest) {
     ? brabasSubgroups.some((prefix) => subgroup.startsWith(prefix))
     : brabasLayerIds.has(layer);
   const destination = request.nextUrl.clone();
-  destination.pathname = isBrabas ? "/as-brabas.html" : "/sccp-principal/";
+  destination.pathname = isBrabas ? "/as-brabas/" : "/sccp-principal/";
 
   return NextResponse.redirect(destination);
 }

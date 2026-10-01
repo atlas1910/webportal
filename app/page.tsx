@@ -106,7 +106,7 @@ export default function Home() {
               <Link className="button button-primary" href="/sccp-principal/" prefetch={false}>
                 Explorar o mapa principal <span className="button-arrow" aria-hidden="true">↗</span>
               </Link>
-              <a className="button button-brabas" href="/as-brabas.html">
+              <a className="button button-brabas" href="/as-brabas/">
                 As Brabas
               </a>
             </div>
@@ -163,7 +163,7 @@ export default function Home() {
                 Acesse o acervo cartográfico do futebol feminino do Corinthians,
                 com estádios, estatísticas e a temática da Libertadores.
               </p>
-              <a className="button button-primary" href="/as-brabas.html">
+              <a className="button button-primary" href="/as-brabas/">
                 Explorar As Brabas <span className="button-arrow" aria-hidden="true">↗</span>
               </a>
             </div>

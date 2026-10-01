@@ -6,11 +6,11 @@ Esta é a raiz do portal Next.js. A versão estática anterior foi preservada em
 
 - `/`: homepage editorial com fundo cartográfico animado e atalhos temáticos.
 - `/sccp-principal/`: mapa masculino atual, isolado dentro de um iframe e com suporte a parâmetros de camada/subgrupo.
-- `/as-brabas.html`: página feminina original, servida como página estática preservada.
+- `/as-brabas/`: URL canônica da página feminina, servida internamente pelo HTML estático preservado.
 - `/acervo/`: página textual indexável que explica o conteúdo e a organização do projeto.
 - `/sitemap.xml` e `/robots.txt`: gerados pelas convenções do App Router.
 
-Os atalhos de tema apontam para IDs de subgrupo usados pelo catálogo. O mapa masculino da migração apresenta o grupo **Estádios do Corinthians** para deixar sua camada histórica visível e controlável; links antigos para o subgrupo antes chamado `estadios-corinthians` continuam aceitos. A abertura inicial do mapa por `?subgrupo=` ou `?camada=` carrega o conteúdo solicitado conforme o comportamento existente. Links copiados pelo mapa continuam passando pela homepage, que os encaminha para a página correta; links de Brabas abertos dentro do caminho masculino também são encaminhados para `/as-brabas.html`. Links masculinos antigos em `/camadas/:shareId` e links de camada das Brabas têm redirecionamentos de compatibilidade.
+Os atalhos de tema apontam para IDs de subgrupo usados pelo catálogo. O mapa masculino da migração apresenta o grupo **Estádios do Corinthians** para deixar sua camada histórica visível e controlável; links antigos para o subgrupo antes chamado `estadios-corinthians` continuam aceitos. A abertura inicial do mapa por `?subgrupo=` ou `?camada=` carrega o conteúdo solicitado conforme o comportamento existente. Links copiados pelo mapa continuam passando pela homepage, que os encaminha para a página correta; links de Brabas abertos dentro do caminho masculino também são encaminhados para `/as-brabas/`. O endereço antigo `/as-brabas.html` redireciona permanentemente para a URL canônica. Links masculinos antigos em `/camadas/:shareId` e links de camada das Brabas têm redirecionamentos de compatibilidade.
 
 ## Instalação e execução
 

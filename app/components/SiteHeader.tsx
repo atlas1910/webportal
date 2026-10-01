@@ -20,7 +20,7 @@ export function SiteHeader() {
       </Link>
       <nav className="header-nav" aria-label="Navegação principal">
         <Link href="/acervo/">O acervo</Link>
-        <a href="/as-brabas.html">As Brabas</a>
+        <a href="/as-brabas/">As Brabas</a>
       </nav>
     </header>
   );

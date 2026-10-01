@@ -53,7 +53,7 @@ export default async function MainMap({
     || subgroup.startsWith("competicoes_brabas-")
     || brabasLayerIds.has(layer)
   ) {
-    redirect(`/as-brabas.html${query ? `?${query}` : ""}`);
+    redirect(`/as-brabas/${query ? `?${query}` : ""}`);
   }
   const source = `/mapa/sccp-principal.html${query ? `?${query}` : ""}`;
   const structuredData = {
