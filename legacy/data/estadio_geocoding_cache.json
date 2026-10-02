@@ -2790,7 +2790,7 @@
     "latitude": null,
     "source": null,
     "status": "não localizado",
-    "last_checked": "2026-10-01T07:34:32.948067+00:00"
+    "last_checked": "2026-10-02T07:31:01.839871+00:00"
   },
   "joaquinzao__taubate_sp": {
     "name": "Estádio Joaquim de Moraes Filho (Joaquinzão)",
@@ -2907,7 +2907,7 @@
     "latitude": null,
     "source": null,
     "status": "não localizado",
-    "last_checked": "2026-10-01T07:35:06.449999+00:00"
+    "last_checked": "2026-10-02T07:31:10.300971+00:00"
   },
   "nogueirao__mogidascruzes_sp": {
     "name": "Nogueirão",
@@ -3214,6 +3214,76 @@
       "state": "São Paulo",
       "ISO3166-2-lvl4": "BR-SP",
       "region": "Região Sudeste",
+      "country": "Brasil",
+      "country_code": "br"
+    },
+    "attribution": "© OpenStreetMap contributors, ODbL 1.0"
+  },
+  "edsonpassos__mesquita_rj": {
+    "name": "Édson Passos",
+    "longitude": -43.460259,
+    "latitude": -22.802535,
+    "source": "OpenStreetMap Nominatim (localidade aproximada)",
+    "source_url": "https://www.openstreetmap.org/relation/2709108",
+    "display_name": "Mesquita, Rio de Janeiro, Região Sudeste, Brasil",
+    "match_score": 1.0,
+    "precision": "Município (estádio exato não identificado)",
+    "resolver_version": 4,
+    "address": {
+      "municipality": "Mesquita",
+      "state": "Rio de Janeiro",
+      "ISO3166-2-lvl4": "BR-RJ",
+      "region": "Região Sudeste",
+      "country": "Brasil",
+      "country_code": "br"
+    },
+    "attribution": "© OpenStreetMap contributors, ODbL 1.0"
+  },
+  "estadioolimpicoatahualpa__quito_pichincha": {
+    "name": "Estadio Olímpico Atahualpa",
+    "longitude": -78.4766126,
+    "latitude": -0.1775141,
+    "source": "OpenStreetMap Nominatim",
+    "source_url": "https://www.openstreetmap.org/way/24611185",
+    "display_name": "Estadio Olímpico Atahualpa, Manuel María Sánchez, El Batan, Iñaquito, Quito, Distrito Metropolitano de Quito, Pichincha, 170504, Equador",
+    "match_score": 1.0,
+    "precision": "Estádio identificado",
+    "resolver_version": 4,
+    "address": {
+      "leisure": "Estadio Olímpico Atahualpa",
+      "road": "Manuel María Sánchez",
+      "neighbourhood": "El Batan",
+      "city_district": "Iñaquito",
+      "city": "Quito",
+      "county": "Distrito Metropolitano de Quito",
+      "state": "Pichincha",
+      "ISO3166-2-lvl4": "EC-P",
+      "postcode": "170504",
+      "country": "Equador",
+      "country_code": "ec"
+    },
+    "attribution": "© OpenStreetMap contributors, ODbL 1.0"
+  },
+  "mercadolivrearenapacaembu": {
+    "name": "Mercado Livre Arena Pacaembu",
+    "longitude": -46.6653519,
+    "latitude": -23.5485641,
+    "source": "OpenStreetMap Nominatim",
+    "source_url": "https://www.openstreetmap.org/way/666148829",
+    "display_name": "Mercado Livre Arena Pacaembu, Praça Charles Miller, Pacaembu, Consolação, São Paulo, Região Sudeste, 01234-010, Brasil",
+    "match_score": 1.0,
+    "precision": "Estádio identificado",
+    "resolver_version": 4,
+    "address": {
+      "leisure": "Mercado Livre Arena Pacaembu",
+      "road": "Praça Charles Miller",
+      "suburb": "Pacaembu",
+      "city_district": "Consolação",
+      "city": "São Paulo",
+      "state": "São Paulo",
+      "ISO3166-2-lvl4": "BR-SP",
+      "region": "Região Sudeste",
+      "postcode": "01234-010",
       "country": "Brasil",
       "country_code": "br"
     },

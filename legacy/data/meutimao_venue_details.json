@@ -481,9 +481,10 @@
     "stadium_name": "Estádio Olímpico Atahualpa",
     "stadium_url": "https://www.meutimao.com.br/estadio/estadio_olimpico_atahualpa?genero=feminino",
     "city": "Quito",
-    "state": null,
+    "state": "Pichincha",
     "country": "Equador",
-    "match_url": "https://www.meutimao.com.br/jogo/1404/libertadores-feminina-2019/final/corinthians-2-x-0-ferroviaria"
+    "match_url": "https://www.meutimao.com.br/jogo/1404/libertadores-feminina-2019/final/corinthians-2-x-0-ferroviaria",
+    "locality_correction_source": "https://www.meutimao.com.br/estadio/estadio_olimpico_atahualpa?genero=feminino"
   },
   "estadioolimpicodehelsinque": {
     "original_name": "Estádio Olímpico de Helsinque",
@@ -1494,5 +1495,15 @@
     "country": "Brasil",
     "match_url": "https://www.meutimao.com.br/jogo/5989/amistosos-1947/amistoso/atletico_piracicabano-2-x-4-corinthians",
     "last_checked": "2026-10-01T07:31:55.012240+00:00"
+  },
+  "edsonpassos": {
+    "original_name": "Édson Passos",
+    "stadium_name": "Édson Passos",
+    "stadium_url": "https://www.meutimao.com.br/estadio/edson_passos?genero=feminino",
+    "city": "Mesquita",
+    "state": "RJ",
+    "country": "Brasil",
+    "match_url": "https://www.meutimao.com.br/jogo/1439/brasileiro-feminino-2020/flamengo-1-x-3-corinthians",
+    "last_checked": "2026-10-02T07:30:32.892724+00:00"
   }
 }
