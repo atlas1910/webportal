@@ -1,14 +1,15 @@
 {
   "fonte": "Meu Timão",
-  "atualizado_em_utc": "2026-10-06T07:31:43.649842+00:00",
+  "atualizado_em_utc": "2026-10-07T07:33:43.609847+00:00",
   "masculino": {
     "temporadas": [
       1910,
       2026
     ],
     "partidas": 6346,
-    "estádios_com_coordenadas": 516,
+    "estádios_com_coordenadas": 514,
     "estádios_sem_coordenadas": [
+      "1º de Maio",
       "Abreuzão",
       "Arena Botafogo",
       "Baetão",
@@ -18,6 +19,7 @@
       "Estadio Modelo",
       "Estádio Nacional da Tailândia",
       "Estádio Raasunda",
+      "Fazendinha",
       "Fonte Nova",
       "Ipatingão",
       "La Rosaleda",
@@ -26,10 +28,11 @@
       "Nacional",
       "Nogueirão",
       "Pituaçu",
+      "Pradão",
       "Rua Javari",
       "Santa Cruz"
     ],
-    "estádios_sem_coordenadas_total": 19,
+    "estádios_sem_coordenadas_total": 22,
     "partidas_sem_estadio_identificado": [
       {
         "meutimao_id": "7059",
@@ -80,18 +83,28 @@
     "partidas_total_unificadas": 568,
     "estádios_com_coordenadas": 206,
     "estádios_sem_coordenadas": [
+      "1º de Maio",
+      "Abadião",
       "Abreuzão",
       "Baetão",
+      "Bezerrão",
       "Bruno José",
+      "CT de Cotia",
       "Campos Maia",
+      "Defelê",
+      "Defensores",
+      "Fazendinha",
       "Fonte Nova",
       "La Arboleda",
       "Mané Garrincha",
       "Nogueirão",
       "Pituaçu",
-      "Rua Javari"
+      "Pradão",
+      "Rua Javari",
+      "Valérião",
+      "Vieirão"
     ],
-    "estádios_sem_coordenadas_total": 10,
+    "estádios_sem_coordenadas_total": 20,
     "partidas_sem_estadio_identificado": [
       {
         "meutimao_id": "5315",
