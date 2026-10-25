@@ -1,14 +1,15 @@
 {
   "fonte": "Meu Timão",
-  "atualizado_em_utc": "2026-10-24T07:43:12.406430+00:00",
+  "atualizado_em_utc": "2026-10-25T07:45:40.105108+00:00",
   "masculino": {
     "temporadas": [
       1910,
       2026
     ],
-    "partidas": 6349,
-    "estádios_com_coordenadas": 516,
+    "partidas": 6350,
+    "estádios_com_coordenadas": 514,
     "estádios_sem_coordenadas": [
+      "1º de Maio",
       "Abreuzão",
       "Arena Botafogo",
       "Baetão",
@@ -18,6 +19,7 @@
       "Estadio Modelo",
       "Estádio Nacional da Tailândia",
       "Estádio Raasunda",
+      "Fazendinha",
       "Fonte Nova",
       "Ipatingão",
       "La Rosaleda",
@@ -26,10 +28,11 @@
       "Nacional",
       "Nogueirão",
       "Pituaçu",
+      "Pradão",
       "Rua Javari",
       "Santa Cruz"
     ],
-    "estádios_sem_coordenadas_total": 19,
+    "estádios_sem_coordenadas_total": 22,
     "partidas_sem_estadio_identificado": [
       {
         "meutimao_id": "7059",
@@ -75,23 +78,33 @@
       2016,
       2026
     ],
-    "partidas_meutimao": 477,
-    "partidas_total_com_acervo_local": 571,
-    "partidas_total_unificadas": 571,
+    "partidas_meutimao": 478,
+    "partidas_total_com_acervo_local": 572,
+    "partidas_total_unificadas": 572,
     "estádios_com_coordenadas": 207,
     "estádios_sem_coordenadas": [
+      "1º de Maio",
+      "Abadião",
       "Abreuzão",
       "Baetão",
+      "Bezerrão",
       "Bruno José",
+      "CT de Cotia",
       "Campos Maia",
+      "Defelê",
+      "Defensores",
+      "Fazendinha",
       "Fonte Nova",
       "La Arboleda",
       "Mané Garrincha",
       "Nogueirão",
       "Pituaçu",
-      "Rua Javari"
+      "Pradão",
+      "Rua Javari",
+      "Valérião",
+      "Vieirão"
     ],
-    "estádios_sem_coordenadas_total": 10,
+    "estádios_sem_coordenadas_total": 20,
     "partidas_sem_estadio_identificado": [
       {
         "meutimao_id": "5315",
